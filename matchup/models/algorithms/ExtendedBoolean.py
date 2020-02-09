@@ -29,7 +29,7 @@ class ExtendedBoolean(IterModel):
             scores[doc] = ExtendedBoolean.generate_scores(doc_repr, len(query))
 
         scores = sorted(scores.items(), key=lambda v: v[1], reverse=True)
-        return scores
+        return IterModel.cast_solution(scores)
 
     @classmethod
     def generate_scores(cls, doc_repr, m) -> float:

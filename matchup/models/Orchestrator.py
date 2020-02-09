@@ -52,18 +52,13 @@ class Orchestrator:
 
         if self._input:
             if model == ModelType.Boolean:
-                return Boolean.run(self._input, self._vocabulary)
+                return self.run_boolean()
             elif model == ModelType.Vector:
-                return Vector.run(self._input, self._vocabulary)
+                return self.run_vector_space()
             elif model == ModelType.Probabilistic:
-                return Probabilistic.run(self._input, self._vocabulary)
+                return self.run_probabilistic()
             elif model == ModelType.ExtendedBoolean:
-                P = kwargs.get("P")
-                if P:
-                    ExtendedBoolean.P = float(P)
-                    return ExtendedBoolean.run(self._input, self._vocabulary)
-                else:
-                    raise ModelMissingParameters("Missing parameter P for Extended Boolean Model")
+                return self.run_extended_boolean(**kwargs)
             else:
                 raise NoSuchModelException("No model algorithm found. Try again!")
         else:
@@ -85,3 +80,20 @@ class Orchestrator:
         :return: None
         """
         self._input = etr
+
+    def run_boolean(self):
+        return Boolean.run(self._input, self._vocabulary)
+
+    def run_vector_space(self):
+        return Vector.run(self._input, self._vocabulary)
+
+    def run_probabilistic(self):
+        return Probabilistic.run(self._input, self._vocabulary)
+
+    def run_extended_boolean(self, **kwargs):
+        P = kwargs.get("P")
+        if P:
+            ExtendedBoolean.P = float(P)
+            return ExtendedBoolean.run(self._input, self._vocabulary)
+        else:
+            raise ModelMissingParameters("Missing parameter P for Extended Boolean Model")

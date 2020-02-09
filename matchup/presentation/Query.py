@@ -38,6 +38,10 @@ class Query:
 
         self._orquestrator.entry = self._answer
 
+    @property
+    def search_input(self):
+        return self._answer
+
     def search(self, *, model: ModelType = None, idf=None, tf=None, **kwargs) -> Solution:
         """
             Receive an IR model and execute the query based in user answer and the vocabulary.

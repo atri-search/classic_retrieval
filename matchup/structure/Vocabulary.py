@@ -12,7 +12,9 @@ from matchup.structure.weighting.Idf import IDF
 from matchup.structure.weighting.Tf import TF
 from matchup.presentation.Sanitizer import Sanitizer
 from matchup.presentation.Text import Term
-from matchup import LIB_PATH
+
+
+LIB_PATH = path.abspath("./static/lib")
 
 
 class Vocabulary:

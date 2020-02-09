@@ -55,7 +55,7 @@ class Model(abc.ABC):
 
     @staticmethod
     def cast_solution(structure: List[tuple]) -> List[Result]:
-        return [Result._make(item) for item in structure]
+        return [Result(item[0], round(item[1], 3)) for item in structure]
 
 
 """

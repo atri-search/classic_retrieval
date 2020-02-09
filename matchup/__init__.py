@@ -1,5 +1,2 @@
-__all__ = ["models", "presentation", "structure", "LIB_PATH"]
+__all__ = ["models", "presentation", "structure"]
 
-import os
-
-LIB_PATH = os.path.abspath("./static/lib")

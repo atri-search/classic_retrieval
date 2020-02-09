@@ -32,7 +32,7 @@ class Boolean(Model):
         # ordena pelos valores
         rank = sorted(rank.items(), key=lambda v: v[1], reverse=True)
 
-        return rank
+        return Model.cast_solution(rank)
 
     @staticmethod
     def __map_keywords_in_documents(query: List[Term], vocabulary: Vocabulary) -> DefaultDict[str, list]:

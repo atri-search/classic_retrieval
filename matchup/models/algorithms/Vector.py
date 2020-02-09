@@ -39,7 +39,7 @@ class Vector(IterModel):
             scores[doc] = Vector.generate_scores(doc_repr, query_repr)
 
         scores = sorted(scores.items(), key=lambda v: v[1], reverse=True)
-        return scores
+        return IterModel.cast_solution(scores)
 
     @staticmethod
     def process_query(query: List[Term], idfs) -> DefaultDict[str, float]:

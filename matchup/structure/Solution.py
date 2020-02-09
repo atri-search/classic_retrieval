@@ -17,11 +17,14 @@ class Solution:
         string = ""
         if self._results:
             for terms in self._results:
-                doc = terms[0].split('\\')[-1]
-                string += f"\n{doc} : {terms[1]}"
+                doc = terms.document.split('\\')[-1]
+                string += f"\n{doc} : {terms.score}"
         else:
             string += "No results found."
         return string
+
+    def __contains__(self, item: Result):
+        return item in self._results
 
     def expand(self, vocabulary):
         idf = vocabulary.idf
@@ -31,8 +34,8 @@ class Solution:
     def get_dict(self):
         result_list = []
         for terms in self._results:
-            doc = terms[0].split('\\')[-1]
-            result_list.append(Result(doc, terms[1]))
+            doc = terms.document.split('\\')[-1]
+            result_list.append(Result(doc, terms.score))
 
         response_dict = {
             'solution': result_list,
