@@ -1,8 +1,8 @@
-# Tutorial #
+# Tutorial
 
 Let's start with the classic tutorial
 
-# Creating your Vocabulary #
+# Creating your Vocabulary
 
 To create your own vocabulary, you need to pass two params, the settings and the processed path.
 Settings path enables you to work with stopwords. The stopwords needs to be a txt file with format language.txt.
@@ -27,7 +27,7 @@ At this point, you're able to make queries. If you already save it once, you can
 vocabulary.import_vocabulary()
 ```
 
-# Doing Queries #
+# Doing Queries
 
 To make queries, you can set four IR Models and it params. This description will be done in the next update.
 For now, it's just create without any parameters, like
