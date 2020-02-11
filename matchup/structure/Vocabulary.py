@@ -12,7 +12,7 @@ from matchup.structure.weighting.Idf import IDF
 from matchup.structure.weighting.Tf import TF
 from matchup.presentation.Sanitizer import Sanitizer
 from matchup.presentation.Text import Term
-
+from matchup.structure.File import ExceptionNotSupported, File
 
 LIB_PATH = path.abspath("./static/lib")
 
@@ -92,12 +92,15 @@ class Vocabulary:
         :return: None
         """
         for file_name in self.file_names:
-            with open(file_name, mode='r', encoding="utf-8") as file:
-                number_line = 1
-                for content_line in file:
-                    terms = self._sanitizer.sanitize_line(content_line, number_line)
-                    self._push(terms, file_name)
-                    number_line += 1
+            file = None
+            try:
+                file = File.open(file_name)
+                content_file = File.content_file(file_name, file)
+                self._process_file(file_name, content_file)
+            except ExceptionNotSupported:
+                continue
+            finally:
+                File.close(file)
 
     def save(self) -> bool:
         """
@@ -253,3 +256,10 @@ class Vocabulary:
                 self.file_names.add(occurrence.doc())
                 if self.max_frequency_map[occurrence.doc()] < occurrence.frequency:
                     self.max_frequency_map[occurrence.doc()] = occurrence.frequency
+
+    def _process_file(self, filename, content_file):
+        number_line = 1
+        for content_line in content_file:
+            terms = self._sanitizer.sanitize_line(content_line, number_line)
+            self._push(terms, filename)
+            number_line += 1
