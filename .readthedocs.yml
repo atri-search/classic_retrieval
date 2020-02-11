@@ -1,9 +1,9 @@
 # Tutorial #
 
-Let's start with the classic example of creating a vocabulary:
+Let's start with the classic example of creating a vocabulary
 
 ```python
-from matchup.structure.Vocabulary import Vocabulary
+  from matchup.structure.Vocabulary import Vocabulary
 
   settings = 'path/to/settings/folder' # your stopwords path
   processed = 'path/to/generate/response' # processed file will be generated here
