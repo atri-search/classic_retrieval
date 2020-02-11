@@ -8,7 +8,7 @@ In 2018/1, the first version of the MatchUp tool was developed: a web tool for c
  
  
 ## Requirements
-* [PyPDF2](https://pypi.org/project/PyPDF2/)
+
 
 ## Technology 
 * [Python 3.7](https://www.python.org/)

@@ -10,9 +10,10 @@ import pickle
 from matchup.structure.Occurrence import Occurrence
 from matchup.structure.weighting.Idf import IDF
 from matchup.structure.weighting.Tf import TF
+
 from matchup.presentation.Sanitizer import Sanitizer
 from matchup.presentation.Text import Term
-from matchup.structure.File import ExceptionNotSupported, File
+from matchup.presentation.formats.File import ExtensionNotSupported, File
 
 LIB_PATH = path.abspath("./static/lib")
 
@@ -97,7 +98,7 @@ class Vocabulary:
                 file = File.open(file_name)
                 content_file = File.content_file(file_name, file)
                 self._process_file(file_name, content_file)
-            except ExceptionNotSupported:
+            except ExtensionNotSupported:
                 continue
             finally:
                 File.close(file)

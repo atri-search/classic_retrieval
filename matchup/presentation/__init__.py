@@ -1,1 +1,1 @@
-__all__ = ["Sanitizer", "Query", "Text"]
+__all__ = ["Sanitizer", "Text", "formats"]

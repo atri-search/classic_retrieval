@@ -14,7 +14,7 @@ class BooleanTest(unittest.TestCase):
         self._vocabulary.import_vocabulary()
         self._query = Query(vocabulary=self._vocabulary)
 
-    def test_search_known_response(self):
+    def test_txt_search_known_response(self):
         self._query.ask(answer="artilheiro brasil 1994 gols")
         response = self._query.search(model=ModelType.Boolean)
 

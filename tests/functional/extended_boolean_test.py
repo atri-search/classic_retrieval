@@ -13,7 +13,10 @@ class ExtendedBooleanTest(unittest.TestCase):
     def setUp(self):
         self._vocabulary = Vocabulary(settings_path=os.path.abspath("tests/static"),
                                       processed_path=os.path.abspath("tests/static/files"))
-        self._vocabulary.import_vocabulary()
+        # self._vocabulary.import_vocabulary()
+        self._vocabulary.import_folder(os.path.abspath("tests/static/files"))
+        self._vocabulary.generate_vocabulary()
+        self._vocabulary.save()
         self._query = Query(vocabulary=self._vocabulary)
 
     def test_search_known_response(self):
