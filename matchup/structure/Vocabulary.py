@@ -32,16 +32,11 @@ class Vocabulary:
         self.max_frequency_map = defaultdict(float)  # Posso excluir tranquilamente, basta apagar em _push
 
         stopwords_language = language if language is not None else 'pt-br'
+        stopwords_path = settings_path if settings_path else LIB_PATH
+        self._sanitizer = Sanitizer(stopwords_path=stopwords_path + f"\\{stopwords_language}.txt")
 
-        if settings_path:
-            self._sanitizer = Sanitizer(stopwords_path=settings_path + f"\\{stopwords_language}.txt")
-        else:
-            self._sanitizer = Sanitizer(stopwords_path=LIB_PATH + f"\\{stopwords_language}.txt")
-
-        if processed_path:
-            self._inverted_file_path = processed_path + "\\inverted.bin"
-        else:
-            self._inverted_file_path = settings_path + "\\inverted.bin"
+        prefix = processed_path if processed_path else settings_path
+        self._inverted_file_path = prefix + "\\inverted.bin"
 
         self.file_names = set()
         
@@ -97,11 +92,11 @@ class Vocabulary:
         :return: None
         """
         for file_name in self.file_names:
-            with open(file_name, mode='r', encoding="utf-8") as file:  # try...finaly
+            with open(file_name, mode='r', encoding="utf-8") as file:
                 number_line = 1
                 for content_line in file:
-                    terms = self._sanitizer.sanitize_line(content_line, number_line)  # linha -> [(palavra, posicao)]
-                    self._push(terms, file_name)  # adiciona no arquivo invertido
+                    terms = self._sanitizer.sanitize_line(content_line, number_line)
+                    self._push(terms, file_name)
                     number_line += 1
 
     def save(self) -> bool:
@@ -111,8 +106,6 @@ class Vocabulary:
         """
         self._sort()
         if self._inverted_file:
-            # for key in self._inverted_file:
-            #     print("{0} {1}".format(key, self._inverted_file[key]))
             with open(self._inverted_file_path, mode='wb') as file:
                 pickle.dump(self._inverted_file, file)
             return True

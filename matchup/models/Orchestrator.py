@@ -4,11 +4,11 @@
 """
 from typing import List
 
-from matchup.structure.Model import ModelType
 from matchup.structure.Solution import Result
 from matchup.structure.weighting.Idf import InverseFrequency
 from matchup.structure.weighting.Tf import LogNormalization
 
+from matchup.models.Model import ModelType
 from matchup.models.algorithms.Boolean import Boolean
 from matchup.models.algorithms.Vector import Vector
 from matchup.models.algorithms.Probabilistic import Probabilistic

@@ -2,14 +2,14 @@ import unittest
 import os
 
 from matchup.presentation.Text import Term
-from matchup.presentation.Query import Query
+from matchup.structure.Query import Query
 from matchup.structure.Vocabulary import Vocabulary
 
 
-class TestQuery(unittest.TestCase):
+class QueryTest(unittest.TestCase):
     def setUp(self):
-        vocabulary = Vocabulary(settings_path=os.path.abspath("../static"),
-                                processed_path=os.path.abspath("../static/files"))
+        vocabulary = Vocabulary(settings_path=os.path.abspath("tests/static"),
+                                processed_path=os.path.abspath("tests/static/files"))
         vocabulary.import_vocabulary()
 
         self._query = Query(vocabulary=vocabulary)

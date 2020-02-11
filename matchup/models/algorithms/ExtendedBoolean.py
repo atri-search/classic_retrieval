@@ -4,7 +4,7 @@ from typing import List
 from collections import defaultdict
 
 from matchup.presentation.Text import Term
-from matchup.structure.Model import IterModel
+from matchup.models.Model import IterModel
 from matchup.structure.Vocabulary import Vocabulary
 
 from matchup.models.algorithms.Vector import Vector
