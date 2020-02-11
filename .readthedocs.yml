@@ -14,7 +14,7 @@ Let's start with the classic example of creating a vocabulary
   vocabulary.save()
 
 ```
-Settings path enables you to work with stopwords. The stopwords needs to be a txt file with format {language}.txt.
+Settings path enables you to work with stopwords. The stopwords needs to be a txt file with format language.txt.
 For example, en-gb.txt. The processed path basicaly points to where the processed file will be saved.
 At this point, you're able to make queries. If you already save it once, you can just do it, after instance Vocabulary
 
