@@ -5,17 +5,15 @@ Let's start with the classic example of creating a vocabulary
 ```python
   from matchup.structure.Vocabulary import Vocabulary
 
-  settings = 'path/to/settings/folder' # your stopwords path
-  processed = 'path/to/generate/response' # processed file will be generated here
+  settings = "path/to/settings/folder" # your stopwords path
+  processed = "path/to/generate/response" # processed file will be generated here
   vocabulary = Vocabulary(settings_path=settings, processed_path=processed)
-  vocabulary.import_file('path/to/file') # process one file
-  vocabulary.import_folder('path/to/folder') # process every file on this folder
+  vocabulary.import_file("path/to/file") # process one file
+  vocabulary.import_folder("path/to/folder") # process every file on this folder
   vocabulary.generate_vocabulary()
   vocabulary.save()
 
 ```
-
-[Demo](https://github.com/reingart/pyfpdf/raw/master/tutorial/tuto1.pdf)
 
 At this point, you're able to make queries. If you already save it once, you can just do it, after instance Vocabulary
 
