@@ -5,6 +5,7 @@ before_install:
   - python --version
   - pip install -U pip
   - pip install coverage
+  - cp ".[tests/static]" tests/static
 install:
   - pip install ".[tests]" . # install package + test dependencies
 script: coverage run -m unittest tests/unit/main.py tests/functional/main.py # run tests
