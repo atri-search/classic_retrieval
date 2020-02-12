@@ -7,6 +7,6 @@ before_install:
   - pip install coverage
 install:
   - pip install ".[tests]" . # install package + test dependencies
-script: coverage run -m unittest tests\unit\main.py tests\functional\main.py # run tests
+script: coverage run -m unittest tests/unit/main.py tests/functional/main.py # run tests
 after_success:
   - coverage report -m # submit coverage
