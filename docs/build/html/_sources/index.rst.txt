@@ -96,4 +96,8 @@ Indices and tables
 
 Status
 ------
+.. image:: https://readthedocs.org/projects/match-up-lib/badge/?version=latest
+:target: https://match-up-lib.readthedocs.io/en/latest/?badge=latest
+:alt: Documentation Status
+
 Building Version 0.0.3

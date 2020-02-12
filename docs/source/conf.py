@@ -18,7 +18,7 @@ master_doc = 'index'
 
 # -- Project information -----------------------------------------------------
 
-project = 'matchup'
+project = 'Match Up IR Library'
 copyright = '2020, Marcos Pontes'
 author = 'Marcos Pontes'
 

@@ -1,0 +1,12 @@
+language: python
+python:
+  - 3.7
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install coverage
+install:
+  - pip install ".[tests]" . # install package + test dependencies
+script: coverage run -m unittest tests\unit\main.py tests\functional\main.py # run tests
+after_success:
+  - coverage report -m # submit coverage

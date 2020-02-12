@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Unary &#8212; matchup 0.0.2 documentation</title>
+    <title>Unary &#8212; Match Up IR Library 0.0.2 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -79,7 +79,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">matchup</a></h1>
+<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
 
 
 
@@ -90,76 +90,36 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Occurrence">matchup.structure.Occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Query">matchup.structure.Query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Solution">matchup.structure.Solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Vocabulary">matchup.structure.Vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Tf">matchup.structure.weighting.Tf Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Idf">matchup.structure.weighting.Idf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.Sanitizer">matchup.presentation.Sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Orchestrator">matchup.models.Orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Model">matchup.models.Model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Boolean">matchup.models.algorithms.Boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.ExtendedBoolean">matchup.models.algorithms.ExtendedBoolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Probabilistic">matchup.models.algorithms.Probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Vector">matchup.models.algorithms.Vector Module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Occurrence.Occurrence.html">Occurrence</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.NoSuchAnswerException.html">NoSuchAnswerException</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.Query.html">Query</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Result.html">Result</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Solution.html">Solution</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Vocabulary.Vocabulary.html">Vocabulary</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.Binary.html">Binary</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.LogNormalization.html">LogNormalization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TF.html">TF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TFFactory.html">TFFactory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TermFrequency.html">TermFrequency</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDF.html">IDF</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDFFactory.html">IDFFactory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequency.html">InverseFrequency</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencyMax.html">InverseFrequencyMax</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencySmooth.html">InverseFrequencySmooth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.ProbabilisticInverseFrequency.html">ProbabilisticInverseFrequency</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Unary</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.presentation.Sanitizer.Sanitizer.html">Sanitizer</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.ModelMissingParameters.html">ModelMissingParameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchInputException.html">NoSuchInputException</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchModelException.html">NoSuchModelException</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.Orchestrator.html">Orchestrator</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.IterModel.html">IterModel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.Model.html">Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelExecutionError.html">ModelExecutionError</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelType.html">ModelType</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.NoSuchModelException.html">NoSuchModelException</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Boolean.Boolean.html">Boolean</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html">ExtendedBoolean</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Probabilistic.Probabilistic.html">Probabilistic</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Vector.Vector.html">Vector</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../overview.html">Overview classes</a><ul>
       <li>Previous: <a href="matchup.structure.weighting.Idf.ProbabilisticInverseFrequency.html" title="previous chapter">ProbabilisticInverseFrequency</a></li>
       <li>Next: <a href="matchup.presentation.Sanitizer.Sanitizer.html" title="next chapter">Sanitizer</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
