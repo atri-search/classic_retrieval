@@ -13,17 +13,19 @@ class ProbabilisticTest(unittest.TestCase):
     def setUp(self):
         self._vocabulary = Vocabulary("./tests/static/files",
                                       stopwords="./tests/static/pt-br.txt")
-        self._vocabulary.import_collection()
+        self._vocabulary.import_folder("./tests/static/files")
+        self._vocabulary.generate_collection()
+        self._vocabulary.save()
+        # self._vocabulary.import_collection()
         self._query = Query(vocabulary=self._vocabulary)
 
     def test_search_known_response(self):
         self._query.ask(answer="artilheiro brasil 1994 gols")
         response = self._query.search(model=ModelType.Probabilistic, idf=InverseFrequency(), tf=TermFrequency())
 
-        some_expected_results = [Result(os.path.abspath("./tests/static/files/d1.txt"), 5.811),
-                                 Result(os.path.abspath("./tests/static/files/d3.txt"), 5.811),
-                                 Result(os.path.abspath("./tests/static/files/d15.txt"), 4.358),
-                                 Result(os.path.abspath("./tests/static/files/d11.txt"), 3.353)]
-
+        some_expected_results = [Result("./tests/static/files/d1.txt", 5.811),
+                                 Result("./tests/static/files/d3.txt", 5.811),
+                                 Result("./tests/static/files/d15.txt", 4.358),
+                                 Result("./tests/static/files/d11.txt", 3.353)]
         for expected in some_expected_results:
             self.assertTrue(expected in response)

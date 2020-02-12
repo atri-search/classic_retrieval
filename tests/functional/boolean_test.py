@@ -18,10 +18,10 @@ class BooleanTest(unittest.TestCase):
         self._query.ask(answer="artilheiro brasil 1994 gols")
         response = self._query.search(model=ModelType.Boolean)
 
-        some_expected_results = [Result(os.path.abspath("./tests/static/files/d1.txt"), 1.0),
-                                 Result(os.path.abspath("./tests/static/files/d3.txt"), 1.0),
-                                 Result(os.path.abspath("./tests/static/files/d15.txt"), 0.75),
-                                 Result(os.path.abspath("./tests/static/files/d11.txt"), 0.5)]
+        some_expected_results = [Result("./tests/static/files/d1.txt", 1.0),
+                                 Result("./tests/static/files/d3.txt", 1.0),
+                                 Result("./tests/static/files/d15.txt", 0.75),
+                                 Result("./tests/static/files/d11.txt", 0.5)]
 
         for expected in some_expected_results:
             self.assertTrue(expected in response)

@@ -21,10 +21,10 @@ class VectorTest(unittest.TestCase):
         self._query.ask(answer="artilheiro brasil 1994 gols")
         response = self._query.search(model=ModelType.Vector, idf=InverseFrequency(), tf=TermFrequency())
 
-        some_expected_results = [Result(os.path.abspath("./tests/static/files/d1.txt"), 1.0),
-                                 Result(os.path.abspath("./tests/static/files/d3.txt"), 0.808),
-                                 Result(os.path.abspath("./tests/static/files/d15.txt"), 0.74),
-                                 Result(os.path.abspath("./tests/static/files/d11.txt"), 0.604)]
+        some_expected_results = [Result("./tests/static/files/d1.txt", 1.0),
+                                 Result("./tests/static/files/d3.txt", 0.808),
+                                 Result("./tests/static/files/d15.txt", 0.74),
+                                 Result("./tests/static/files/d11.txt", 0.604)]
 
         for expected in some_expected_results:
             self.assertTrue(expected in response)
