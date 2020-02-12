@@ -9,8 +9,8 @@ from matchup.models.Model import ModelType
 
 class BooleanTest(unittest.TestCase):
     def setUp(self):
-        self._vocabulary = Vocabulary(os.path.abspath("./tests/static/files"),
-                                      stopwords=os.path.abspath("./tests/static/pt-br.txt"))
+        self._vocabulary = Vocabulary("./tests/static/files",
+                                      stopwords="./tests/static/pt-br.txt")
         self._vocabulary.import_collection()
         self._query = Query(vocabulary=self._vocabulary)
 

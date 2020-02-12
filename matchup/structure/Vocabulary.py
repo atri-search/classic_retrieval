@@ -31,7 +31,7 @@ class Vocabulary:
         self._tfs = None
         self.file_names = set()
         self.max_frequency_map = defaultdict(float)
-        self._collection_path = self.__make_prefix(save) + f"\\{SAVED_FILE_NAME}"
+        self._collection_path = self.__make_prefix(save) + f"/{SAVED_FILE_NAME}"
         self._sanitizer = self.__make_sanitizer(**kwargs)
 
     def import_file(self, file_path: str) -> bool:
@@ -60,9 +60,9 @@ class Vocabulary:
         if path.isdir(folder_path):
             list_dir = filter(lambda x: f'{SAVED_FILE_NAME}' not in x, listdir(folder_path))
             for filename in list_dir:
-                self.import_file(folder_path + "\\" + filename)
+                self.import_file(folder_path + "/" + filename)
             if update_path:
-                self._collection_path = folder_path + f"\\{SAVED_FILE_NAME}"
+                self._collection_path = folder_path + f"/{SAVED_FILE_NAME}"
             return True
         raise FileNotFoundError
 

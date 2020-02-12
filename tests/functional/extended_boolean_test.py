@@ -11,8 +11,8 @@ from matchup.structure.weighting.Idf import InverseFrequency
 
 class ExtendedBooleanTest(unittest.TestCase):
     def setUp(self):
-        self._vocabulary = Vocabulary(os.path.abspath("./tests/static/files"),
-                                      stopwords=os.path.abspath("./tests/static/pt-br.txt"))
+        self._vocabulary = Vocabulary("./tests/static/files",
+                                      stopwords="./tests/static/pt-br.txt")
 
         self._vocabulary.import_collection()
         # self._vocabulary.import_folder(os.path.abspath("./tests/static/files"))

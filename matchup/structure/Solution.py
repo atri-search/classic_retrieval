@@ -17,7 +17,7 @@ class Solution:
         string = ""
         if self._results:
             for terms in self._results:
-                doc = terms.document.split('\\')[-1]
+                doc = terms.document.split('/')[-1]
                 string += f"\n{doc} : {terms.score}"
         else:
             string += "No results found."
@@ -34,7 +34,7 @@ class Solution:
     def get_dict(self):
         result_list = []
         for terms in self._results:
-            doc = terms.document.split('\\')[-1]
+            doc = terms.document.split('/')[-1]
             result_list.append(Result(doc, terms.score))
 
         response_dict = {

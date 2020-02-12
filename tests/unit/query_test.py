@@ -8,10 +8,8 @@ from matchup.structure.Vocabulary import Vocabulary
 
 class QueryTest(unittest.TestCase):
     def setUp(self):
-        print(f"{os.path.abspath('./tests/static/files')}")
-        print(f"{os.path.abspath('.')}")
-        vocabulary = Vocabulary(os.path.abspath("./tests/static/files"),
-                                stopwords=os.path.abspath("./tests/static/pt-br.txt"))
+        vocabulary = Vocabulary("./tests/static/files",
+                                stopwords="./tests/static/pt-br.txt")
         vocabulary.import_collection()
 
         self._query = Query(vocabulary=vocabulary)

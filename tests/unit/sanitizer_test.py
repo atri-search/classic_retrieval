@@ -7,7 +7,7 @@ from matchup.presentation.Text import Line, Term
 
 class SanitizerTest(unittest.TestCase):
     def setUp(self):
-        self._sanitizer = Sanitizer(stopwords_path=os.path.abspath("./tests/static/pt-br.txt"))
+        self._sanitizer = Sanitizer(stopwords_path="./tests/static/pt-br.txt")
 
     def test_import_stopwords(self):
         response = self._sanitizer.import_stopwords()
