@@ -1,13 +1,3 @@
-.. image:: https://badge.fury.io/py/matchup-ir.svg
-    :target: https://badge.fury.io/py/matchup-ir
-
-.. image:: https://travis-ci.org/jotes/django-cookies-samesite.svg?branch=master
-    :target: https://travis-ci.org/jotes/django-cookies-samesite
-
-.. image:: https://codecov.io/gh/jotes/django-cookies-samesite/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/jotes/django-cookies-samesite
-
-
 # MatchUp
 
 PURE-Python IR library.
@@ -21,4 +11,7 @@ In 2018/1, the first version of the MatchUp tool was developed: a web tool for c
 * [Python 3.7](https://www.python.org/)
 
 ## STATUS : Building
+Coverage: 90%
+.. image:: https://badge.fury.io/py/matchup-ir.svg
+    :target: https://badge.fury.io/py/matchup-ir
 
