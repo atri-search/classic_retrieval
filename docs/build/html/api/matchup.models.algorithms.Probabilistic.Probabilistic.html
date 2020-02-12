@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Probabilistic &#8212; matchup 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vector" href="matchup.models.algorithms.Vector.Vector.html" />
+    <link rel="prev" title="ExtendedBoolean" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="probabilistic">
+<h1>Probabilistic<a class="headerlink" href="#probabilistic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="matchup.models.algorithms.Probabilistic.Probabilistic">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.Probabilistic.</code><code class="sig-name descname">Probabilistic</code><a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.models.Model.IterModel.html#matchup.models.Model.IterModel" title="matchup.models.Model.IterModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.Model.IterModel</span></code></a></p>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir" title="matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catch_pir</span></code></a>(vocabulary, key)</p></td>
+<td><p>Catch pir statistic based in key of vocabulary</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir" title="matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catch_qir</span></code></a>(vocabulary, key)</p></td>
+<td><p>Catch qir statistic based in key of vocabulary</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key" title="matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">docs_with_key</span></code></a>(occ)</p></td>
+<td><p>Return the vi_value : number of documents with key</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.run" title="matchup.models.algorithms.Probabilistic.Probabilistic.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
+<td><p>Principal method that represents IR probabilistic model.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir">
+<em class="property">static </em><code class="sig-name descname">catch_pir</code><span class="sig-paren">(</span><em class="sig-param">vocabulary: matchup.structure.Vocabulary.Vocabulary</em>, <em class="sig-param">key: str</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Catch pir statistic based in key of vocabulary</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vocabulary</strong> – data structure that represents vocabulary</p></li>
+<li><p><strong>key</strong> – keyword to catch pir</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float pir</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir">
+<em class="property">static </em><code class="sig-name descname">catch_qir</code><span class="sig-paren">(</span><em class="sig-param">vocabulary: matchup.structure.Vocabulary.Vocabulary</em>, <em class="sig-param">key: str</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Catch qir statistic based in key of vocabulary</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vocabulary</strong> – data structure that represents vocabulary</p></li>
+<li><p><strong>key</strong> – keyword to catch pir</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float pir</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key">
+<em class="property">static </em><code class="sig-name descname">docs_with_key</code><span class="sig-paren">(</span><em class="sig-param">occ</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Return the vi_value : number of documents with key</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>occ</strong> – Occurrences</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.run">
+<em class="property">static </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.Text.Term], vocabulary: matchup.structure.Vocabulary.Vocabulary</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.run" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Principal method that represents IR probabilistic model.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – list of all query terms</p></li>
+<li><p><strong>vocabulary</strong> – data structure that represents the vocabulary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">matchup</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Occurrence.Occurrence.html">Occurrence</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.NoSuchAnswerException.html">NoSuchAnswerException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.Query.html">Query</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Result.html">Result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Solution.html">Solution</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Vocabulary.Vocabulary.html">Vocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.Binary.html">Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.LogNormalization.html">LogNormalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TF.html">TF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TFFactory.html">TFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TermFrequency.html">TermFrequency</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDF.html">IDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDFFactory.html">IDFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequency.html">InverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencyMax.html">InverseFrequencyMax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencySmooth.html">InverseFrequencySmooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.ProbabilisticInverseFrequency.html">ProbabilisticInverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.Unary.html">Unary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.presentation.Sanitizer.Sanitizer.html">Sanitizer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.ModelMissingParameters.html">ModelMissingParameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchInputException.html">NoSuchInputException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchModelException.html">NoSuchModelException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.Orchestrator.html">Orchestrator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.IterModel.html">IterModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.Model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelExecutionError.html">ModelExecutionError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelType.html">ModelType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.NoSuchModelException.html">NoSuchModelException</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Boolean.Boolean.html">Boolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html">ExtendedBoolean</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Probabilistic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Vector.Vector.html">Vector</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html" title="previous chapter">ExtendedBoolean</a></li>
+      <li>Next: <a href="matchup.models.algorithms.Vector.Vector.html" title="next chapter">Vector</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Marcos Pontes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/matchup.models.algorithms.Probabilistic.Probabilistic.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

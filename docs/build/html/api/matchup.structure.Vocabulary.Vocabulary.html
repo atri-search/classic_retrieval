@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vocabulary &#8212; matchup 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Binary" href="matchup.structure.weighting.Tf.Binary.html" />
+    <link rel="prev" title="Solution" href="matchup.structure.Solution.Solution.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="vocabulary">
+<h1>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="matchup.structure.Vocabulary.Vocabulary">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.Vocabulary.</code><code class="sig-name descname">Vocabulary</code><span class="sig-paren">(</span><em class="sig-param">save</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.idf" title="matchup.structure.Vocabulary.Vocabulary.idf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">idf</span></code></a></p></td>
+<td><p>Get the data structure that represents the IDF weithing</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.keys" title="matchup.structure.Vocabulary.Vocabulary.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keys</span></code></a></p></td>
+<td><p>Get all keywords presents in vocabulary</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.sanitizer" title="matchup.structure.Vocabulary.Vocabulary.sanitizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sanitizer</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.stopwords_path" title="matchup.structure.Vocabulary.Vocabulary.stopwords_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stopwords_path</span></code></a></p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">return</dt>
+<dd class="field-odd"><p>Get the absolute path that stop words are persisted.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.tf" title="matchup.structure.Vocabulary.Vocabulary.tf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tf</span></code></a></p></td>
+<td><p>Get the data structure that represents the TF weithing</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.generate_collection" title="matchup.structure.Vocabulary.Vocabulary.generate_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_collection</span></code></a>()</p></td>
+<td><p>This function try to process all content of files that have been inserted before, generating</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.get_number_docs_by_keyword" title="matchup.structure.Vocabulary.Vocabulary.get_number_docs_by_keyword"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_docs_by_keyword</span></code></a>(kw)</p></td>
+<td><p>Get the number of documents contains some keyword</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.import_collection" title="matchup.structure.Vocabulary.Vocabulary.import_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_collection</span></code></a>()</p></td>
+<td><p>This is a function that recover the vocabulary previously generated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.import_file" title="matchup.structure.Vocabulary.Vocabulary.import_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_file</span></code></a>(file_path)</p></td>
+<td><p>Given a file path of a document, this function append this document into some structure, case the path are</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.import_folder" title="matchup.structure.Vocabulary.Vocabulary.import_folder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_folder</span></code></a>(folder_path, *[, update_path])</p></td>
+<td><p>Generalization of import_file(). This function receive a folder path and try to append all documents of</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.save" title="matchup.structure.Vocabulary.Vocabulary.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>()</p></td>
+<td><p>Persist data structure on disc.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.size_vocabulary" title="matchup.structure.Vocabulary.Vocabulary.size_vocabulary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size_vocabulary</span></code></a>()</p></td>
+<td><p>Get the number of words this data structure almost process</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="attribute">
+<dt id="matchup.structure.Vocabulary.Vocabulary.idf">
+<code class="sig-name descname">idf</code><a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.idf" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the data structure that represents the IDF weithing</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>IDF object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matchup.structure.Vocabulary.Vocabulary.keys">
+<code class="sig-name descname">keys</code><a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.keys" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get all keywords presents in vocabulary</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>list of all keywords</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matchup.structure.Vocabulary.Vocabulary.sanitizer">
+<code class="sig-name descname">sanitizer</code><a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.sanitizer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="matchup.structure.Vocabulary.Vocabulary.stopwords_path">
+<code class="sig-name descname">stopwords_path</code><a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.stopwords_path" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Get the absolute path that stop words are persisted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matchup.structure.Vocabulary.Vocabulary.tf">
+<code class="sig-name descname">tf</code><a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.tf" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the data structure that represents the TF weithing</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>TF object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.generate_collection">
+<code class="sig-name descname">generate_collection</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.generate_collection" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>This function try to process all content of files that have been inserted before, generating
+the vocabulary data structure ready for use.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.get_number_docs_by_keyword">
+<code class="sig-name descname">get_number_docs_by_keyword</code><span class="sig-paren">(</span><em class="sig-param">kw: str</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.get_number_docs_by_keyword" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the number of documents contains some keyword</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kw</strong> – string that represents some keyword</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>number of documents</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.import_collection">
+<code class="sig-name descname">import_collection</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.import_collection" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>This is a function that recover the vocabulary previously generated.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>boolean flag that indicates success or failure in case the vocabulary has no generated yet.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.import_file">
+<code class="sig-name descname">import_file</code><span class="sig-paren">(</span><em class="sig-param">file_path: str</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.import_file" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Given a file path of a document, this function append this document into some structure, case the path are
+correct. The processing of this file can be started running function generate_collection()</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> – string that represents a relative or absolute path of an txt file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>boolean flag that indicates if the file has been identified</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.import_folder">
+<code class="sig-name descname">import_folder</code><span class="sig-paren">(</span><em class="sig-param">folder_path: str</em>, <em class="sig-param">*</em>, <em class="sig-param">update_path: bool = False</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.import_folder" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Generalization of import_file(). This function receive a folder path and try to append all documents of
+this folder into some structure. he processing of all this file can be started running function</p>
+<blockquote>
+<div><p>generate_collection()</p>
+</div></blockquote>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folder_path</strong> – string that represents a relative or absolute path of an folder</p></li>
+<li><p><strong>update_path</strong> – flag to update processed file path</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>boolean flag that indicates if the folder has been identified</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.save" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Persist data structure on disc.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>boolean flag that indicates if the data structure can be persisted.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Vocabulary.Vocabulary.size_vocabulary">
+<code class="sig-name descname">size_vocabulary</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.size_vocabulary" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Get the number of words this data structure almost process</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Size of data structure vocabulary</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">matchup</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Occurrence.Occurrence.html">Occurrence</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.NoSuchAnswerException.html">NoSuchAnswerException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.Query.html">Query</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Result.html">Result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Solution.html">Solution</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.Binary.html">Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.LogNormalization.html">LogNormalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TF.html">TF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TFFactory.html">TFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TermFrequency.html">TermFrequency</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDF.html">IDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDFFactory.html">IDFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequency.html">InverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencyMax.html">InverseFrequencyMax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencySmooth.html">InverseFrequencySmooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.ProbabilisticInverseFrequency.html">ProbabilisticInverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.Unary.html">Unary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.presentation.Sanitizer.Sanitizer.html">Sanitizer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.ModelMissingParameters.html">ModelMissingParameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchInputException.html">NoSuchInputException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchModelException.html">NoSuchModelException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.Orchestrator.html">Orchestrator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.IterModel.html">IterModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.Model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelExecutionError.html">ModelExecutionError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelType.html">ModelType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.NoSuchModelException.html">NoSuchModelException</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Boolean.Boolean.html">Boolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html">ExtendedBoolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Probabilistic.Probabilistic.html">Probabilistic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Vector.Vector.html">Vector</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="matchup.structure.Solution.Solution.html" title="previous chapter">Solution</a></li>
+      <li>Next: <a href="matchup.structure.weighting.Tf.Binary.html" title="next chapter">Binary</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Marcos Pontes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/matchup.structure.Vocabulary.Vocabulary.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

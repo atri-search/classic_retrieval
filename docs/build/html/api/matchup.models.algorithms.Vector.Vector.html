@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vector &#8212; matchup 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Probabilistic" href="matchup.models.algorithms.Probabilistic.Probabilistic.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="vector">
+<h1>Vector<a class="headerlink" href="#vector" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="matchup.models.algorithms.Vector.Vector">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.Vector.</code><code class="sig-name descname">Vector</code><a class="headerlink" href="#matchup.models.algorithms.Vector.Vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.models.Model.IterModel.html#matchup.models.Model.IterModel" title="matchup.models.Model.IterModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.Model.IterModel</span></code></a></p>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Vector.Vector.generate_scores" title="matchup.models.algorithms.Vector.Vector.generate_scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_scores</span></code></a>(doc_repr, query_repr)</p></td>
+<td><p>Calculate the similarity between one doc and one query by its representations</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Vector.Vector.process_doc" title="matchup.models.algorithms.Vector.Vector.process_doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_doc</span></code></a>(chosen_doc)</p></td>
+<td><p>Proccess doc generating it score</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Vector.Vector.process_documents" title="matchup.models.algorithms.Vector.Vector.process_documents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_documents</span></code></a>(query, vocabulary)</p></td>
+<td><p>Generate document scores based in query</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Vector.Vector.process_query" title="matchup.models.algorithms.Vector.Vector.process_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_query</span></code></a>(query, idfs)</p></td>
+<td><p>Construct query representation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Vector.Vector.run" title="matchup.models.algorithms.Vector.Vector.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
+<td><p>Principal method that represents IR vectorial model.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Vector.Vector.stop" title="matchup.models.algorithms.Vector.Vector.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
+<td><p>Given a dictionary with all pointers by keyword and another dictionary with all occurrences by keyword,</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="matchup.models.algorithms.Vector.Vector.generate_scores">
+<em class="property">static </em><code class="sig-name descname">generate_scores</code><span class="sig-paren">(</span><em class="sig-param">doc_repr: DefaultDict[str, float], query_repr: DefaultDict[str, float]</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.Vector.Vector.generate_scores" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Calculate the similarity between one doc and one query by its representations</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc_repr</strong> – doc repr</p></li>
+<li><p><strong>query_repr</strong> – query repr</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>similarity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Vector.Vector.process_doc">
+<em class="property">static </em><code class="sig-name descname">process_doc</code><span class="sig-paren">(</span><em class="sig-param">chosen_doc: str</em><span class="sig-paren">)</span> &#x2192; DefaultDict[str, float]<a class="headerlink" href="#matchup.models.algorithms.Vector.Vector.process_doc" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Proccess doc generating it score</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>chosen_doc</strong> – Str represents the lowest document</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>doc repr. Dictionary with all term scores by doc. That is the document vector.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Vector.Vector.process_documents">
+<em class="property">static </em><code class="sig-name descname">process_documents</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.Text.Term], vocabulary: matchup.structure.Vocabulary.Vocabulary</em><span class="sig-paren">)</span> &#x2192; DefaultDict[str, list]<a class="headerlink" href="#matchup.models.algorithms.Vector.Vector.process_documents" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Generate document scores based in query</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – query representation</p></li>
+<li><p><strong>vocabulary</strong> – vocabulary structure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of occurrences</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Vector.Vector.process_query">
+<em class="property">static </em><code class="sig-name descname">process_query</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.Text.Term], idfs</em><span class="sig-paren">)</span> &#x2192; DefaultDict[str, float]<a class="headerlink" href="#matchup.models.algorithms.Vector.Vector.process_query" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Construct query representation</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – list of all terms</p></li>
+<li><p><strong>idfs</strong> – structure IDF</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>query representation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Vector.Vector.run">
+<em class="property">static </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.Text.Term], vocabulary: matchup.structure.Vocabulary.Vocabulary</em><span class="sig-paren">)</span> &#x2192; List[matchup.structure.Solution.Result]<a class="headerlink" href="#matchup.models.algorithms.Vector.Vector.run" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Principal method that represents IR vectorial model.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – list of all query terms</p></li>
+<li><p><strong>vocabulary</strong> – data structure that represents the vocabulary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of solution -&gt; (document, score)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.models.algorithms.Vector.Vector.stop">
+<em class="property">static </em><code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.models.algorithms.Vector.Vector.stop" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Given a dictionary with all pointers by keyword and another dictionary with all occurrences by keyword,
+this function calculate if the algortihm is over</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>boolean flag indicates if algorithm stops</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">matchup</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Occurrence.Occurrence.html">Occurrence</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.NoSuchAnswerException.html">NoSuchAnswerException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.Query.html">Query</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Result.html">Result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Solution.html">Solution</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Vocabulary.Vocabulary.html">Vocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.Binary.html">Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.LogNormalization.html">LogNormalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TF.html">TF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TFFactory.html">TFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TermFrequency.html">TermFrequency</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDF.html">IDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDFFactory.html">IDFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequency.html">InverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencyMax.html">InverseFrequencyMax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencySmooth.html">InverseFrequencySmooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.ProbabilisticInverseFrequency.html">ProbabilisticInverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.Unary.html">Unary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.presentation.Sanitizer.Sanitizer.html">Sanitizer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.ModelMissingParameters.html">ModelMissingParameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchInputException.html">NoSuchInputException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchModelException.html">NoSuchModelException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.Orchestrator.html">Orchestrator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.IterModel.html">IterModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.Model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelExecutionError.html">ModelExecutionError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelType.html">ModelType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.NoSuchModelException.html">NoSuchModelException</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Boolean.Boolean.html">Boolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html">ExtendedBoolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Probabilistic.Probabilistic.html">Probabilistic</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vector</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="matchup.models.algorithms.Probabilistic.Probabilistic.html" title="previous chapter">Probabilistic</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Marcos Pontes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/matchup.models.algorithms.Vector.Vector.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

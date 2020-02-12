@@ -16,35 +16,28 @@ from matchup.presentation.Text import Term
 from matchup.presentation.formats.File import ExtensionNotSupported, File
 
 LIB_PATH = path.abspath("./static/lib")
+SAVED_FILE_NAME = 'collection.bin'
 
 
 class Vocabulary:
 
-    def __init__(self, *, settings_path: str = None, processed_path: str = None, language: str = None):
+    def __init__(self, save, **kwargs):
         """
-        :param settings_path: Path with configurations files like stopwords txt file.
-        :param processed_path: Path with folder where the processed vocabulary will save it structure
-        :param language: Language of stopwords to process vocabulary
+        :param response: Path to save processed Vocabulary
+        :param kwargs: only accepts 'stopwords', with the stopwords file path
         """
         self._inverted_file = defaultdict(list)
         self._idfs = None
         self._tfs = None
-
-        self.max_frequency_map = defaultdict(float)  # Posso excluir tranquilamente, basta apagar em _push
-
-        stopwords_language = language if language is not None else 'pt-br'
-        stopwords_path = settings_path if settings_path else LIB_PATH
-        self._sanitizer = Sanitizer(stopwords_path=stopwords_path + f"\\{stopwords_language}.txt")
-
-        prefix = processed_path if processed_path else settings_path
-        self._inverted_file_path = prefix + "\\inverted.bin"
-
         self.file_names = set()
-        
+        self.max_frequency_map = defaultdict(float)
+        self._collection_path = self.__make_prefix(save) + f"\\{SAVED_FILE_NAME}"
+        self._sanitizer = self.__make_sanitizer(**kwargs)
+
     def import_file(self, file_path: str) -> bool:
         """
             Given a file path of a document, this function append this document into some structure, case the path are
-            correct. The processing of this file can be started running function generate_vocabulary()
+            correct. The processing of this file can be started running function generate_collection()
 
         :param file_path: string that represents a relative or absolute path of an txt file
         :return: boolean flag that indicates if the file has been identified
@@ -58,35 +51,35 @@ class Vocabulary:
         """
             Generalization of import_file(). This function receive a folder path and try to append all documents of
             this folder into some structure. he processing of all this file can be started running function
-             generate_vocabulary()
+             generate_collection()
 
         :param folder_path: string that represents a relative or absolute path of an folder
         :param update_path: flag to update processed file path
         :return: boolean flag that indicates if the folder has been identified
         """
         if path.isdir(folder_path):
-            list_dir = filter(lambda x: 'inverted.bin' not in x, listdir(folder_path))
+            list_dir = filter(lambda x: f'{SAVED_FILE_NAME}' not in x, listdir(folder_path))
             for filename in list_dir:
                 self.import_file(folder_path + "\\" + filename)
             if update_path:
-                self._inverted_file_path = folder_path + "\\inverted.bin"
+                self._collection_path = folder_path + f"\\{SAVED_FILE_NAME}"
             return True
         raise FileNotFoundError
 
-    def import_vocabulary(self) -> bool:
+    def import_collection(self) -> bool:
         """
             This is a function that recover the vocabulary previously generated.
         :return: boolean flag that indicates success or failure in case the vocabulary has no generated yet.
         """
         self._inverted_file.clear()
-        if path.exists(self._inverted_file_path):
-            with open(self._inverted_file_path, mode='rb') as file:
+        if path.exists(self._collection_path):
+            with open(self._collection_path, mode='rb') as file:
                 self._inverted_file = pickle.load(file)
-                self._retrieve_file_names()
+                self.__retrieve_file_names()
             return True
         raise FileNotFoundError
 
-    def generate_vocabulary(self) -> None:
+    def generate_collection(self) -> None:
         """
             This function try to process all content of files that have been inserted before, generating
             the vocabulary data structure ready for use.
@@ -97,7 +90,7 @@ class Vocabulary:
             try:
                 file = File.open(file_name)
                 content_file = File.content_file(file_name, file)
-                self._process_file(file_name, content_file)
+                self.__process_file(file_name, content_file)
             except ExtensionNotSupported:
                 continue
             finally:
@@ -108,9 +101,9 @@ class Vocabulary:
             Persist data structure on disc.
         :return: boolean flag that indicates if the data structure can be persisted.
         """
-        self._sort()
+        self.__sort()
         if self._inverted_file:
-            with open(self._inverted_file_path, mode='wb') as file:
+            with open(self._collection_path, mode='wb') as file:
                 pickle.dump(self._inverted_file, file)
             return True
         raise ReferenceError
@@ -216,7 +209,7 @@ class Vocabulary:
         """
         return self._inverted_file[item]
 
-    def _push(self, terms: List[Term], file_name: str) -> None:
+    def __push(self, terms: List[Term], file_name: str) -> None:
         """
             Auxiliar function that push all file terms in vocabulary
         :param terms: list with all file terms
@@ -239,7 +232,7 @@ class Vocabulary:
                 if self.max_frequency_map[file_name] < occurrence.frequency:
                     self.max_frequency_map[file_name] = occurrence.frequency
 
-    def _sort(self) -> None:
+    def __sort(self) -> None:
         """
             Order the documents in vocabulary structure.
         :return: None
@@ -247,7 +240,7 @@ class Vocabulary:
         for key in self._inverted_file:
             self._inverted_file[key] = sorted(self._inverted_file[key], key=Occurrence.doc)
 
-    def _retrieve_file_names(self) -> None:
+    def __retrieve_file_names(self) -> None:
         """
             Iterate the data structure retrieving the file names that generated it vocabulary
         :return: None
@@ -258,9 +251,22 @@ class Vocabulary:
                 if self.max_frequency_map[occurrence.doc()] < occurrence.frequency:
                     self.max_frequency_map[occurrence.doc()] = occurrence.frequency
 
-    def _process_file(self, filename, content_file):
+    def __process_file(self, filename, content_file):
         number_line = 1
         for content_line in content_file:
             terms = self._sanitizer.sanitize_line(content_line, number_line)
-            self._push(terms, filename)
+            self.__push(terms, filename)
             number_line += 1
+
+    @classmethod
+    def __make_sanitizer(cls, **kwargs) -> Sanitizer:
+        stopwords = kwargs.get("stopwords")
+        if stopwords:
+            return Sanitizer(stopwords_path=stopwords)
+        else:
+            return Sanitizer()
+
+    @classmethod
+    def __make_prefix(cls, save):
+        return save if save else LIB_PATH
+

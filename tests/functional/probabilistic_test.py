@@ -11,9 +11,9 @@ from matchup.structure.weighting.Idf import InverseFrequency
 
 class ProbabilisticTest(unittest.TestCase):
     def setUp(self):
-        self._vocabulary = Vocabulary(settings_path=os.path.abspath("tests/static"),
-                                      processed_path=os.path.abspath("tests/static/files"))
-        self._vocabulary.import_vocabulary()
+        self._vocabulary = Vocabulary(os.path.abspath("tests/static/files"),
+                                      stopwords=os.path.abspath("tests/static/pt-br.txt"))
+        self._vocabulary.import_collection()
         self._query = Query(vocabulary=self._vocabulary)
 
     def test_search_known_response(self):

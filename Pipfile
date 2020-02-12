@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 coverage = "*"
+sphinx = "*"
+sphinx-automodapi = "*"
 
 [requires]
 python_version = "3.7"

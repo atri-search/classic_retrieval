@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Occurrence &#8212; matchup 0.0.2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NoSuchAnswerException" href="matchup.structure.Query.NoSuchAnswerException.html" />
+    <link rel="prev" title="Need Help?" href="../help.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="occurrence">
+<h1>Occurrence<a class="headerlink" href="#occurrence" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="matchup.structure.Occurrence.Occurrence">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.Occurrence.</code><code class="sig-name descname">Occurrence</code><span class="sig-paren">(</span><em class="sig-param">doc: str = ''</em>, <em class="sig-param">term: matchup.presentation.Text.Term = None</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.Occurrence.Occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Occurrence.Occurrence.frequency" title="matchup.structure.Occurrence.Occurrence.frequency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency</span></code></a></p></td>
+<td><p>Property that return the frequency of term i in document j</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Occurrence.Occurrence.keyword" title="matchup.structure.Occurrence.Occurrence.keyword"><code class="xref py py-obj docutils literal notranslate"><span class="pre">keyword</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Occurrence.Occurrence.score" title="matchup.structure.Occurrence.Occurrence.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a></p></td>
+<td><p>Property that return the score of this Occurrence</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Occurrence.Occurrence.add" title="matchup.structure.Occurrence.Occurrence.add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add</span></code></a>(*[, position])</p></td>
+<td><p>Push this occurrence position in doc for the Occurrence structure</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Occurrence.Occurrence.doc" title="matchup.structure.Occurrence.Occurrence.doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">doc</span></code></a>()</p></td>
+<td><p>Property that return the document name</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="attribute">
+<dt id="matchup.structure.Occurrence.Occurrence.frequency">
+<code class="sig-name descname">frequency</code><a class="headerlink" href="#matchup.structure.Occurrence.Occurrence.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Property that return the frequency of term i in document j</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>document string name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="matchup.structure.Occurrence.Occurrence.keyword">
+<code class="sig-name descname">keyword</code><a class="headerlink" href="#matchup.structure.Occurrence.Occurrence.keyword" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="matchup.structure.Occurrence.Occurrence.score">
+<code class="sig-name descname">score</code><a class="headerlink" href="#matchup.structure.Occurrence.Occurrence.score" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Property that return the score of this Occurrence</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Score of occurrence</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="method">
+<dt id="matchup.structure.Occurrence.Occurrence.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">position: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#matchup.structure.Occurrence.Occurrence.add" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Push this occurrence position in doc for the Occurrence structure</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>position</strong> – String that represents the position. Ex : ‘1-19’</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="matchup.structure.Occurrence.Occurrence.doc">
+<code class="sig-name descname">doc</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#matchup.structure.Occurrence.Occurrence.doc" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Property that return the document name</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>document string name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">matchup</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Occurrence</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.NoSuchAnswerException.html">NoSuchAnswerException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Query.Query.html">Query</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Result.html">Result</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Solution.Solution.html">Solution</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.Vocabulary.Vocabulary.html">Vocabulary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.Binary.html">Binary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.LogNormalization.html">LogNormalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TF.html">TF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TFFactory.html">TFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Tf.TermFrequency.html">TermFrequency</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDF.html">IDF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.IDFFactory.html">IDFFactory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequency.html">InverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencyMax.html">InverseFrequencyMax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.InverseFrequencySmooth.html">InverseFrequencySmooth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.ProbabilisticInverseFrequency.html">ProbabilisticInverseFrequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.structure.weighting.Idf.Unary.html">Unary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.presentation.Sanitizer.Sanitizer.html">Sanitizer</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.ModelMissingParameters.html">ModelMissingParameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchInputException.html">NoSuchInputException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.NoSuchModelException.html">NoSuchModelException</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Orchestrator.Orchestrator.html">Orchestrator</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.IterModel.html">IterModel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.Model.html">Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelExecutionError.html">ModelExecutionError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.ModelType.html">ModelType</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.Model.NoSuchModelException.html">NoSuchModelException</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Boolean.Boolean.html">Boolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html">ExtendedBoolean</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Probabilistic.Probabilistic.html">Probabilistic</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matchup.models.algorithms.Vector.Vector.html">Vector</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../help.html" title="previous chapter">Need Help?</a></li>
+      <li>Next: <a href="matchup.structure.Query.NoSuchAnswerException.html" title="next chapter">NoSuchAnswerException</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Marcos Pontes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/matchup.structure.Occurrence.Occurrence.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

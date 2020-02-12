@@ -11,9 +11,11 @@ from matchup.presentation.Text import Term, Line
 
 
 class Sanitizer:
-    def __init__(self, *, stopwords_path: str):
-        self._stopwords_path = stopwords_path
-        self._stopwords = self.import_stopwords()
+    def __init__(self, *, stopwords_path: str = None):
+        self._stopwords = set()
+        if stopwords_path:
+            self._stopwords_path = stopwords_path
+            self._stopwords = self.import_stopwords()
 
     def import_stopwords(self) -> Set[str]:
         """
@@ -77,10 +79,9 @@ class Sanitizer:
         line_cleaned = self.strip_accents(line_cleaned)
 
         words = line_cleaned.split()
-        filtered = filter(lambda word: word.lower() not in self._stopwords, words)  # remove stopwords
-        # dado a lista de palavras filtradas e a linha original : retorna um indexador de termos
+        filtered = filter(lambda word: word.lower() not in self._stopwords, words)
         indexed = Sanitizer.index_line(list(filtered), base_line)
-        return indexed  # lista de termos
+        return indexed
 
     @property
     def stopwords_path(self) -> str:
