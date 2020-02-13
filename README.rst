@@ -2,7 +2,8 @@
     :target: https://travis-ci.org/marcosfpr/match_up_lib
 .. image:: https://badge.fury.io/py/matchup-ir.svg
     :target: https://badge.fury.io/py/matchup-ir
-
+.. image:: https://codecov.io/gh/marcosfpr/match_up_lib/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/marcosfpr/match_up_lib
 
 MatchUp
 =======
