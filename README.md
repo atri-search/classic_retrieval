@@ -1,5 +1,5 @@
 [![PyPI version](https://badge.fury.io/py/matchup-ir.svg)](https://badge.fury.io/py/matchup-ir)
-[![Build Status](https://travis-ci.org/marcosfpr/match_up_lib.svg?branch=master)](https://travis-ci.org/marcosfpr/match_up_lib)
+![build](https://github.com/marcosfpr/match_up_lib/workflows/build/badge.svg)
 [![codecov](https://codecov.io/gh/marcosfpr/match_up_lib/branch/master/graph/badge.svg)](https://codecov.io/gh/marcosfpr/match_up_lib)
 
 # MatchUp
