@@ -1,11 +1,11 @@
 import setuptools
 
-with open("README.rst", "r") as fh:
+with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="matchup-ir",
-    version="0.0.2",
+    version="0.0.3",
     author="Marcos Pontes",
     author_email="marcos.rezende@aluno.ufop.com",
     description="A IR simple library",
