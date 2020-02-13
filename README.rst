@@ -1,3 +1,9 @@
+.. image:: https://travis-ci.org/marcosfpr/match_up_lib.svg?branch=master
+    :target: https://travis-ci.org/marcosfpr/match_up_lib
+.. image:: https://badge.fury.io/py/matchup-ir.svg
+    :target: https://badge.fury.io/py/matchup-ir
+
+
 MatchUp
 =======
 
@@ -22,7 +28,4 @@ Building
 ^^^^^^^^
 
 Coverage: 90%
-
-.. image:: https://badge.fury.io/py/matchup-ir.svg
-    :target: https://badge.fury.io/py/matchup-ir
 
