@@ -22,7 +22,7 @@ class Sanitizer:
             Retrieve stopwords from memory
         :return: set of stopwords
         """
-        with open(self._stopwords_path, encoding='utf-8') as file:
+        with open(self._stopwords_path, mode='r', encoding='utf-8') as file:
             self._stopwords = {line.strip() for line in file}
         return self._stopwords
 

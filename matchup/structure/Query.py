@@ -14,8 +14,9 @@ class NoSuchAnswerException(RuntimeError):
 
 class Query:
     def __init__(self, *, vocabulary):
-        self._sanitizer = Sanitizer(stopwords_path=vocabulary.stopwords_path)
-        self._orquestrator = Orchestrator(vocabulary)
+        self._sanitizer = Sanitizer(stopwords_path=vocabulary.stopwords_path) if vocabulary.stopwords_path else \
+            Sanitizer()
+        self._orq = Orchestrator(vocabulary)
         self._answer = list()  # List[Term]
 
     def ask(self, answer: str = None) -> None:
@@ -36,7 +37,7 @@ class Query:
                 number_line += 1
             self._answer = terms
 
-        self._orquestrator.entry = self._answer
+        self._orq.entry = self._answer
 
     @property
     def search_input(self):
@@ -50,5 +51,5 @@ class Query:
         :param tf: Describe the class of TF
         :return: list of solution -> (document, score)
         """
-        results = self._orquestrator.search(model, idf, tf, **kwargs)
+        results = self._orq.search(model, idf, tf, **kwargs)
         return Solution(results)
