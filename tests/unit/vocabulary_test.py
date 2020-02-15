@@ -34,3 +34,13 @@ class VocabularyTest(unittest.TestCase):
         self._vocabulary.generate_collection()
 
         self.assertTrue('brasil' in self._vocabulary.keys)
+
+    def test_generate_vocabulary_pdf(self):
+        self.assertTrue(not self._vocabulary.keys)
+
+        folder = "./tests/static/pdf-files"
+        self._vocabulary.import_folder(folder_path=folder)
+
+        self._vocabulary.generate_collection()
+
+        self.assertTrue('brasil' in self._vocabulary.keys)

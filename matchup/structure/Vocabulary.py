@@ -13,7 +13,7 @@ from matchup.structure.weighting.Tf import TF
 
 from matchup.presentation.Sanitizer import Sanitizer
 from matchup.presentation.Text import Term
-from matchup.presentation.formats.File import ExtensionNotSupported, File
+from matchup.presentation.formats.File import ExtensionNotSupported, get_file
 
 LIB_PATH = path.abspath("./static/lib")
 SAVED_FILE_NAME = 'collection.bin'
@@ -47,22 +47,19 @@ class Vocabulary:
             return True
         return False
 
-    def import_folder(self, folder_path: str, *, update_path: bool = False) -> bool:
+    def import_folder(self, folder_path: str) -> bool:
         """
             Generalization of import_file(). This function receive a folder path and try to append all documents of
             this folder into some structure. he processing of all this file can be started running function
              generate_collection()
 
         :param folder_path: string that represents a relative or absolute path of an folder
-        :param update_path: flag to update processed file path
         :return: boolean flag that indicates if the folder has been identified
         """
         if path.isdir(folder_path):
             list_dir = filter(lambda x: f'{SAVED_FILE_NAME}' not in x, listdir(folder_path))
             for filename in list_dir:
                 self.import_file(folder_path + "/" + filename)
-            if update_path:
-                self._collection_path = folder_path + f"/{SAVED_FILE_NAME}"
             return True
         raise FileNotFoundError
 
@@ -86,15 +83,14 @@ class Vocabulary:
         :return: None
         """
         for file_name in self.file_names:
-            file = None
+            file = get_file(file_name)
             try:
-                file = File.open(file_name)
-                content_file = File.content_file(file_name, file)
-                self.__process_file(file_name, content_file)
+                text_io = file.open()
+                self.__process_file(file_name, text_io)
             except ExtensionNotSupported:
                 continue
             finally:
-                File.close(file)
+                file.close()
 
     def save(self) -> bool:
         """
@@ -106,7 +102,7 @@ class Vocabulary:
             with open(self._collection_path, mode='wb') as file:
                 pickle.dump(self._inverted_file, file)
             return True
-        raise ReferenceError
+        raise ReferenceError("You should to process some collection files")
 
     def size_vocabulary(self) -> int:
         """

@@ -9,6 +9,7 @@ verify_ssl = true
 coverage = "*"
 sphinx = "*"
 sphinx-automodapi = "*"
+pdfminer = "*"
 
 [requires]
 python_version = "3.7"
