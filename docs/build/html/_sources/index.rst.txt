@@ -25,7 +25,7 @@ Vocabulary
 
 Let's start creating our collection. The first thing you should to do is import the Vocabulary object.::
 
-    from matchup.structure.Vocabulary import Vocabulary
+    from matchup.structure.vocabulary import Vocabulary
 
 The Vocabulary allows us to manage and process documents that will be part of our collection. Now we can build our
 own vocabulary and import some files to it.::
@@ -57,7 +57,7 @@ Query
 Another pillar of this library is the query concept. Queries is responsible to extract insights about the collection.
 The first to do working with queries, is to import the module.::
 
-    from matchup.structure.Query import Query
+    from matchup.structure.query import Query
 
 There are just one way to make queries: with plain text. If you want to do a query with a file, you need firstly process
 this file in a string format, and then use it. Let's explore the Query structure with plain text approach.::

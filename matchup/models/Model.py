@@ -9,9 +9,9 @@ from enum import Enum
 from typing import List
 from collections import defaultdict
 
-from matchup.structure.Solution import Result
-from matchup.structure.Vocabulary import Vocabulary
-from matchup.presentation.Text import Term
+from matchup.structure.solution import Result
+from matchup.structure.vocabulary import Vocabulary
+from matchup.presentation.text import Term
 
 
 class ModelType(Enum):

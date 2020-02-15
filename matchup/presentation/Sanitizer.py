@@ -7,7 +7,7 @@ import unicodedata
 
 from typing import List, Set
 
-from matchup.presentation.Text import Term, Line
+from matchup.presentation.text import Term, Line
 
 
 class Sanitizer:

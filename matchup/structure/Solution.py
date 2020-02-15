@@ -2,7 +2,7 @@ from typing import List
 
 from collections import namedtuple
 
-from matchup.structure.weighting.Tf import TF
+from matchup.structure.weighting.tf import TF
 
 Result = namedtuple("Result", "document, score")
 

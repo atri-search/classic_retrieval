@@ -7,13 +7,13 @@ from typing import List
 
 import pickle
 
-from matchup.structure.Occurrence import Occurrence
-from matchup.structure.weighting.Idf import IDF
-from matchup.structure.weighting.Tf import TF
+from matchup.structure.occurrence import Occurrence
+from matchup.structure.weighting.idf import IDF
+from matchup.structure.weighting.tf import TF
 
-from matchup.presentation.Sanitizer import Sanitizer
-from matchup.presentation.Text import Term
-from matchup.presentation.formats.File import ExtensionNotSupported, get_file
+from matchup.presentation.sanitizer import Sanitizer
+from matchup.presentation.text import Term
+from matchup.presentation.formats import ExtensionNotSupported, get_file
 
 LIB_PATH = path.abspath("./static/lib")
 SAVED_FILE_NAME = 'collection.bin'

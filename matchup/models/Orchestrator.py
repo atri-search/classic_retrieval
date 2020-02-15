@@ -4,17 +4,17 @@
 """
 from typing import List
 
-from matchup.structure.Solution import Result
-from matchup.structure.weighting.Idf import InverseFrequency
-from matchup.structure.weighting.Tf import LogNormalization
+from matchup.structure.solution import Result
+from matchup.structure.weighting.idf import InverseFrequency
+from matchup.structure.weighting.tf import LogNormalization
 
-from matchup.models.Model import ModelType
-from matchup.models.algorithms.Boolean import Boolean
-from matchup.models.algorithms.Vector import Vector
-from matchup.models.algorithms.Probabilistic import Probabilistic
-from matchup.models.algorithms.ExtendedBoolean import ExtendedBoolean
+from matchup.models.model import ModelType
+from matchup.models.algorithms.boolean import Boolean
+from matchup.models.algorithms.vector_space import Vector
+from matchup.models.algorithms.probabilistic import Probabilistic
+from matchup.models.algorithms.extended_boolean import ExtendedBoolean
 
-from matchup.presentation.Text import Term
+from matchup.presentation.text import Term
 
 
 class NoSuchInputException(RuntimeError):

@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from matchup.structure.Vocabulary import Vocabulary
+from matchup.structure.vocabulary import Vocabulary
 
 
 class VocabularyTest(unittest.TestCase):

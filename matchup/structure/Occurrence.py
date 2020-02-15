@@ -2,7 +2,7 @@
     Occurrence is an encapsulation of:
         name of document, frequency of term in document, positions and score
 """
-from matchup.presentation.Text import Term
+from matchup.presentation.text import Term
 
 
 class Occurrence:

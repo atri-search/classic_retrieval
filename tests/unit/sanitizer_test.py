@@ -1,8 +1,8 @@
 import unittest
 import os
 
-from matchup.presentation.Sanitizer import Sanitizer
-from matchup.presentation.Text import Line, Term
+from matchup.presentation.sanitizer import Sanitizer
+from matchup.presentation.text import Line, Term
 
 
 class SanitizerTest(unittest.TestCase):

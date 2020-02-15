@@ -5,8 +5,8 @@
 from collections import defaultdict
 from typing import DefaultDict
 
-from matchup.models.Model import Model, List, Term, Vocabulary
-from matchup.structure.Solution import Result
+from matchup.models.model import Model, List, Term, Vocabulary
+from matchup.structure.solution import Result
 
 
 class Boolean(Model):

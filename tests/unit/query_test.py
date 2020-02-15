@@ -1,9 +1,9 @@
 import unittest
 import os
 
-from matchup.presentation.Text import Term
-from matchup.structure.Query import Query
-from matchup.structure.Vocabulary import Vocabulary
+from matchup.presentation.text import Term
+from matchup.structure.query import Query
+from matchup.structure.vocabulary import Vocabulary
 
 
 class QueryTest(unittest.TestCase):

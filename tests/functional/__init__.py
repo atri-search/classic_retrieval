@@ -1,12 +1,15 @@
 __all__ = ['boolean_test', 'extended_boolean_test', 'vector_test', 'probabilistic_test', 'main']
 
-from matchup.structure.Vocabulary import Vocabulary
-from matchup.structure.Query import Query
+from matchup.structure.vocabulary import Vocabulary
+from matchup.structure.query import Query
 
 
 def set_up_txt_test():
     vocabulary = Vocabulary("./tests/static/files", stopwords="./tests/static/pt-br.txt")
     vocabulary.import_collection()
+    # vocabulary.import_folder("./tests/static/files")
+    # vocabulary.generate_collection()
+    # vocabulary.save()
     query = Query(vocabulary=vocabulary)
     return vocabulary, query
 

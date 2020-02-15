@@ -1,7 +1,7 @@
 import unittest
 
-from matchup.structure.Solution import Result
-from matchup.models.Model import ModelType
+from matchup.structure.solution import Result
+from matchup.models.model import ModelType
 from . import set_up_txt_test, set_up_pdf_test
 
 

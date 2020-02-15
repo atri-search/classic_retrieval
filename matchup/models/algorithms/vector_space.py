@@ -6,8 +6,8 @@ from math import sqrt
 from collections import defaultdict
 from typing import List, DefaultDict
 
-from matchup.models.Model import IterModel, Term, Vocabulary
-from matchup.structure.Solution import Result
+from matchup.models.model import IterModel, Term, Vocabulary
+from matchup.structure.solution import Result
 
 
 class Vector(IterModel):

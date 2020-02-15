@@ -1,7 +1,7 @@
 import unittest
 
-from matchup.models.Model import Model, IterModel
-from matchup.structure.Solution import Result
+from matchup.models.model import Model, IterModel
+from matchup.structure.solution import Result
 
 
 class ModelTest(unittest.TestCase):

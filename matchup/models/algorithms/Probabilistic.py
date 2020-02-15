@@ -5,8 +5,8 @@ from collections import defaultdict
 from typing import List, DefaultDict
 from math import log
 
-from matchup.models.Model import IterModel, Term, Vocabulary
-from matchup.structure.Solution import Result
+from matchup.models.model import IterModel, Term, Vocabulary
+from matchup.structure.solution import Result
 
 
 class Probabilistic(IterModel):

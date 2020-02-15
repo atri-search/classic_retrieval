@@ -3,9 +3,9 @@
         sanitizer, orquestrator and answer
 """
 
-from matchup.presentation.Sanitizer import Sanitizer
-from matchup.models.Orchestrator import Orchestrator, ModelType
-from matchup.structure.Solution import Solution
+from matchup.presentation.sanitizer import Sanitizer
+from matchup.models.orchestrator import Orchestrator, ModelType
+from matchup.structure.solution import Solution
 
 
 class NoSuchAnswerException(RuntimeError):

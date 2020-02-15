@@ -3,11 +3,11 @@ from math import pow
 from typing import List
 from collections import defaultdict
 
-from matchup.presentation.Text import Term
-from matchup.models.Model import IterModel
-from matchup.structure.Vocabulary import Vocabulary
+from matchup.presentation.text import Term
+from matchup.models.model import IterModel
+from matchup.structure.vocabulary import Vocabulary
 
-from matchup.models.algorithms.Vector import Vector
+from matchup.models.algorithms.vector_space import Vector
 
 
 class ExtendedBoolean(IterModel):
