@@ -1,23 +1,31 @@
 """
-    Represents the Query of the IR service, composite for :
-        sanitizer, orquestrator and answer
+    The query module is responsible for encapsulating everything related to the process of creating a user query.
 """
+from typing import List
 
 from matchup.presentation.sanitizer import Sanitizer
 from matchup.models.orchestrator import Orchestrator, ModelType
 from matchup.structure.solution import Solution
+from matchup.presentation.text import Term
 
 
 class NoSuchAnswerException(RuntimeError):
+    """
+        Exception when no such answer (input) are given by user during a search method.
+    """
     pass
 
 
 class Query:
+    """
+        Represents the Query of the IR service.
+        The query is responsible for processing and generating user input to search a previously built collection
+    """
     def __init__(self, *, vocabulary):
         self._sanitizer = Sanitizer(stopwords_path=vocabulary.stopwords_path) if vocabulary.stopwords_path else \
             Sanitizer()
         self._orq = Orchestrator(vocabulary)
-        self._answer = list()  # List[Term]
+        self._answer = list()
 
     def ask(self, answer: str = None) -> None:
         """
@@ -33,14 +41,18 @@ class Query:
             text = answer.split("\n")
             terms = []
             for line in text:
-                terms += self._sanitizer.sanitize_line(line, number_line)  # linha -> [(palavra, posicao)]
+                terms += self._sanitizer.sanitize_line(line, number_line)
                 number_line += 1
             self._answer = terms
 
         self._orq.entry = self._answer
 
     @property
-    def search_input(self):
+    def search_input(self) -> List[Term]:
+        """
+            Input property getter.
+        :return:
+        """
         return self._answer
 
     def search(self, *, model: ModelType = None, idf=None, tf=None, **kwargs) -> Solution:

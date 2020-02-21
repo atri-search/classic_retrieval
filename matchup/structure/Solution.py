@@ -1,3 +1,7 @@
+"""
+    Solution module basically implements the Solution class
+"""
+
 from typing import List
 
 from collections import namedtuple
@@ -8,6 +12,9 @@ Result = namedtuple("Result", "document, score")
 
 
 class Solution:
+    """
+        The solution class has the function of properly storing and displaying the responses of the queries
+    """
     def __init__(self, results: List[Result]):
         self._results = results
         self._idf = None

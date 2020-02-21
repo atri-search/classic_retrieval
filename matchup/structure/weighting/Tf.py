@@ -40,7 +40,7 @@ class TF(ABC):
     @classmethod
     def _fij(cls, occurrence, vocabulary):
         if cls != LogNormalization:
-            value = occurrence.frequency / (vocabulary.max_frequency_map[occurrence.doc()])
+            value = occurrence.frequency / (vocabulary.max_frequency_doc[occurrence.doc()])
         else:
             value = occurrence.frequency
         return value

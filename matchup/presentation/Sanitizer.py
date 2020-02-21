@@ -1,5 +1,5 @@
 """
-    Module responsible to configure the document representation.
+    Module responsible to configure the text representation.
 """
 
 import re
@@ -11,7 +11,15 @@ from matchup.presentation.text import Term, Line
 
 
 class Sanitizer:
+    """
+      Responsible to clean and process the text representation.
+    """
+
     def __init__(self, *, stopwords_path: str = None):
+        """
+            Sanitizer constructor
+        :param stopwords_path: full path of stopwords file.
+        """
         self._stopwords = set()
         if stopwords_path:
             self._stopwords_path = stopwords_path

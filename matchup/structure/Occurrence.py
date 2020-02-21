@@ -1,18 +1,27 @@
 """
-    Occurrence is an encapsulation of:
-        name of document, frequency of term in document, positions and score
+    Occurrence module is composed only by the Occurrence class.
 """
 from matchup.presentation.text import Term
 
 
 class Occurrence:
-
+    """
+        Occurrence is an encapsulation of:
+            document name, keyword, frequency of term in document, positions and score
+        Occurrence is an data structure used to compose Vocabulary.
+    """
     def __init__(self, doc: str = "", term: Term = None):
+        """
+            Occurrence constructor.
+        :param doc: String that represents the document name
+        :param term: Term that encapsulate the keyword and its position in document.
+        """
         self._doc = doc
+        self._keyword = term.word if term is not None else None
         self._score = 0
+
         self._frequency = 1
         self._positions = [term.position] if term is not None else []
-        self._keyword = term.word if term is not None else None
 
     def __str__(self) -> str:
         """
@@ -77,9 +86,18 @@ class Occurrence:
         self._score = scr
 
     @property
-    def keyword(self):
+    def keyword(self) -> str:
+        """
+            Keyword property getter
+        :return: Keyword name
+        """
         return self._keyword
 
     @keyword.setter
-    def keyword(self, kw):
+    def keyword(self, kw: str) -> None:
+        """
+            Keyword property setter
+        :param kw: Keyword to update
+        :return: None
+        """
         self._keyword = kw

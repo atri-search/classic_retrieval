@@ -20,6 +20,9 @@ SAVED_FILE_NAME = 'collection.bin'
 
 
 class Vocabulary:
+    """
+        Crucial data structure that represents and storage all text processing.
+    """
 
     def __init__(self, save, **kwargs):
         """
@@ -27,12 +30,13 @@ class Vocabulary:
         :param kwargs: only accepts 'stopwords', with the stopwords file path
         """
         self._inverted_file = defaultdict(list)
-        self._idfs = None
-        self._tfs = None
-        self.file_names = set()
-        self.max_frequency_map = defaultdict(float)
+        self._idf = None
+        self._tf = None
         self._collection_path = self.__make_prefix(save) + f"/{SAVED_FILE_NAME}"
         self._sanitizer = self.__make_sanitizer(**kwargs)
+
+        self.max_frequency_doc = defaultdict(float)
+        self.file_names = set()
 
     def import_file(self, file_path: str) -> bool:
         """
@@ -131,7 +135,7 @@ class Vocabulary:
             Get the data structure that represents the IDF weithing
         :return: IDF object
         """
-        return self._idfs
+        return self._idf
 
     @idf.setter
     def idf(self, idf: IDF) -> None:
@@ -139,8 +143,8 @@ class Vocabulary:
             This function just calculate IDF of all keywords on vocabulary
         :return: None
         """
-        self._idfs = idf
-        self._idfs.generate(self)
+        self._idf = idf
+        self._idf.generate(self)
 
     @property
     def tf(self) -> TF:
@@ -148,7 +152,7 @@ class Vocabulary:
             Get the data structure that represents the TF weithing
         :return: TF object
         """
-        return self._tfs
+        return self._tf
 
     @tf.setter
     def tf(self, tf: TF) -> None:
@@ -157,7 +161,7 @@ class Vocabulary:
         :param tf: TF Object
         :return: None
         """
-        self._tfs = tf
+        self._tf = tf
 
     @property
     def keys(self) -> list:
@@ -169,6 +173,10 @@ class Vocabulary:
 
     @property
     def sanitizer(self) -> "Sanitizer":
+        """
+            Sanitizer property getter
+        :return:
+        """
         return self._sanitizer
 
     def get_number_docs_by_keyword(self, kw: str) -> int:
@@ -218,15 +226,15 @@ class Vocabulary:
                 occurrence = self._inverted_file[term.word][idx]
                 occurrence.add(position=term.position)
 
-                if self.max_frequency_map[file_name] < occurrence.frequency:
-                    self.max_frequency_map[file_name] = occurrence.frequency
+                if self.max_frequency_doc[file_name] < occurrence.frequency:
+                    self.max_frequency_doc[file_name] = occurrence.frequency
 
             except ValueError:
                 occurrence = Occurrence(file_name, term)
                 self._inverted_file[term.word].append(occurrence)
 
-                if self.max_frequency_map[file_name] < occurrence.frequency:
-                    self.max_frequency_map[file_name] = occurrence.frequency
+                if self.max_frequency_doc[file_name] < occurrence.frequency:
+                    self.max_frequency_doc[file_name] = occurrence.frequency
 
     def __sort(self) -> None:
         """
@@ -244,8 +252,8 @@ class Vocabulary:
         for keyword in self._inverted_file:
             for occurrence in self._inverted_file[keyword]:
                 self.file_names.add(occurrence.doc())
-                if self.max_frequency_map[occurrence.doc()] < occurrence.frequency:
-                    self.max_frequency_map[occurrence.doc()] = occurrence.frequency
+                if self.max_frequency_doc[occurrence.doc()] < occurrence.frequency:
+                    self.max_frequency_doc[occurrence.doc()] = occurrence.frequency
 
     def __process_file(self, filename, content_file):
         number_line = 1
@@ -265,4 +273,3 @@ class Vocabulary:
     @classmethod
     def __make_prefix(cls, save):
         return save if save else LIB_PATH
-
