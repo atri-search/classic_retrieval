@@ -15,8 +15,6 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ModelMissingParameters" href="matchup.models.Orchestrator.ModelMissingParameters.html" />
-    <link rel="prev" title="Unary" href="matchup.structure.weighting.Idf.Unary.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,128 +33,6 @@
             
   <div class="section" id="sanitizer">
 <h1>Sanitizer<a class="headerlink" href="#sanitizer" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="matchup.presentation.Sanitizer.Sanitizer">
-<em class="property">class </em><code class="sig-prename descclassname">matchup.presentation.Sanitizer.</code><code class="sig-name descname">Sanitizer</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">stopwords_path: str = None</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.presentation.Sanitizer.Sanitizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p class="rubric">Attributes Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.Sanitizer.Sanitizer.stopwords_path" title="matchup.presentation.Sanitizer.Sanitizer.stopwords_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stopwords_path</span></code></a></p></td>
-<td><p>Property that get the stopwords file path</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.Sanitizer.Sanitizer.import_stopwords" title="matchup.presentation.Sanitizer.Sanitizer.import_stopwords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_stopwords</span></code></a>()</p></td>
-<td><p>Retrieve stopwords from memory</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.presentation.Sanitizer.Sanitizer.index_line" title="matchup.presentation.Sanitizer.Sanitizer.index_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_line</span></code></a>(words, base_line)</p></td>
-<td><p>This function index one line, clean all words and returning all words sanitized</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.Sanitizer.Sanitizer.sanitize_line" title="matchup.presentation.Sanitizer.Sanitizer.sanitize_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sanitize_line</span></code></a>(line, number_line)</p></td>
-<td><p>This function sanitize one line. The number is basically for presentation</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.presentation.Sanitizer.Sanitizer.strip_accents" title="matchup.presentation.Sanitizer.Sanitizer.strip_accents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_accents</span></code></a>(text)</p></td>
-<td><p>Strip accents of one text</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Attributes Documentation</p>
-<dl class="attribute">
-<dt id="matchup.presentation.Sanitizer.Sanitizer.stopwords_path">
-<code class="sig-name descname">stopwords_path</code><a class="headerlink" href="#matchup.presentation.Sanitizer.Sanitizer.stopwords_path" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Property that get the stopwords file path</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Complete stopwords file path</p>
-</dd>
-</dl>
-</dd></dl>
-
-<p class="rubric">Methods Documentation</p>
-<dl class="method">
-<dt id="matchup.presentation.Sanitizer.Sanitizer.import_stopwords">
-<code class="sig-name descname">import_stopwords</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Set[str]<a class="headerlink" href="#matchup.presentation.Sanitizer.Sanitizer.import_stopwords" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Retrieve stopwords from memory</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>set of stopwords</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.presentation.Sanitizer.Sanitizer.index_line">
-<em class="property">static </em><code class="sig-name descname">index_line</code><span class="sig-paren">(</span><em class="sig-param">words: List[str], base_line: matchup.presentation.Text.Line</em><span class="sig-paren">)</span> &#x2192; List[matchup.presentation.Text.Term]<a class="headerlink" href="#matchup.presentation.Sanitizer.Sanitizer.index_line" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>This function index one line, clean all words and returning all words sanitized
-The list must be sorted by occurrence in text!</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>words</strong> – base-line stripped and without stopwords</p></li>
-<li><p><strong>base_line</strong> – line to be sanitized</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of indexed words : list(Term)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.presentation.Sanitizer.Sanitizer.sanitize_line">
-<code class="sig-name descname">sanitize_line</code><span class="sig-paren">(</span><em class="sig-param">line: str</em>, <em class="sig-param">number_line: int</em><span class="sig-paren">)</span> &#x2192; List[matchup.presentation.Text.Term]<a class="headerlink" href="#matchup.presentation.Sanitizer.Sanitizer.sanitize_line" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>This function sanitize one line. The number is basically for presentation</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>line</strong> – Complete line to be processed</p></li>
-<li><p><strong>number_line</strong> – number of line</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.presentation.Sanitizer.Sanitizer.strip_accents">
-<em class="property">static </em><code class="sig-name descname">strip_accents</code><span class="sig-paren">(</span><em class="sig-param">text: str</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#matchup.presentation.Sanitizer.Sanitizer.strip_accents" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Strip accents of one text</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>text</strong> – old text</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>text sanitized</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 
 
@@ -177,23 +53,8 @@ The list must be sorted by occurrence in text!</p>
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Occurrence">matchup.structure.Occurrence Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Query">matchup.structure.Query Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Solution">matchup.structure.Solution Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Vocabulary">matchup.structure.Vocabulary Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Tf">matchup.structure.weighting.Tf Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Idf">matchup.structure.weighting.Idf Module</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.presentation.Sanitizer">matchup.presentation.Sanitizer Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Orchestrator">matchup.models.Orchestrator Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Model">matchup.models.Model Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Boolean">matchup.models.algorithms.Boolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.ExtendedBoolean">matchup.models.algorithms.ExtendedBoolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Probabilistic">matchup.models.algorithms.Probabilistic Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Vector">matchup.models.algorithms.Vector Module</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -203,10 +64,6 @@ The list must be sorted by occurrence in text!</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../overview.html">Overview classes</a><ul>
-      <li>Previous: <a href="matchup.structure.weighting.Idf.Unary.html" title="previous chapter">Unary</a></li>
-      <li>Next: <a href="matchup.models.Orchestrator.ModelMissingParameters.html" title="next chapter">ModelMissingParameters</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -236,7 +93,7 @@ The list must be sorted by occurrence in text!</p>
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

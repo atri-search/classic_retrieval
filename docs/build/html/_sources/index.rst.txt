@@ -57,7 +57,7 @@ Query
 Another pillar of this library is the query concept. Queries is responsible to extract insights about the create_collection.
 The first to do working with queries, is to import the module.::
 
-    from matchup.structure.query import Query
+    from matchup.structure.Query import Query
 
 There are just one way to make queries: with plain text. If you want to do a query with a file, you need firstly process
 this file in a string format, and then use it. Let's explore the Query structure with plain text approach.::
@@ -96,8 +96,4 @@ Indices and tables
 
 Status
 ------
-.. image:: https://readthedocs.org/projects/match-up-lib/badge/?version=latest
-:target: https://match-up-lib.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
-
 Building Version 0.0.3

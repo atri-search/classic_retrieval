@@ -15,8 +15,6 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="IDFFactory" href="matchup.structure.weighting.Idf.IDFFactory.html" />
-    <link rel="prev" title="TermFrequency" href="matchup.structure.weighting.Tf.TermFrequency.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,59 +33,6 @@
             
   <div class="section" id="idf">
 <h1>IDF<a class="headerlink" href="#idf" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="matchup.structure.weighting.Idf.IDF">
-<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.weighting.Idf.</code><code class="sig-name descname">IDF</code><a class="headerlink" href="#matchup.structure.weighting.Idf.IDF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
-<p class="rubric">Methods Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.weighting.Idf.IDF.generate" title="matchup.structure.weighting.Idf.IDF.generate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate</span></code></a>(vocabulary)</p></td>
-<td><p>Generate the idf for all keywords in a vocabulary</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.weighting.Idf.IDF.take" title="matchup.structure.weighting.Idf.IDF.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a>(*[, value, reverse])</p></td>
-<td><p>Take the first ‘value’ elements of IDF dict</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods Documentation</p>
-<dl class="method">
-<dt id="matchup.structure.weighting.Idf.IDF.generate">
-<code class="sig-name descname">generate</code><span class="sig-paren">(</span><em class="sig-param">vocabulary</em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#matchup.structure.weighting.Idf.IDF.generate" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Generate the idf for all keywords in a vocabulary</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>vocabulary</strong> – Vocabulary object</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.structure.weighting.Idf.IDF.take">
-<code class="sig-name descname">take</code><span class="sig-paren">(</span><em class="sig-param">*</em>, <em class="sig-param">value: int = 0</em>, <em class="sig-param">reverse: bool = True</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.weighting.Idf.IDF.take" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Take the first ‘value’ elements of IDF dict</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> – </p>
-</dd>
-</dl>
-<p>:param reverse : asc or desc.
-:return:</p>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 
 
@@ -108,23 +53,8 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Occurrence">matchup.structure.Occurrence Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Query">matchup.structure.Query Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Solution">matchup.structure.Solution Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Vocabulary">matchup.structure.Vocabulary Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Tf">matchup.structure.weighting.Tf Module</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Idf">matchup.structure.weighting.Idf Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.Sanitizer">matchup.presentation.Sanitizer Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Orchestrator">matchup.models.Orchestrator Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Model">matchup.models.Model Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Boolean">matchup.models.algorithms.Boolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.ExtendedBoolean">matchup.models.algorithms.ExtendedBoolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Probabilistic">matchup.models.algorithms.Probabilistic Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Vector">matchup.models.algorithms.Vector Module</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -134,10 +64,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../overview.html">Overview classes</a><ul>
-      <li>Previous: <a href="matchup.structure.weighting.Tf.TermFrequency.html" title="previous chapter">TermFrequency</a></li>
-      <li>Next: <a href="matchup.structure.weighting.Idf.IDFFactory.html" title="next chapter">IDFFactory</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -167,7 +93,7 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

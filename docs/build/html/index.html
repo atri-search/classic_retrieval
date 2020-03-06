@@ -43,7 +43,7 @@ that can be used to get insights about the create_collection.</p>
 <div class="section" id="vocabulary">
 <h3>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this headline">¶</a></h3>
 <p>Let’s start creating our create_collection. The first thing you should to do is import the Vocabulary object.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matchup.structure.Vocabulary</span> <span class="kn">import</span> <span class="n">Vocabulary</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matchup.structure.vocabulary</span> <span class="kn">import</span> <span class="n">Vocabulary</span>
 </pre></div>
 </div>
 <p>The Vocabulary allows us to manage and process documents that will be part of our create_collection. Now we can build our
@@ -99,19 +99,19 @@ documentation.</p>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.Occurrence">matchup.structure.Occurrence Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.Query">matchup.structure.Query Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.Solution">matchup.structure.Solution Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.Vocabulary">matchup.structure.Vocabulary Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.weighting.Tf">matchup.structure.weighting.Tf Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.weighting.Idf">matchup.structure.weighting.Idf Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.presentation.Sanitizer">matchup.presentation.Sanitizer Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.Orchestrator">matchup.models.Orchestrator Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.Model">matchup.models.Model Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.Boolean">matchup.models.algorithms.Boolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.ExtendedBoolean">matchup.models.algorithms.ExtendedBoolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.Probabilistic">matchup.models.algorithms.Probabilistic Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.Vector">matchup.models.algorithms.Vector Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.occurrence">matchup.structure.occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -131,15 +131,6 @@ documentation.</p>
 </div>
 <div class="section" id="status">
 <h2>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h2>
-<img alt="https://readthedocs.org/projects/match-up-lib/badge/?version=latest" src="https://readthedocs.org/projects/match-up-lib/badge/?version=latest" />
-<dl class="field-list simple">
-<dt class="field-odd">target</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://match-up-lib.readthedocs.io/en/latest/?badge=latest">https://match-up-lib.readthedocs.io/en/latest/?badge=latest</a></p>
-</dd>
-<dt class="field-even">alt</dt>
-<dd class="field-even"><p>Documentation Status</p>
-</dd>
-</dl>
 <p>Building Version 0.0.3</p>
 </div>
 </div>
@@ -203,7 +194,7 @@ documentation.</p>
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

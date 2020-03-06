@@ -5,53 +5,53 @@ Overview classes
    :maxdepth: 2
 
 .. automodapi::
-   matchup.structure.Occurrence
+   matchup.structure.occurrence
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.structure.Query
+   matchup.structure.query
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.structure.Solution
+   matchup.structure.solution
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.structure.Vocabulary
+   matchup.structure.vocabulary
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.structure.weighting.Tf
+   matchup.structure.weighting.tf
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.structure.weighting.Idf
+   matchup.structure.weighting.idf
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.presentation.Sanitizer
+   matchup.presentation.sanitizer
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.models.Orchestrator
+   matchup.models.orchestrator
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.models.Model
+   matchup.models.model
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.models.algorithms.Boolean
+   matchup.models.algorithms.boolean
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.models.algorithms.ExtendedBoolean
+   matchup.models.algorithms.extended_boolean
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.models.algorithms.Probabilistic
+   matchup.models.algorithms.probabilistic
    :no-inheritance-diagram:
 
 .. automodapi::
-   matchup.models.algorithms.Vector
+   matchup.models.algorithms.vector_space
    :no-inheritance-diagram:
