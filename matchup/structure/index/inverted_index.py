@@ -89,7 +89,10 @@ class InvertedIndex:
         sanitizer = sanitizer if sanitizer else Sanitizer()
 
         for file_name in files:
-            file = get_file(file_name)
+            try:
+                file = get_file(file_name)
+            except ExtensionNotSupported:
+                continue
             try:
                 text_io = file.open()
                 self.__process_file(file_name, text_io, sanitizer)
