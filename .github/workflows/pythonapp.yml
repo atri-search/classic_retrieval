@@ -18,6 +18,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install coverage
         pip install codecov
+        pip install pdfminer
     - name: Test with unittest
       run: |
         coverage run -m unittest tests/unit/main.py tests/functional/main.py
