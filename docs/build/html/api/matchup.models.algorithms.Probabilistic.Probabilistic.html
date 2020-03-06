@@ -15,8 +15,6 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vector" href="matchup.models.algorithms.Vector.Vector.html" />
-    <link rel="prev" title="ExtendedBoolean" href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,107 +33,6 @@
             
   <div class="section" id="probabilistic">
 <h1>Probabilistic<a class="headerlink" href="#probabilistic" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="matchup.models.algorithms.Probabilistic.Probabilistic">
-<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.Probabilistic.</code><code class="sig-name descname">Probabilistic</code><a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="matchup.models.Model.IterModel.html#matchup.models.Model.IterModel" title="matchup.models.Model.IterModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.Model.IterModel</span></code></a></p>
-<p class="rubric">Methods Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir" title="matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catch_pir</span></code></a>(vocabulary, key)</p></td>
-<td><p>Catch pir statistic based in key of vocabulary</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir" title="matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">catch_qir</span></code></a>(vocabulary, key)</p></td>
-<td><p>Catch qir statistic based in key of vocabulary</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key" title="matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">docs_with_key</span></code></a>(occ)</p></td>
-<td><p>Return the vi_value : number of documents with key</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.Probabilistic.Probabilistic.run" title="matchup.models.algorithms.Probabilistic.Probabilistic.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
-<td><p>Principal method that represents IR probabilistic model.</p></td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Methods Documentation</p>
-<dl class="method">
-<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir">
-<em class="property">static </em><code class="sig-name descname">catch_pir</code><span class="sig-paren">(</span><em class="sig-param">vocabulary: matchup.structure.Vocabulary.Vocabulary</em>, <em class="sig-param">key: str</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_pir" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Catch pir statistic based in key of vocabulary</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vocabulary</strong> – data structure that represents vocabulary</p></li>
-<li><p><strong>key</strong> – keyword to catch pir</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>float pir</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir">
-<em class="property">static </em><code class="sig-name descname">catch_qir</code><span class="sig-paren">(</span><em class="sig-param">vocabulary: matchup.structure.Vocabulary.Vocabulary</em>, <em class="sig-param">key: str</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.catch_qir" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Catch qir statistic based in key of vocabulary</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vocabulary</strong> – data structure that represents vocabulary</p></li>
-<li><p><strong>key</strong> – keyword to catch pir</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>float pir</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key">
-<em class="property">static </em><code class="sig-name descname">docs_with_key</code><span class="sig-paren">(</span><em class="sig-param">occ</em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.docs_with_key" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Return the vi_value : number of documents with key</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>occ</strong> – Occurrences</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.models.algorithms.Probabilistic.Probabilistic.run">
-<em class="property">static </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.Text.Term], vocabulary: matchup.structure.Vocabulary.Vocabulary</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.Probabilistic.Probabilistic.run" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Principal method that represents IR probabilistic model.</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> – list of all query terms</p></li>
-<li><p><strong>vocabulary</strong> – data structure that represents the vocabulary</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 
 
@@ -156,23 +53,8 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Occurrence">matchup.structure.Occurrence Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Query">matchup.structure.Query Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Solution">matchup.structure.Solution Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.Vocabulary">matchup.structure.Vocabulary Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Tf">matchup.structure.weighting.Tf Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.Idf">matchup.structure.weighting.Idf Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.Sanitizer">matchup.presentation.Sanitizer Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Orchestrator">matchup.models.Orchestrator Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.Model">matchup.models.Model Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Boolean">matchup.models.algorithms.Boolean Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.ExtendedBoolean">matchup.models.algorithms.ExtendedBoolean Module</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Probabilistic">matchup.models.algorithms.Probabilistic Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.Vector">matchup.models.algorithms.Vector Module</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -182,10 +64,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="../overview.html">Overview classes</a><ul>
-      <li>Previous: <a href="matchup.models.algorithms.ExtendedBoolean.ExtendedBoolean.html" title="previous chapter">ExtendedBoolean</a></li>
-      <li>Next: <a href="matchup.models.algorithms.Vector.Vector.html" title="next chapter">Vector</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -215,7 +93,7 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
