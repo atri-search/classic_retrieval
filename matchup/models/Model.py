@@ -83,7 +83,7 @@ class IterModel(Model):
     @staticmethod
     def initialize_occurrences(query: List[Term], vocabulary: Vocabulary) -> None:
         """
-            Create another data structure _term_occurrences that represents the vocabulary wiith just query
+            Create another data structure _term_occurrences that represents the vocabulary with just query
             keywords.
         :param query: original query
         :param vocabulary: original vocabulary

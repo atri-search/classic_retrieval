@@ -1,6 +1,6 @@
 import unittest
 
-from matchup.models.model import Model, IterModel
+from matchup.models.model import Model
 from matchup.structure.solution import Result
 
 

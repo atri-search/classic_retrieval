@@ -8,8 +8,8 @@ Match Up
 
 Match up is a PURE-Python library based on `Information Retrieval`_ (IR) concepts.
 Here are implemented four IR models (`Boolean`_, `Vector Space`_, `Probabilistic`_ and `Extended Boolean`_) that can be tested and
-compared through a collection of documents and a query. The result will be a query-based similarity rank
-that can be used to get insights about the collection.
+compared through a create_collection of documents and a query. The result will be a query-based similarity rank
+that can be used to get insights about the create_collection.
 
 .. _Information Retrieval: https://en.wikipedia.org/wiki/Information_retrieval
 .. _Boolean: https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval
@@ -23,23 +23,23 @@ Simple Guide
 Vocabulary
 ^^^^^^^^^^
 
-Let's start creating our collection. The first thing you should to do is import the Vocabulary object.::
+Let's start creating our create_collection. The first thing you should to do is import the Vocabulary object.::
 
-    from matchup.structure.Vocabulary import Vocabulary
+    from matchup.structure.vocabulary import Vocabulary
 
-The Vocabulary allows us to manage and process documents that will be part of our collection. Now we can build our
+The Vocabulary allows us to manage and process documents that will be part of our create_collection. Now we can build our
 own vocabulary and import some files to it.::
 
-    vocabulary = Vocabulary('path/to/processed/collection')
+    vocabulary = Vocabulary('path/to/processed/create_collection')
     vocabulary.import_file('path/to/txt/file')
     vocabulary.import_folder('path/to/folder')
 
 Well, we can see with this example that it is possible to import one single file, but you can also import all text files
 in a directory. With that, the files are set, but not processed yet. Let's do this.::
 
-    vocabulary.generate_collection()
+    vocabulary.index_files()
 
-We now have a data structure that allows us to query and extract insights from the collection that was built before.
+We now have a data structure that allows us to query and extract insights from the create_collection that was built before.
 If you want to persist it in memory, you can.::
 
     vocabulary.save()
@@ -54,7 +54,7 @@ Ok, that is all about the most important structure of this library. Now we'll le
 Query
 ^^^^^
 
-Another pillar of this library is the query concept. Queries is responsible to extract insights about the collection.
+Another pillar of this library is the query concept. Queries is responsible to extract insights about the create_collection.
 The first to do working with queries, is to import the module.::
 
     from matchup.structure.Query import Query

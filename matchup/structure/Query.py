@@ -19,11 +19,11 @@ class NoSuchAnswerException(RuntimeError):
 class Query:
     """
         Represents the Query of the IR service.
-        The query is responsible for processing and generating user input to search a previously built collection
+        The query is responsible for processing and generating user input to search a previously built create_collection
     """
     def __init__(self, *, vocabulary):
-        self._sanitizer = Sanitizer(stopwords_path=vocabulary.stopwords_path) if vocabulary.stopwords_path else \
-            Sanitizer()
+        self._sanitizer = Sanitizer(stopwords_path=vocabulary.sanitizer.stopwords_path) \
+            if vocabulary.sanitizer.stopwords_path else Sanitizer()
         self._orq = Orchestrator(vocabulary)
         self._answer = list()
 

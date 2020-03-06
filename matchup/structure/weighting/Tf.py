@@ -18,6 +18,7 @@ class TF(ABC):
 
     def __init__(self):
         self._tfs = defaultdict(float)
+        self._map_docs = None
 
     def __repr__(self):
         string = ""
@@ -37,12 +38,16 @@ class TF(ABC):
         """
         ...
 
-    @classmethod
-    def _fij(cls, occurrence, vocabulary):
-        if cls != LogNormalization:
-            value = occurrence.frequency / (vocabulary.max_frequency_doc[occurrence.doc()])
+    def _fij(self, occurrence, vocabulary):
+
+        if not self._map_docs:
+            self._map_docs = vocabulary.map_docs()
+
+        if self != LogNormalization:
+            value = occurrence.frequency / (self._map_docs[occurrence.doc()])
         else:
             value = occurrence.frequency
+
         return value
 
     def _persist(self, key, tf) -> float:

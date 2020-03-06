@@ -1,5 +1,4 @@
 import unittest
-import os
 
 from matchup.presentation.sanitizer import Sanitizer
 from matchup.presentation.text import Line, Term

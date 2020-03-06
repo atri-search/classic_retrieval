@@ -75,7 +75,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.generate_collection" title="matchup.structure.Vocabulary.Vocabulary.generate_collection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_collection</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.index_files" title="matchup.structure.Vocabulary.Vocabulary.index_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_files</span></code></a>()</p></td>
 <td><p>This function try to process all content of files that have been inserted before, generating</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matchup.structure.Vocabulary.Vocabulary.get_number_docs_by_keyword" title="matchup.structure.Vocabulary.Vocabulary.get_number_docs_by_keyword"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_number_docs_by_keyword</span></code></a>(kw)</p></td>
@@ -155,8 +155,8 @@
 
 <p class="rubric">Methods Documentation</p>
 <dl class="method">
-<dt id="matchup.structure.Vocabulary.Vocabulary.generate_collection">
-<code class="sig-name descname">generate_collection</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.generate_collection" title="Permalink to this definition">¶</a></dt>
+<dt id="matchup.structure.Vocabulary.Vocabulary.index_files">
+<code class="sig-name descname">index_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.index_files" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>This function try to process all content of files that have been inserted before, generating
 the vocabulary data structure ready for use.</p>
@@ -202,7 +202,7 @@ the vocabulary data structure ready for use.</p>
 <code class="sig-name descname">import_file</code><span class="sig-paren">(</span><em class="sig-param">file_path: str</em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.structure.Vocabulary.Vocabulary.import_file" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Given a file path of a document, this function append this document into some structure, case the path are
-correct. The processing of this file can be started running function generate_collection()</p>
+correct. The processing of this file can be started running function index_files()</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -221,7 +221,7 @@ correct. The processing of this file can be started running function generate_co
 <div><p>Generalization of import_file(). This function receive a folder path and try to append all documents of
 this folder into some structure. he processing of all this file can be started running function</p>
 <blockquote>
-<div><p>generate_collection()</p>
+<div><p>index_files()</p>
 </div></blockquote>
 </div></blockquote>
 <dl class="field-list simple">

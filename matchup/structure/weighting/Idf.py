@@ -84,7 +84,7 @@ class InverseFrequency(IDF):
         :return: None
         """
         for key in vocabulary.keys:
-            self._structure[key] = log(len(vocabulary.file_names) / vocabulary.get_number_docs_by_keyword(key), 10)
+            self._structure[key] = log(len(vocabulary.file_names) / len(vocabulary[key]), 10)
 
 
 class InverseFrequencySmooth(IDF):
@@ -100,7 +100,7 @@ class InverseFrequencySmooth(IDF):
         """
         for key in vocabulary.keys:
             self._structure[key] = \
-                log(1 + (len(vocabulary.file_names) / vocabulary.get_number_docs_by_keyword(key)), 10)
+                log(1 + (len(vocabulary.file_names) / len(vocabulary[key])), 10)
 
 
 class InverseFrequencyMax(IDF):
@@ -114,12 +114,12 @@ class InverseFrequencyMax(IDF):
         :param vocabulary:  structure to generate IDF
         :return: None
         """
-        all_number_docs_by_keyword = [vocabulary.get_number_docs_by_keyword(key) for key in vocabulary.keys]
+        all_number_docs_by_keyword = [len(vocabulary[key]) for key in vocabulary.keys]
         max_ni = max(all_number_docs_by_keyword)
 
         for key in vocabulary.keys:
             self._structure[key] = \
-                log(1 + (max_ni / vocabulary.get_number_docs_by_keyword(key)), 10)
+                log(1 + (max_ni / len(vocabulary[key])), 10)
 
 
 class ProbabilisticInverseFrequency(IDF):
@@ -135,6 +135,6 @@ class ProbabilisticInverseFrequency(IDF):
         """
         for key in vocabulary.keys:
             self._structure[key] = \
-                log((len(vocabulary.file_names) - vocabulary.get_number_docs_by_keyword(key))
-                    / vocabulary.get_number_docs_by_keyword(key), 10)
+                log((len(vocabulary.file_names) - len(vocabulary[key]))
+                    / len(vocabulary[key]), 10)
 

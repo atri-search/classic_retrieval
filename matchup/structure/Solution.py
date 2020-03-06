@@ -6,8 +6,6 @@ from typing import List
 
 from collections import namedtuple
 
-from matchup.structure.weighting.tf import TF
-
 Result = namedtuple("Result", "document, score")
 
 
@@ -35,8 +33,9 @@ class Solution:
 
     def expand(self, vocabulary):
         idf = vocabulary.idf
+        tf = vocabulary.tf
         self._idf = idf.take(reverse=True)
-        self._tf = TF.take(reverse=True)
+        self._tf = tf.take(reverse=True)
 
     def get_dict(self):
         result_list = []

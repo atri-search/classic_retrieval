@@ -20,7 +20,7 @@ Vocabulary
 
    .. autosummary::
 
-      ~Vocabulary.generate_collection
+      ~Vocabulary.index_files
       ~Vocabulary.get_number_docs_by_keyword
       ~Vocabulary.import_collection
       ~Vocabulary.import_file
@@ -38,7 +38,7 @@ Vocabulary
 
    .. rubric:: Methods Documentation
 
-   .. automethod:: generate_collection
+   .. automethod:: index_files
    .. automethod:: get_number_docs_by_keyword
    .. automethod:: import_collection
    .. automethod:: import_file

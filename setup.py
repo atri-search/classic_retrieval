@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="matchup-ir",
-    version="0.0.5",
+    version="0.0.6",
     author="Marcos Pontes",
     author_email="marcos.rezende@aluno.ufop.com",
     description="A IR simple library",
