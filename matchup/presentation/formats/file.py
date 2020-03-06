@@ -32,6 +32,14 @@ class AbstractFile(abc.ABC):
         """
         ...
 
+    @abc.abstractmethod
+    def content(self) -> str:
+        """
+            Return string that represents all text file
+        :return:
+        """
+        ...
+
 
 class Pdf(AbstractFile):
 
@@ -52,6 +60,10 @@ class Pdf(AbstractFile):
         self._file.close()
         os.remove(file_path)
 
+    def content(self) -> str:
+        from .tools import convert_pdf_to_txt
+        return convert_pdf_to_txt(self._file_path)
+
 
 class Txt(AbstractFile):
 
@@ -65,3 +77,9 @@ class Txt(AbstractFile):
 
     def close(self):
         self._file.close()
+
+    def content(self) -> str:
+        f = open(self._file_path, mode='r', encoding='utf-8')
+        content = f.read()
+        f.close()
+        return content
