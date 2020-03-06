@@ -1,13 +1,11 @@
-import os
 import unittest
 
-from matchup.structure.Vocabulary import Vocabulary
+from matchup.structure.vocabulary import Vocabulary
 
 
 class VocabularyTest(unittest.TestCase):
     def setUp(self):
-        self._vocabulary = Vocabulary("./tests/static/files",
-                                      stopwords="./tests/static/pt-br.txt")
+        self._vocabulary = Vocabulary("./tests/static/files", stopwords="./tests/static/pt-br.txt")
 
     def test_import_file(self):
         file = "./tests/static/files/d1.txt"
@@ -31,6 +29,16 @@ class VocabularyTest(unittest.TestCase):
         folder = "./tests/static/files"
         self._vocabulary.import_folder(folder_path=folder)
 
-        self._vocabulary.generate_collection()
+        self._vocabulary.index_files()
+
+        self.assertTrue('brasil' in self._vocabulary.keys)
+
+    def test_generate_vocabulary_pdf(self):
+        self.assertTrue(not self._vocabulary.keys)
+
+        folder = "./tests/static/pdf-files"
+        self._vocabulary.import_folder(folder_path=folder)
+
+        self._vocabulary.index_files()
 
         self.assertTrue('brasil' in self._vocabulary.keys)

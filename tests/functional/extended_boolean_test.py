@@ -1,23 +1,17 @@
 import unittest
-import os
 
-from matchup.structure.Solution import Result
-from matchup.structure.Vocabulary import Vocabulary
-from matchup.structure.Query import Query
-from matchup.models.Model import ModelType
-from matchup.structure.weighting.Tf import TermFrequency
-from matchup.structure.weighting.Idf import InverseFrequency
+from matchup.structure.solution import Result
+from matchup.models.model import ModelType
+from matchup.structure.weighting.tf import TermFrequency
+from matchup.structure.weighting.idf import InverseFrequency
+
+from . import set_up_pdf_test, set_up_txt_test
 
 
 class ExtendedBooleanTest(unittest.TestCase):
-    def setUp(self):
-        self._vocabulary = Vocabulary("./tests/static/files",
-                                      stopwords="./tests/static/pt-br.txt")
 
-        self._vocabulary.import_collection()
-        self._query = Query(vocabulary=self._vocabulary)
-
-    def test_search_known_response(self):
+    def test_txt_search_known_response(self):
+        self._vocabulary, self._query = set_up_txt_test()
         self._query.ask(answer="artilheiro brasil 1994 gols")
         response = self._query.search(model=ModelType.ExtendedBoolean, idf=InverseFrequency(), tf=TermFrequency(),
                                       P=3.0)
@@ -26,5 +20,18 @@ class ExtendedBooleanTest(unittest.TestCase):
                                  Result("./tests/static/files/d3.txt", 0.180),
                                  Result("./tests/static/files/d15.txt", 0.308),
                                  Result("./tests/static/files/d11.txt", 0.179)]
+        for expected in some_expected_results:
+            self.assertTrue(expected in response)
+
+    def test_pdf_search_known_response(self):
+        self._vocabulary, self._query = set_up_pdf_test()
+        self._query.ask(answer="artilheiro brasil 1994 gols")
+        response = self._query.search(model=ModelType.ExtendedBoolean, idf=InverseFrequency(), tf=TermFrequency(),
+                                      P=3.0)
+
+        some_expected_results = [Result("./tests/static/pdf-files/d1.pdf", 0.564),
+                                 Result("./tests/static/pdf-files/d3.pdf", 0.180),
+                                 Result("./tests/static/pdf-files/d15.pdf", 0.308),
+                                 Result("./tests/static/pdf-files/d11.pdf", 0.179)]
         for expected in some_expected_results:
             self.assertTrue(expected in response)

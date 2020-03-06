@@ -1,7 +1,7 @@
 import unittest
 
-from matchup.structure.Occurrence import Occurrence
-from matchup.presentation.Text import Term
+from matchup.structure.occurrence import Occurrence
+from matchup.presentation.text import Term
 
 
 class OccurrenceTest(unittest.TestCase):

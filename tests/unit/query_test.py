@@ -1,15 +1,13 @@
 import unittest
-import os
 
-from matchup.presentation.Text import Term
-from matchup.structure.Query import Query
-from matchup.structure.Vocabulary import Vocabulary
+from matchup.presentation.text import Term
+from matchup.structure.query import Query
+from matchup.structure.vocabulary import Vocabulary
 
 
 class QueryTest(unittest.TestCase):
     def setUp(self):
-        vocabulary = Vocabulary("./tests/static/files",
-                                stopwords="./tests/static/pt-br.txt")
+        vocabulary = Vocabulary("./tests/static/files", stopwords="./tests/static/pt-br.txt")
         vocabulary.import_collection()
 
         self._query = Query(vocabulary=vocabulary)

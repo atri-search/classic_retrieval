@@ -1,20 +1,13 @@
 import unittest
-import os
 
-from matchup.structure.Solution import Result
-from matchup.structure.Vocabulary import Vocabulary
-from matchup.structure.Query import Query
-from matchup.models.Model import ModelType
+from matchup.structure.solution import Result
+from matchup.models.model import ModelType
+from . import set_up_txt_test, set_up_pdf_test
 
 
 class BooleanTest(unittest.TestCase):
-    def setUp(self):
-        self._vocabulary = Vocabulary("./tests/static/files",
-                                      stopwords="./tests/static/pt-br.txt")
-        self._vocabulary.import_collection()
-        self._query = Query(vocabulary=self._vocabulary)
-
     def test_txt_search_known_response(self):
+        self._vocabulary, self._query = set_up_txt_test()
         self._query.ask(answer="artilheiro brasil 1994 gols")
         response = self._query.search(model=ModelType.Boolean)
 
@@ -22,6 +15,19 @@ class BooleanTest(unittest.TestCase):
                                  Result("./tests/static/files/d3.txt", 1.0),
                                  Result("./tests/static/files/d15.txt", 0.75),
                                  Result("./tests/static/files/d11.txt", 0.5)]
+
+        for expected in some_expected_results:
+            self.assertTrue(expected in response)
+
+    def test_pdf_search_known_response(self):
+        self._vocabulary, self._query = set_up_pdf_test()
+        self._query.ask(answer="artilheiro brasil 1994 gols")
+        response = self._query.search(model=ModelType.Boolean)
+
+        some_expected_results = [Result("./tests/static/pdf-files/d1.pdf", 1.0),
+                                 Result("./tests/static/pdf-files/d3.pdf", 1.0),
+                                 Result("./tests/static/pdf-files/d15.pdf", 0.75),
+                                 Result("./tests/static/pdf-files/d11.pdf", 0.5)]
 
         for expected in some_expected_results:
             self.assertTrue(expected in response)
