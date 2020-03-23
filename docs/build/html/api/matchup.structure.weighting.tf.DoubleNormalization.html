@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>ExtendedBoolean &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>DoubleNormalization &#8212; Match Up IR Library 0.0.65 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -15,8 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vector" href="matchup.models.algorithms.vector_space.Vector.html" />
-    <link rel="prev" title="DoubleNormalizationK" href="matchup.structure.weighting.tf.DoubleNormalizationK.html" />
+    <link rel="next" title="DoubleNormalizationK" href="matchup.structure.weighting.tf.DoubleNormalizationK.html" />
+    <link rel="prev" title="Overview classes" href="../overview.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,24 +33,12 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="extendedboolean">
-<h1>ExtendedBoolean<a class="headerlink" href="#extendedboolean" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="doublenormalization">
+<h1>DoubleNormalization<a class="headerlink" href="#doublenormalization" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="matchup.models.algorithms.extended_boolean.ExtendedBoolean">
-<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.extended_boolean.</code><code class="sig-name descname">ExtendedBoolean</code><span class="sig-paren">(</span><em class="sig-param">p: float</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.model.IterModel</span></code></p>
-<p class="rubric">Attributes Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExtendedBoolean.P</span></code></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
+<dt id="matchup.structure.weighting.tf.DoubleNormalization">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.weighting.tf.</code><code class="sig-name descname">DoubleNormalization</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.weighting.tf.DoubleNormalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.structure.weighting.tf.TF</span></code></p>
 <p class="rubric">Methods Summary</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -58,50 +46,21 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores" title="matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_scores</span></code></a>(doc_repr, m)</p></td>
-<td><p>Generate scores with Extended Boolean Model</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.run" title="matchup.models.algorithms.extended_boolean.ExtendedBoolean.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
-<td><p>Needs weighting &lt;TF &lt;TermFrequency&gt; x IDF &lt;InverseFrequency&gt;&gt;</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.weighting.tf.DoubleNormalization.calculate" title="matchup.structure.weighting.tf.DoubleNormalization.calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate</span></code></a>(keyword, occurrence, …)</p></td>
+<td><p>Model to calculate TF based in fij</p></td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Attributes Documentation</p>
 <p class="rubric">Methods Documentation</p>
 <dl class="method">
-<dt id="matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores">
-<code class="sig-name descname">generate_scores</code><span class="sig-paren">(</span><em class="sig-param">doc_repr</em>, <em class="sig-param">m</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores" title="Permalink to this definition">¶</a></dt>
+<dt id="matchup.structure.weighting.tf.DoubleNormalization.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param">keyword: str</em>, <em class="sig-param">occurrence</em>, <em class="sig-param">document_maximum_frequency</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.structure.weighting.tf.DoubleNormalization.calculate" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div><p>Generate scores with Extended Boolean Model</p>
+<div><p>Model to calculate TF based in fij</p>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>doc_repr</strong> – vector that represents one scores of terms in one document</p></li>
-<li><p><strong>m</strong> – size of query (group by key)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.models.algorithms.extended_boolean.ExtendedBoolean.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.text.Term], vocabulary: matchup.structure.vocabulary.Vocabulary</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.run" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Needs weighting &lt;TF &lt;TermFrequency&gt; x IDF &lt;InverseFrequency&gt;&gt;</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> – </p></li>
-<li><p><strong>vocabulary</strong> – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>float fij</p>
 </dd>
 </dl>
 </dd></dl>
@@ -134,13 +93,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
 </ul>
@@ -155,8 +114,8 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../overview.html">Overview classes</a><ul>
-      <li>Previous: <a href="matchup.structure.weighting.tf.DoubleNormalizationK.html" title="previous chapter">DoubleNormalizationK</a></li>
-      <li>Next: <a href="matchup.models.algorithms.vector_space.Vector.html" title="next chapter">Vector</a></li>
+      <li>Previous: <a href="../overview.html" title="previous chapter">Overview classes</a></li>
+      <li>Next: <a href="matchup.structure.weighting.tf.DoubleNormalizationK.html" title="next chapter">DoubleNormalizationK</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -191,7 +150,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/api/matchup.models.algorithms.extended_boolean.ExtendedBoolean.rst.txt"
+      <a href="../_sources/api/matchup.structure.weighting.tf.DoubleNormalization.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
