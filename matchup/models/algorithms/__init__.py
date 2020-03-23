@@ -1,1 +1,4 @@
-__all__ = ["boolean.py", "extended_boolean", "vector_space.py", "probabilistic.py"]
+"""
+    All IR algorithms in matchup
+"""
+__all__ = ["boolean", "extended_boolean", "vector_space", "probabilistic"]

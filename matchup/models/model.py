@@ -5,31 +5,14 @@
 
 import abc
 
-from enum import Enum
-from typing import List
+from typing import List, Tuple, DefaultDict
 from collections import defaultdict
 
 from matchup.structure.solution import Result
 from matchup.structure.vocabulary import Vocabulary
+from matchup.structure.occurrence import Occurrence
+
 from matchup.presentation.text import Term
-
-
-class ModelType(Enum):
-    Boolean = 1,
-    Vector = 2,
-    Probabilistic = 3,
-    ExtendedBoolean = 4
-
-    @classmethod
-    def get_type(cls, value: str) -> "ModelType":
-        if value.lower() == 'boolean':
-            return cls.Boolean
-        elif value.lower() == 'vector':
-            return cls.Vector
-        elif value.lower() == 'probabilistic':
-            return cls.Probabilistic
-        elif value.lower() == 'extendedboolean':
-            return cls.ExtendedBoolean
 
 
 class NoSuchModelException(RuntimeError):
@@ -41,10 +24,12 @@ class ModelExecutionError(RuntimeError):
 
 
 class Model(abc.ABC):
+    """
+        IR Models base class.
+    """
 
-    @staticmethod
     @abc.abstractmethod
-    def run(query: List[Term], vocabulary: Vocabulary):
+    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
         """
             Define the principal method of IR models.
         :param query: List of all entry terms
@@ -53,25 +38,49 @@ class Model(abc.ABC):
         """
         ...
 
-    @staticmethod
-    def cast_solution(structure: List[tuple]) -> List[Result]:
+    @classmethod
+    def cast_solution(cls, structure: List[tuple]) -> List[Result]:
         return [Result(item[0], round(item[1], 3)) for item in structure]
 
+    @classmethod
+    def process_vocabulary_query_based(cls, query: List[Term], vocabulary: Vocabulary) \
+            -> DefaultDict[str, List[Occurrence]]:
+        """
+            Generate document scores based in query
+        :param query: query representation
+        :param vocabulary: vocabulary structure
+        :return: List of occurrences
+        """
+        target = defaultdict(list)
 
-"""
-    Describe one variation of Model classes : IterModel classes have some funcionalities for help his works
-    Pointers and occurrences are implemented here.
-"""
+        idf = vocabulary.idf
+        tf = vocabulary.tf
+        maximum_frequencies_per_document = vocabulary.maximum_frequencies_per_document()
+
+        for key in query:
+            if key.word in vocabulary:
+                occurrences = vocabulary[key.word]
+                for occurrence in occurrences:
+                    score = idf[key.word] * \
+                            tf.calculate(key.word, occurrence, maximum_frequencies_per_document[occurrence.doc()])
+                    occurrence.score = score
+                target[key.word] = occurrences
+        return target
 
 
 class IterModel(Model):
+    """
+        Describe one variation of Model classes : IterModel classes have some features for help his works
+        Pointers and occurrences are implemented here.
+    """
 
-    _term_occurrences = defaultdict(list)
-    _pointers = defaultdict(int)
+    def __init__(self):
+        super(IterModel, self).__init__()
+        self._term_occurrences = defaultdict(list)
+        self._pointers = defaultdict(int)
 
-    @staticmethod
     @abc.abstractmethod
-    def run(query: List[Term], vocabulary: Vocabulary):
+    def run(self, query: List[Term], vocabulary: Vocabulary):
         """
             Define the principal method of IR models.
         :param query: List of all entry terms
@@ -80,8 +89,39 @@ class IterModel(Model):
         """
         ...
 
-    @staticmethod
-    def initialize_occurrences(query: List[Term], vocabulary: Vocabulary) -> None:
+    def initialize(self, query: List[Term], vocabulary: Vocabulary):
+        self.initialize_occurrences(query, vocabulary)
+        self.initialize_pointers()
+
+    def iter(self) -> Tuple[str, DefaultDict[str, float]]:
+        """
+            Define one iteration of this iter model algorithm
+        :return: doc, doc_repr (keyword -> score)
+        """
+        doc = self.next_doc()
+        doc_repr = self.doc_repr(doc)
+        return doc, doc_repr
+
+    def doc_repr(self, doc: str) -> DefaultDict[str, float]:
+        """
+            Process doc generating it representation
+        :param doc: Str represents the lowest document
+        :return: doc repr. Dictionary with all term scores by doc. That is the document vector.
+        """
+        doc_repr = defaultdict(float)
+        for key in self._term_occurrences.keys():
+            try:
+                occ = self._term_occurrences[key][self._pointers[key]]
+                if occ.doc() == doc:
+                    self._pointers[key] += 1
+                    doc_repr[key] = occ.score
+            except ValueError:
+                continue
+            except IndexError:
+                continue
+        return doc_repr
+
+    def initialize_occurrences(self, query: List[Term], vocabulary: Vocabulary) -> None:
         """
             Create another data structure _term_occurrences that represents the vocabulary with just query
             keywords.
@@ -91,29 +131,25 @@ class IterModel(Model):
         """
         for key in query:
             if key.word in vocabulary:
-                IterModel._term_occurrences[key.word] = vocabulary[key.word]
+                self._term_occurrences[key.word] = vocabulary[key.word]
 
-    @staticmethod
-    def initialize_pointers() -> None:
+    def initialize_pointers(self) -> None:
         """
             Initialize pointers to model algorithm
         :return: None
         """
-        for query_term in IterModel._term_occurrences.keys():
-            IterModel._pointers[query_term] = 0
+        for query_term in self._term_occurrences.keys():
+            self._pointers[query_term] = 0
 
-    @classmethod
-    def lowest_doc(cls) -> str:
+    def next_doc(self) -> str:
         """
             Return the lowest doc pointer by pointers
         :return: lowest document
         """
-        # print("candidates : ", end='')
         lowest = None
-        for key in cls._term_occurrences.keys():
+        for key in self._term_occurrences.keys():
             try:
-                doc = cls._term_occurrences[key][cls._pointers[key]].doc()
-                # print(doc + " ", end='')
+                doc = self._term_occurrences[key][self._pointers[key]].doc()
                 if lowest and doc < lowest:
                     lowest = doc
                 elif not lowest:
@@ -122,5 +158,50 @@ class IterModel(Model):
                 continue
             except IndexError:
                 continue
-        # print(".")
         return lowest
+
+    def stop(self) -> bool:
+        """
+            Given a dictionary with all pointers by keyword and another dictionary with all occurrences by keyword,
+            this function calculate if the algorithm is over
+        :return: boolean flag indicates if algorithm stops
+        """
+        for key in self._pointers.keys():
+            if self._pointers[key] < len(self._term_occurrences[key]):
+                return False
+        return True
+
+    def process_vocabulary_query_based(self, query: List[Term], vocabulary: Vocabulary) \
+            -> DefaultDict[str, List[Occurrence]]:
+        """
+            Generate document scores based in query
+        :param query: query representation
+        :param vocabulary: vocabulary structure
+        :return: List of occurrences
+        """
+        self._term_occurrences = super().process_vocabulary_query_based(query, vocabulary)
+        return self._term_occurrences
+
+    @classmethod
+    def query_repr(cls, query: List[Term], idf, tf) -> DefaultDict[str, float]:
+        """
+            Construct query representation
+        :param query: list of all terms
+        :param idf: structure IDF
+        :param tf: structure TF
+        :return: query representation
+        """
+        maximum_frequency = 0
+        occurrences = dict()
+        for term in query:
+            if term.word in occurrences:
+                occurrences[term.word].add()
+            else:
+                occurrences[term.word] = Occurrence()
+            f = occurrences[term.word].frequency
+            maximum_frequency = f if f > maximum_frequency else maximum_frequency
+
+        query_repr = defaultdict(float)
+        for key in query:
+            query_repr[key.word] = idf[key.word] * tf.calculate(key.word, occurrences[key.word], maximum_frequency)
+        return query_repr

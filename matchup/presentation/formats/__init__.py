@@ -1,3 +1,7 @@
+"""
+    Package responsible to get transparent all files independent of its extensions.
+"""
+
 __all__ = ['file', 'tools', 'get_file', 'SUPPORTED_EXTENSIONS', 'ExtensionNotSupported']
 
 

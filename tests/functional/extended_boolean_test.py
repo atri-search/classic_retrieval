@@ -1,7 +1,7 @@
 import unittest
 
+from matchup.models.algorithms.extended_boolean import ExtendedBoolean
 from matchup.structure.solution import Result
-from matchup.models.model import ModelType
 from matchup.structure.weighting.tf import TermFrequency
 from matchup.structure.weighting.idf import InverseFrequency
 
@@ -13,8 +13,7 @@ class ExtendedBooleanTest(unittest.TestCase):
     def test_txt_search_known_response(self):
         self._vocabulary, self._query = set_up_txt_test()
         self._query.ask(answer="artilheiro brasil 1994 gols")
-        response = self._query.search(model=ModelType.ExtendedBoolean, idf=InverseFrequency(), tf=TermFrequency(),
-                                      P=3.0)
+        response = self._query.search(model=ExtendedBoolean(3.0), idf=InverseFrequency(), tf=TermFrequency())
 
         some_expected_results = [Result("./tests/static/files/d1.txt", 0.564),
                                  Result("./tests/static/files/d3.txt", 0.180),
@@ -26,8 +25,7 @@ class ExtendedBooleanTest(unittest.TestCase):
     def test_pdf_search_known_response(self):
         self._vocabulary, self._query = set_up_pdf_test()
         self._query.ask(answer="artilheiro brasil 1994 gols")
-        response = self._query.search(model=ModelType.ExtendedBoolean, idf=InverseFrequency(), tf=TermFrequency(),
-                                      P=3.0)
+        response = self._query.search(model=ExtendedBoolean(3.0), idf=InverseFrequency(), tf=TermFrequency())
 
         some_expected_results = [Result("./tests/static/pdf-files/d1.pdf", 0.564),
                                  Result("./tests/static/pdf-files/d3.pdf", 0.180),

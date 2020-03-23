@@ -1,1 +1,1 @@
-__all__ = ["occurrence.py", "vocabulary.py", "weighting", "Model", "solution.py"]
+__all__ = ["occurrence", "query", "solution", "vocabulary", "weighting", "index"]

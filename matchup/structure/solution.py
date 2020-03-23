@@ -1,12 +1,12 @@
 """
-    Solution module basically implements the Solution class
+    Module that represents the search solution using some IR model in addition to some operations for presentation
 """
 
 from typing import List
 
 from collections import namedtuple
 
-Result = namedtuple("Result", "document, score")
+Result = namedtuple("Result", "document score")
 
 
 class Solution:
@@ -14,11 +14,19 @@ class Solution:
         The solution class has the function of properly storing and displaying the responses of the queries
     """
     def __init__(self, results: List[Result]):
+        """
+            Solution constructor
+        :param results: List of (Document, Score).
+        """
         self._results = results
         self._idf = None
         self._tf = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
+        """
+            Ranking string
+        :return:
+        """
         string = ""
         if self._results:
             for terms in self._results:
@@ -29,25 +37,17 @@ class Solution:
         return string
 
     def __contains__(self, item: Result):
+        """
+            Boolean flag that indicates if some item are in result list
+        :param item:
+        :return:
+        """
         return item in self._results
 
-    def expand(self, vocabulary):
-        idf = vocabulary.idf
-        tf = vocabulary.tf
-        self._idf = idf.take(reverse=True)
-        self._tf = tf.take(reverse=True)
-
-    def get_dict(self):
-        result_list = []
-        for terms in self._results:
-            doc = terms.document.split('/')[-1]
-            result_list.append(Result(doc, terms.score))
-
-        response_dict = {
-            'solution': result_list,
-            'stats': [
-                {'idf': self._idf},
-                {'tf': self._tf}
-            ]
-        }
-        return response_dict
+    def str_n(self, n) -> str:
+        """
+            Take the ranking for the first N results.
+        :param n:
+        :return:
+        """
+        return str(Solution(self._results[:n]))
