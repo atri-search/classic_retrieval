@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Match Up &#8212; Match Up IR Library 0.0.2 documentation</title>
+    <title>Match Up &#8212; Match Up IR Library 0.0.65 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -36,19 +36,19 @@
 <h1>Match Up<a class="headerlink" href="#match-up" title="Permalink to this headline">¶</a></h1>
 <p>Match up is a PURE-Python library based on <a class="reference external" href="https://en.wikipedia.org/wiki/Information_retrieval">Information Retrieval</a> (IR) concepts.
 Here are implemented four IR models (<a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval">Boolean</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_space_model">Vector Space</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Probabilistic_relevance_model">Probabilistic</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Boolean_model">Extended Boolean</a>) that can be tested and
-compared through a create_collection of documents and a query. The result will be a query-based similarity rank
-that can be used to get insights about the create_collection.</p>
+compared through a collection of documents and a query. The result will be a query-based similarity rank
+that can be used to get insights about the collection.</p>
 <div class="section" id="simple-guide">
 <h2>Simple Guide<a class="headerlink" href="#simple-guide" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vocabulary">
 <h3>Vocabulary<a class="headerlink" href="#vocabulary" title="Permalink to this headline">¶</a></h3>
-<p>Let’s start creating our create_collection. The first thing you should to do is import the Vocabulary object.:</p>
+<p>Let’s start creating our collection. The first thing you should to do is import the Vocabulary object.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matchup.structure.vocabulary</span> <span class="kn">import</span> <span class="n">Vocabulary</span>
 </pre></div>
 </div>
-<p>The Vocabulary allows us to manage and process documents that will be part of our create_collection. Now we can build our
+<p>The Vocabulary allows us to manage and process documents that will be part of our collection. Now we can build our
 own vocabulary and import some files to it.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vocabulary</span> <span class="o">=</span> <span class="n">Vocabulary</span><span class="p">(</span><span class="s1">&#39;path/to/processed/create_collection&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vocabulary</span> <span class="o">=</span> <span class="n">Vocabulary</span><span class="p">(</span><span class="s1">&#39;path/to/save/collection&#39;</span><span class="p">)</span>
 <span class="n">vocabulary</span><span class="o">.</span><span class="n">import_file</span><span class="p">(</span><span class="s1">&#39;path/to/txt/file&#39;</span><span class="p">)</span>
 <span class="n">vocabulary</span><span class="o">.</span><span class="n">import_folder</span><span class="p">(</span><span class="s1">&#39;path/to/folder&#39;</span><span class="p">)</span>
 </pre></div>
@@ -58,7 +58,7 @@ in a directory. With that, the files are set, but not processed yet. Let’s do 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vocabulary</span><span class="o">.</span><span class="n">index_files</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>We now have a data structure that allows us to query and extract insights from the create_collection that was built before.
+<p>We now have a data structure that allows us to query and extract insights from the collection that was built before.
 If you want to persist it in memory, you can.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vocabulary</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
@@ -72,9 +72,9 @@ To retrieve this structure, it’s simple.:</p>
 </div>
 <div class="section" id="query">
 <h3>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h3>
-<p>Another pillar of this library is the query concept. Queries is responsible to extract insights about the create_collection.
+<p>Another pillar of this library is the query concept. Queries is responsible to extract insights about the collection.
 The first to do working with queries, is to import the module.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matchup.structure.Query</span> <span class="kn">import</span> <span class="n">Query</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matchup.structure.query</span> <span class="kn">import</span> <span class="n">Query</span>
 </pre></div>
 </div>
 <p>There are just one way to make queries: with plain text. If you want to do a query with a file, you need firstly process
@@ -89,7 +89,8 @@ this file in a string format, and then use it. Let’s explore the Query structu
 </div>
 <p>After running this method, nothing happened !! This is because you haven’t configured your search engine settings yet.
 We can configure the search engine and execute the query at the same time.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">ModelType</span><span class="o">.</span><span class="n">Boolean</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># needs the import : from matchup.models.algorithms.boolean import Boolean</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">Boolean</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>That’s it! Now we have a response for its query. The Boolean model it is the most simple IR model, it doesn’t need any other param.
@@ -131,7 +132,7 @@ documentation.</p>
 </div>
 <div class="section" id="status">
 <h2>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h2>
-<p>Building Version 0.0.3</p>
+<p>Unstable. Building version 1.0</p>
 </div>
 </div>
 

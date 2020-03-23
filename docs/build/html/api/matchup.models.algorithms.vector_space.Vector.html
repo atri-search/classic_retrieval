@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Vector &#8212; Match Up IR Library 0.0.2 documentation</title>
+    <title>Vector &#8212; Match Up IR Library 0.0.65 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -49,17 +49,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.vector_space.Vector.generate_scores" title="matchup.models.algorithms.vector_space.Vector.generate_scores"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_scores</span></code></a>(doc_repr, query_repr)</p></td>
 <td><p>Calculate the similarity between one doc and one query by its representations</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.vector_space.Vector.process_doc" title="matchup.models.algorithms.vector_space.Vector.process_doc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_doc</span></code></a>(chosen_doc)</p></td>
-<td><p>Proccess doc generating it score</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vector.process_doc</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.vector_space.Vector.process_documents" title="matchup.models.algorithms.vector_space.Vector.process_documents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_documents</span></code></a>(query, vocabulary)</p></td>
-<td><p>Generate document scores based in query</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vector.process_documents</span></code></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.vector_space.Vector.process_query" title="matchup.models.algorithms.vector_space.Vector.process_query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_query</span></code></a>(query, idfs)</p></td>
-<td><p>Construct query representation</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vector.process_query</span></code></p></td>
+<td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.vector_space.Vector.run" title="matchup.models.algorithms.vector_space.Vector.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
-<td><p>Principal method that represents IR vectorial model.</p></td>
+<td><p>Principal method that represents IR vector space model.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.vector_space.Vector.stop" title="matchup.models.algorithms.vector_space.Vector.stop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stop</span></code></a>()</p></td>
 <td><p>Given a dictionary with all pointers by keyword and another dictionary with all occurrences by keyword,</p></td>
@@ -69,7 +69,7 @@
 <p class="rubric">Methods Documentation</p>
 <dl class="method">
 <dt id="matchup.models.algorithms.vector_space.Vector.generate_scores">
-<em class="property">static </em><code class="sig-name descname">generate_scores</code><span class="sig-paren">(</span><em class="sig-param">doc_repr: DefaultDict[str, float], query_repr: DefaultDict[str, float]</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.generate_scores" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">generate_scores</code><span class="sig-paren">(</span><em class="sig-param">doc_repr: DefaultDict[str, float], query_repr: DefaultDict[str, float]</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.generate_scores" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Calculate the similarity between one doc and one query by its representations</p>
 </div></blockquote>
@@ -87,64 +87,10 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="matchup.models.algorithms.vector_space.Vector.process_doc">
-<em class="property">static </em><code class="sig-name descname">process_doc</code><span class="sig-paren">(</span><em class="sig-param">chosen_doc: str</em><span class="sig-paren">)</span> &#x2192; DefaultDict[str, float]<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.process_doc" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Proccess doc generating it score</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>chosen_doc</strong> – Str represents the lowest document</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>doc repr. Dictionary with all term scores by doc. That is the document vector.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.models.algorithms.vector_space.Vector.process_documents">
-<em class="property">static </em><code class="sig-name descname">process_documents</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.text.Term], vocabulary: matchup.structure.vocabulary.Vocabulary</em><span class="sig-paren">)</span> &#x2192; DefaultDict[str, list]<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.process_documents" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Generate document scores based in query</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> – query representation</p></li>
-<li><p><strong>vocabulary</strong> – vocabulary structure</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of occurrences</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="matchup.models.algorithms.vector_space.Vector.process_query">
-<em class="property">static </em><code class="sig-name descname">process_query</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.text.Term], idfs</em><span class="sig-paren">)</span> &#x2192; DefaultDict[str, float]<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.process_query" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Construct query representation</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>query</strong> – list of all terms</p></li>
-<li><p><strong>idfs</strong> – structure IDF</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>query representation</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="matchup.models.algorithms.vector_space.Vector.run">
-<em class="property">static </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.text.Term], vocabulary: matchup.structure.vocabulary.Vocabulary</em><span class="sig-paren">)</span> &#x2192; List[matchup.structure.solution.Result]<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.text.Term], vocabulary: matchup.structure.vocabulary.Vocabulary</em><span class="sig-paren">)</span> &#x2192; List[matchup.structure.solution.Result]<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.run" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
-<div><p>Principal method that represents IR vectorial model.</p>
+<div><p>Principal method that represents IR vector space model.</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -161,10 +107,10 @@
 
 <dl class="method">
 <dt id="matchup.models.algorithms.vector_space.Vector.stop">
-<em class="property">static </em><code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.stop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#matchup.models.algorithms.vector_space.Vector.stop" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Given a dictionary with all pointers by keyword and another dictionary with all occurrences by keyword,
-this function calculate if the algortihm is over</p>
+this function calculate if the algorithm is over</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
