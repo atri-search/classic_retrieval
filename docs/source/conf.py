@@ -23,7 +23,7 @@ copyright = '2020, Marcos Pontes'
 author = 'Marcos Pontes'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.2'
+release = '0.0.65'
 
 
 # -- General configuration ---------------------------------------------------

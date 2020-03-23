@@ -2,7 +2,7 @@
     Classic IR model. Probabilistic model are implemented here, based in Interface Model
 """
 from collections import defaultdict
-from typing import List, DefaultDict
+from typing import List
 from math import log
 
 from matchup.models.model import IterModel, Term, Vocabulary
@@ -11,111 +11,134 @@ from matchup.structure.solution import Result
 
 class Probabilistic(IterModel):
 
-    # V : Conjunto solução
-    _V = defaultdict(float)
+    def __init__(self):
+        super(Probabilistic, self).__init__()
+        self._V = list()
     
-    @staticmethod
-    def run(query: List[Term], vocabulary: Vocabulary):
+    def run(self, query: List[Term], vocabulary: Vocabulary):
         """
             Principal method that represents IR probabilistic model.
         :param query: list of all query terms
         :param vocabulary: data structure that represents the vocabulary
         :return:
         """
-        IterModel.initialize_occurrences(query, vocabulary)
+        self.initialize(query, vocabulary)
 
-        IterModel.initialize_pointers()
+        self.process_vocabulary_query_based(query, vocabulary)
 
-        # one iteration of probabilistic method
-        rank = Probabilistic.__iter_rank(vocabulary)
+        rank = self.probabilistic_iterative_perform(vocabulary)
 
-        n_rank = Probabilistic.__take(rank, 5)
+        return rank
 
-        if n_rank == Probabilistic._V:
-            return rank
-        else:
-            Probabilistic._V = n_rank
-            return Probabilistic.run(query, vocabulary)
-
-    @staticmethod
-    def __generate_term_scores(vocabulary: Vocabulary) -> DefaultDict[str, float]:
+    def probabilistic_iterative_perform(self, vocabulary) -> List[Result]:
         """
-            Generate scores of all terms in term occurrences based in Probabilistic model
-        :param vocabulary: data structure representing vocabulary
-        :return: scores based in keyword
+            Perform the algorithm iterations.
+        :param vocabulary:
+        :return:
         """
-        score = defaultdict(float)
+        while True:
+            rank = self.iter_rank(vocabulary)
 
-        for key in IterModel._term_occurrences.keys():
-            pir = Probabilistic.catch_pir(vocabulary, key)
-            qir = Probabilistic.catch_qir(vocabulary, key)
+            n_rank = self.__take(rank, 5)
 
-            score[key] = log(pir/(1-pir), 10) + log((1 - qir)/qir, 10)
+            if self._V == n_rank:
+                return rank
 
-            # print("\t\tKey {0} => pir : {1} , qir {2} , score : {3}".format(key, pir, qir, score[key]))
+            self.initialize_pointers()  # restart pointers
+            self._V = n_rank.copy()
 
-        return score
-
-    @staticmethod
-    def __stop() -> bool:
+    def iter_rank(self, vocabulary) -> List[Result]:
         """
-            Stop condition of model
-        :return: boolean flag indicates if the model needs to stop
+            One iteration of Probabilistic model execute.
+        :return: ranked list of documents, scores
         """
-        for key in IterModel._pointers.keys():
+        term_scores = self.process_terms(vocabulary)
 
-            # print("key : {0}, pointer : {1}, occurrences : {2}".format(key, IterModel._pointers[key],
-            #                                                            IterModel._term_occurrences[key]))
-            if IterModel._pointers[key] < len(IterModel._term_occurrences[key]):
-                # print("========================================================")
-                return False
-        # print("========================================================")
-        return True
+        scores = defaultdict(float)
+        while not self.stop():
+            doc = self.next_doc()
 
-    @staticmethod
-    def __atualize(doc: str, term_scores: DefaultDict[str, float]) -> float:
+            scores[doc] = self.calculate(doc, term_scores)
+
+        scores = sorted(scores.items(), key=lambda v: v[1], reverse=True)
+
+        return self.cast_solution(scores)
+
+    def process_terms(self, vocabulary):
         """
-            Atualize a lowest document score based in term scores
-        :param doc: document to atualize
-        :param term_scores: defaultdict of term scores
-        :return: score of this document
+            Generate scores for all mapped terms.
+        :param vocabulary:
+        :return:
+        """
+        term_scores = defaultdict(float)
+        for key in self._term_occurrences:
+            term_scores[key] = self.score(key, vocabulary)
+        return term_scores
+
+    def calculate(self, doc: str, term_scores) -> float:
+        """
+            Sum the scores of the mapped representation.
+        :param doc:
+        :param term_scores:
+        :return:
         """
         score = 0.0
-        for key in IterModel._term_occurrences.keys():
+        for key in self._term_occurrences.keys():
             try:
-                occ = IterModel._term_occurrences[key][IterModel._pointers[key]]
+                occ = self._term_occurrences[key][self._pointers[key]]
                 if occ.doc() == doc:
                     score += term_scores[key]
-                    IterModel._pointers[key] += 1
+                    self._pointers[key] += 1
             except ValueError:
                 continue
             except IndexError:
                 continue
         return score
 
-    @staticmethod
-    def __iter_rank(vocabulary: Vocabulary) -> List[Result]:
+    def score(self, key, vocabulary):
         """
-            One iteration of Probabilistic model execute. Instable in first versions.
-        :param vocabulary: vocabulary structure
-        :return: ranked list of documents, scores
+            Apply probabilistic concepts.
+        :param key:
+        :param vocabulary:
+        :return:
         """
-        term_scores = Probabilistic.__generate_term_scores(vocabulary)
+        ni = len(vocabulary[key])
+        n = len(vocabulary.file_names)
 
-        scores = defaultdict(float)
-        while not Probabilistic.__stop():
-            doc = IterModel.lowest_doc()
+        if self._V:
+            vi = self.docs_with_key(vocabulary[key])
+            v = len(self._V)
 
-            # print("lwst : {0}".format(doc))
+            prob_ki_given_r = (vi + (ni / n)) / (v + 1)
+            prob_ki_given_not_r = (ni - vi + (ni / v)) / (n - v + 1)
 
-            scores[doc] = Probabilistic.__atualize(doc, term_scores)
+        else:
+            prob_ki_given_r = 0.5
+            prob_ki_given_not_r = ni / n
 
-        scores = sorted(scores.items(), key=lambda v: v[1], reverse=True)
+        try:
+            score = log(prob_ki_given_r / (1 - prob_ki_given_r), 10) + log((1 - prob_ki_given_not_r)
+                                                                           / prob_ki_given_not_r, 10)
+        except:
+            score = 0.0
 
-        return IterModel.cast_solution(scores)
+        return score
 
-    @staticmethod
-    def __take(rank: List[Result], n: int) -> List[Result]:
+    def docs_with_key(self, occurrences) -> int:
+        """
+            Return the vi_value : number of documents with key
+        :param occurrences: Occurrences
+        :return:
+        """
+        doc = 0
+        # print("Occurrences : {0}".format(occ))
+        for oc in occurrences:
+            if oc.doc() in [t.document for t in self._V]:
+                doc += 1
+        return doc
+
+    @classmethod
+    def __take(cls, rank, n) -> List[Result]:
         """
             Take the first n elements of this list copying to another structure
         :param rank: list of document, score
@@ -130,54 +153,3 @@ class Probabilistic(IterModel):
             cont += 1
             copy.append(i)
         return copy
-
-    @staticmethod
-    def catch_pir(vocabulary: Vocabulary, key: str) -> float:
-        """
-            Catch pir statistic based in key of vocabulary
-        :param vocabulary: data structure that represents vocabulary
-        :param key: keyword to catch pir
-        :return: float pir
-        """
-        n_value = len(vocabulary.file_names)
-        ni = len(Probabilistic._term_occurrences[key])
-
-        if Probabilistic._V:
-            vi_value = Probabilistic.docs_with_key(vocabulary[key])
-            v_value = len(Probabilistic._V)
-            # print("Key {0} => V {1} Vi {2}".format(key, v_value, vi_value))
-            return (vi_value + (ni / n_value)) / (v_value + 1)
-        else:
-            return 0.5
-
-    @staticmethod
-    def catch_qir(vocabulary: Vocabulary, key: str) -> float:
-        """
-            Catch qir statistic based in key of vocabulary
-        :param vocabulary: data structure that represents vocabulary
-        :param key: keyword to catch pir
-        :return: float pir
-        """
-        n_value = len(vocabulary.file_names)
-        ni = len(Probabilistic._term_occurrences[key])
-
-        if Probabilistic._V:
-            vi_value = Probabilistic.docs_with_key(vocabulary[key])
-            v_value = len(Probabilistic._V)
-            return (ni - vi_value + (ni / v_value)) / (n_value - v_value + 1)
-        else:
-            return ni / n_value
-
-    @staticmethod
-    def docs_with_key(occ) -> int:
-        """
-            Return the vi_value : number of documents with key
-        :param occ: Occurrences
-        :return:
-        """
-        doc = 0
-        # print("Occurrences : {0}".format(occ))
-        for oc in occ:
-            if oc.doc() in [t.document for t in Probabilistic._V]:
-                doc += 1
-        return doc

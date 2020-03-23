@@ -1,2 +1,4 @@
-__all__ = ['inverted_index']
+__all__ = ['base_index', 'inverted_index']
+
+
 

@@ -4,7 +4,6 @@
 
 import re
 import unicodedata
-
 from typing import List, Set
 
 from matchup.presentation.text import Term, Line
@@ -18,61 +17,12 @@ class Sanitizer:
     def __init__(self, *, stopwords_path: str = None):
         """
             Sanitizer constructor
-        :param stopwords_path: full path of stopwords file.
+        :param stopwords_path: Path that contains a file with stopwords. This file can't have special characters.
         """
         self._stopwords = set()
         if stopwords_path:
             self._stopwords_path = stopwords_path
             self._stopwords = self.import_stopwords()
-
-    def import_stopwords(self) -> Set[str]:
-        """
-            Retrieve stopwords from memory
-        :return: set of stopwords
-        """
-        with open(self._stopwords_path, mode='r', encoding='utf-8') as file:
-            self._stopwords = {line.strip() for line in file}
-        return self._stopwords
-
-    @staticmethod
-    def _remove_special_chars_lower(word: str) -> str:
-        """
-            Given an word, this function clean this string, removing the special chars
-        :param word: string to be sanitized
-        :return:
-        """
-        return re.sub('[^a-zA-Z0-9\n]', '', word).lower()
-
-    @staticmethod
-    def index_line(words: List[str], base_line: Line) -> List[Term]:
-        """
-            This function index one line, clean all words and returning all words sanitized
-            The list must be sorted by occurrence in text!
-        :param words: base-line stripped and without stopwords
-        :param base_line: line to be sanitized
-        :return: list of indexed words : list(Term)
-        """
-
-        # importante para o find funcionar
-        base_line_stripped = Sanitizer.strip_accents(base_line.content)
-
-        indexed_words = []
-
-        acc_value = 0
-        for word in words:
-
-            word_position = base_line_stripped[acc_value::].find(word)
-            acc_value += word_position
-
-            position = str(base_line.number) + "-" + str(acc_value)
-
-            word_sanitized = Sanitizer._remove_special_chars_lower(word)
-
-            if word_sanitized:
-                # salvo a palavra minúscula e a posição de ocorrência dentro da linha
-                indexed_words.append(Term(word_sanitized, position))
-
-        return indexed_words
 
     def sanitize_line(self, line: str, number_line: int) -> List[Term]:
         """
@@ -91,6 +41,23 @@ class Sanitizer:
         indexed = Sanitizer.index_line(list(filtered), base_line)
         return indexed
 
+    def import_stopwords(self) -> Set[str]:
+        """
+            Retrieve stopwords from a file.
+        :return: set of stopwords
+        """
+        with open(self._stopwords_path, mode='r', encoding='utf-8') as file:
+            self._stopwords = {line.strip() for line in file}
+        return self._stopwords
+
+    def add_stopwords(self, stopwords: Set[str]):
+        """
+            Add a set of stopwords manually.
+        :param stopwords: set of stopwords.
+        :return:
+        """
+        self._stopwords = self._stopwords.union(stopwords)
+
     @property
     def stopwords_path(self) -> str:
         """
@@ -100,13 +67,42 @@ class Sanitizer:
         return self._stopwords_path
 
     @stopwords_path.setter
-    def stopwords_path(self, stopwordspath: str) -> None:
+    def stopwords_path(self, path: str) -> None:
         """
             Property setter stopwords path
-        :param stopwordspath: New stopwords path
+        :param path: New stopwords path
         :return: None
         """
-        self._stopwords_path = stopwordspath
+        self._stopwords_path = path
+
+    @staticmethod
+    def index_line(words: List[str], base_line: Line) -> List[Term]:
+        """
+            This function index one line and returning all words sanitized
+            The list must be sorted by occurrence in text!
+        :param words: base-line stripped and without stopwords
+        :param base_line: line to be sanitized
+        :return: list of indexed words : list(Term)
+        """
+
+        base_line_stripped = Sanitizer.strip_accents(base_line.content)
+
+        indexed_words = []
+
+        acc_value = 0
+        for word in words:
+
+            word_position = base_line_stripped[acc_value::].find(word)
+            acc_value += word_position
+
+            position = str(base_line.number) + "-" + str(acc_value)
+
+            word_sanitized = Sanitizer._remove_special_chars_lower(word)
+
+            if word_sanitized:
+                indexed_words.append(Term(word_sanitized, position))
+
+        return indexed_words
 
     @staticmethod
     def strip_accents(text: str) -> str:
@@ -118,3 +114,11 @@ class Sanitizer:
         text = unicodedata.normalize('NFD', text).encode('ascii', 'ignore').decode("utf-8")
         return str(text)
 
+    @staticmethod
+    def _remove_special_chars_lower(word: str) -> str:
+        """
+            Given an word, this function clean this string, removing the special chars
+        :param word: string to be sanitized
+        :return:
+        """
+        return re.sub('[^a-zA-Z0-9\n]', '', word).lower()

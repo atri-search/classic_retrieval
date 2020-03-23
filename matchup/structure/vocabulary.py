@@ -112,7 +112,7 @@ class Vocabulary:
             This is a function that recover the vocabulary previously generated.
         :return: boolean flag that indicates success or failure in case the vocabulary has no generated yet.
         """
-        files = self._index.load(self._path)
+        files = self._index.load(path=self._path)
         if files:
             self.file_names = files
             return True
@@ -131,13 +131,13 @@ class Vocabulary:
             Persist data structure on disc.
         :return: boolean flag that indicates if the data structure can be persisted.
         """
-        return self._index.save(self._path)
+        return self._index.save(path=self._path)
 
-    def map_docs(self) -> DefaultDict[str, float]:
-        return self._index.map_docs()
+    def maximum_frequencies_per_document(self) -> DefaultDict[str, float]:
+        return self._index.maximum_frequencies_per_document()
 
     @property
-    def keys(self) -> list:
+    def keys(self) -> List[str]:
         """
             Get all keywords presents in vocabulary
         :return: list of all keywords

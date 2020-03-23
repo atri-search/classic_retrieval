@@ -12,12 +12,12 @@ IterModel
 
       ~IterModel.initialize_occurrences
       ~IterModel.initialize_pointers
-      ~IterModel.lowest_doc
+      ~IterModel.next_doc
       ~IterModel.run
 
    .. rubric:: Methods Documentation
 
    .. automethod:: initialize_occurrences
    .. automethod:: initialize_pointers
-   .. automethod:: lowest_doc
+   .. automethod:: next_doc
    .. automethod:: run

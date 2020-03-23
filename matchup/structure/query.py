@@ -4,7 +4,7 @@
 from typing import List
 
 from matchup.presentation.sanitizer import Sanitizer
-from matchup.models.orchestrator import Orchestrator, ModelType
+from matchup.models.orchestrator import Orchestrator, Model
 from matchup.structure.solution import Solution
 from matchup.presentation.text import Term
 
@@ -33,17 +33,9 @@ class Query:
         :return: None
         """
         if not answer:
-            message = "{0}\n{1: >18}".format(25*"= ", "Consulta: ")
-            answer = input(message)
-            self._answer = self._sanitizer.sanitize_line(answer, 1)
+            self._answer = self._sanitizer.sanitize_line(self._io_answer(), 1)
         else:
-            number_line = 1
-            text = answer.split("\n")
-            terms = []
-            for line in text:
-                terms += self._sanitizer.sanitize_line(line, number_line)
-                number_line += 1
-            self._answer = terms
+            self._answer = self._text_answer(answer)
 
         self._orq.entry = self._answer
 
@@ -55,7 +47,7 @@ class Query:
         """
         return self._answer
 
-    def search(self, *, model: ModelType = None, idf=None, tf=None, **kwargs) -> Solution:
+    def search(self, *, model: Model = None, idf=None, tf=None) -> Solution:
         """
             Receive an IR model and execute the query based in user answer and the vocabulary.
         :param model: ModelType that represents the IR model
@@ -63,5 +55,29 @@ class Query:
         :param tf: Describe the class of TF
         :return: list of solution -> (document, score)
         """
-        results = self._orq.search(model, idf, tf, **kwargs)
+        results = self._orq.search(model, idf, tf)
         return Solution(results)
+
+    @classmethod
+    def _io_answer(cls) -> str:
+        """
+            IO operation to get search input.
+        :return:
+        """
+        message = "{0}\n{1: >18}".format(25 * "= ", "Search: ")
+        return input(message)
+
+    def _text_answer(self, plain_answer):
+        """
+            Sanitize operation for plain text user input.
+        :param plain_answer:
+        :return:
+        """
+        number_line = 1
+        text = plain_answer.split("\n")
+        terms = []
+        for line in text:
+            terms += self._sanitizer.sanitize_line(line, number_line)
+            number_line += 1
+        return terms
+

@@ -11,31 +11,31 @@ from matchup.structure.solution import Result
 
 class Boolean(Model):
 
-    @staticmethod
-    def run(query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def __init__(self):
+        super(Boolean, self).__init__()
+
+    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
         """
             Principal method that represents IR boolean model.
         :param query: list of all query terms
         :param vocabulary: data structure that represents the vocabulary
         :return: list of solution -> (document, score)
         """
-        # dicionário {documento : [array de presença dos termos da consulta]}
-        scores = Boolean.__map_keywords_in_documents(query, vocabulary)
+        scores = self.__map_keywords_in_documents(query, vocabulary)
 
-        maximum_pontuation = len(query)
+        maximum_points = len(query)
 
         rank = defaultdict(float)
 
         for key in scores.keys():
-            rank[key] = sum(scores[key]) / maximum_pontuation   # Ponderando os 'acertos' de forma simples
+            rank[key] = sum(scores[key]) / maximum_points
 
-        # ordena pelos valores
         rank = sorted(rank.items(), key=lambda v: v[1], reverse=True)
 
-        return Model.cast_solution(rank)
+        return self.cast_solution(rank)
 
-    @staticmethod
-    def __map_keywords_in_documents(query: List[Term], vocabulary: Vocabulary) -> DefaultDict[str, list]:
+    @classmethod
+    def __map_keywords_in_documents(cls, query: List[Term], vocabulary: Vocabulary) -> DefaultDict[str, list]:
         """
             Given the query and the vocabulary, this function calculates the scores of all words in vocabulary.
         :param query: list of all query terms
