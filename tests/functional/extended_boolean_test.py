@@ -1,6 +1,6 @@
 import unittest
 
-from matchup.models.algorithms.extended_boolean import ExtendedBoolean
+from matchup.models.algorithms import ExtendedBoolean
 from matchup.structure.solution import Result
 from matchup.structure.weighting.tf import TermFrequency
 from matchup.structure.weighting.idf import InverseFrequency
@@ -19,6 +19,7 @@ class ExtendedBooleanTest(unittest.TestCase):
                                  Result("./tests/static/files/d3.txt", 0.180),
                                  Result("./tests/static/files/d15.txt", 0.308),
                                  Result("./tests/static/files/d11.txt", 0.179)]
+
         for expected in some_expected_results:
             self.assertTrue(expected in response)
 

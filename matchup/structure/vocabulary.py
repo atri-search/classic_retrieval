@@ -2,7 +2,7 @@
     Describes the data structure of IR models design.
 """
 from os import path, listdir
-from typing import List, DefaultDict
+from typing import List, DefaultDict, Set
 
 from matchup.structure.occurrence import Occurrence
 from matchup.structure.weighting.idf import IDF
@@ -135,6 +135,9 @@ class Vocabulary:
 
     def maximum_frequencies_per_document(self) -> DefaultDict[str, float]:
         return self._index.maximum_frequencies_per_document()
+
+    def documents_with_keywords(self, kwds: Set[str]) -> Set[str]:
+        return self._index.documents_with_keywords(kwds)
 
     @property
     def keys(self) -> List[str]:

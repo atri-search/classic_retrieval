@@ -27,10 +27,10 @@ class SanitizerTest(unittest.TestCase):
         self.assertEqual(self._sanitizer.strip_accents(test_case), test_response)
 
     def test_index_line(self):
-        line = Line("eu sou o marcos e existem stopwords em tudo", 1)
+        line = Line("eu sou o marcos e existem stopwords (em) tudo", 1)
         line_list = ['marcos', 'existem', 'stopwords', 'tudo']
         response_terms = [Term('marcos', '1-9'), Term('existem', '1-18'),
-                          Term('stopwords', '1-26'), Term('tudo', '1-39')]
+                          Term('stopwords', '1-26'), Term('tudo', '1-41')]
 
         self.assertEqual(self._sanitizer.index_line(line_list, line), response_terms)
 

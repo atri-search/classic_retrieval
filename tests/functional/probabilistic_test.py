@@ -1,6 +1,6 @@
 import unittest
 
-from matchup.models.algorithms.probabilistic import Probabilistic
+from matchup.models.algorithms import Probabilistic
 from matchup.structure.solution import Result
 
 from . import set_up_txt_test, set_up_pdf_test

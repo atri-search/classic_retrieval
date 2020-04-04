@@ -11,6 +11,8 @@ from matchup.structure.solution import Result
 
 class Probabilistic(IterModel):
 
+    RANGE = 5
+
     def __init__(self):
         super(Probabilistic, self).__init__()
         self._V = list()
@@ -38,8 +40,7 @@ class Probabilistic(IterModel):
         """
         while True:
             rank = self.iter_rank(vocabulary)
-
-            n_rank = self.__take(rank, 5)
+            n_rank = self.__take(rank, self.RANGE)
 
             if self._V == n_rank:
                 return rank
@@ -95,27 +96,27 @@ class Probabilistic(IterModel):
                 continue
         return score
 
-    def score(self, key, vocabulary):
+    def score(self, key: str, vocabulary: Vocabulary) -> float:
         """
-            Apply probabilistic concepts.
-        :param key:
-        :param vocabulary:
-        :return:
+            Apply probabilistic concepts to calculate the score of one keyword in vocabulary.
+        :param key: keyword to generate score
+        :param vocabulary: base collection
+        :return: float score
         """
         ni = len(vocabulary[key])
         n = len(vocabulary.file_names)
 
         if self._V:
-            vi = self.docs_with_key(vocabulary[key])
+            vi = self.number_docs_with_key(vocabulary[key])
             v = len(self._V)
 
             prob_ki_given_r = (vi + (ni / n)) / (v + 1)
             prob_ki_given_not_r = (ni - vi + (ni / v)) / (n - v + 1)
-
+            
         else:
             prob_ki_given_r = 0.5
             prob_ki_given_not_r = ni / n
-
+            
         try:
             score = log(prob_ki_given_r / (1 - prob_ki_given_r), 10) + log((1 - prob_ki_given_not_r)
                                                                            / prob_ki_given_not_r, 10)
@@ -124,14 +125,13 @@ class Probabilistic(IterModel):
 
         return score
 
-    def docs_with_key(self, occurrences) -> int:
+    def number_docs_with_key(self, occurrences) -> int:
         """
             Return the vi_value : number of documents with key
         :param occurrences: Occurrences
         :return:
         """
         doc = 0
-        # print("Occurrences : {0}".format(occ))
         for oc in occurrences:
             if oc.doc() in [t.document for t in self._V]:
                 doc += 1
