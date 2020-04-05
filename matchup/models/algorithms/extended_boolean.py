@@ -48,7 +48,7 @@ class ExtendedBoolean(IterModel):
         score = 0.0
         for key in doc_repr:
             score += pow((1 - doc_repr[key]), self.p)
-
+            
         compensation = m - len(doc_repr)
         if compensation:
             score += compensation

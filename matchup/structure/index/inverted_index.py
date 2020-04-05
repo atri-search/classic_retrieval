@@ -84,6 +84,16 @@ class InvertedIndex(Index):
         """
         return list(self._inverted_file.keys())
 
+    def documents_with_keywords(self, kwds: Set[str]) -> Set[str]:
+        answer = list()
+        for key in self._inverted_file:
+            if key in kwds:
+                answer += [oc.doc() for oc in self._inverted_file[key]]
+
+        incomplete = {elem for elem in answer if answer.count(elem) != len(kwds)}
+
+        return set(answer) - incomplete
+
     def maximum_frequencies_per_document(self) -> DefaultDict[str, float]:
         """
             Return one dictionary with structure : Document -> Maximum frequency of one term in it document.

@@ -2,8 +2,8 @@ Match Up
 ======================
 
 Match up is a PURE-Python library based on `Information Retrieval`_ (IR) concepts.
-Here are implemented four IR models (`Boolean`_, `Vector Space`_, `Probabilistic`_ and `Extended Boolean`_) that can be tested and
-compared through a collection of documents and a query. The result will be a query-based similarity rank
+Here are implemented five IR models (`Boolean`_, `Vector Space`_, `Probabilistic`_, `Extended Boolean`_ and `Generalized Vector`_)
+that can be tested and compared through a collection of documents and a query. The result will be a query-based similarity rank
 that can be used to get insights about the collection.
 
 .. _Information Retrieval: https://en.wikipedia.org/wiki/Information_retrieval
@@ -11,6 +11,7 @@ that can be used to get insights about the collection.
 .. _Vector Space: https://en.wikipedia.org/wiki/Vector_space_model
 .. _Probabilistic: https://en.wikipedia.org/wiki/Probabilistic_relevance_model
 .. _Extended Boolean: https://en.wikipedia.org/wiki/Extended_Boolean_model
+.. _Generalized Vector: https://en.wikipedia.org/wiki/Generalized_vector_space_model
 
 Simple Guide
 ------------
@@ -67,7 +68,7 @@ You can also pass the answer with a param.::
 After running this method, nothing happened !! This is because you haven't configured your search engine settings yet.
 We can configure the search engine and execute the query at the same time.::
 
-    # needs the import : from matchup.models.algorithms.boolean import Boolean
+    # needs the import : from matchup.models.algorithms import Boolean
     response = query.search(model=Boolean())
 
 That's it! Now we have a response for its query. The Boolean model it is the most simple IR model, it doesn't need any other param.

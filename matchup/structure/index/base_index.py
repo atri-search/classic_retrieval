@@ -74,6 +74,15 @@ class Index(ABC):
         """
         pass
 
+    @abstractmethod
+    def documents_with_keywords(self, kwds: Set[str]) -> Set[str]:
+        """
+            Return one set of documents that contains the set of keywords passed with param.
+        :param kwds: set of keywords
+        :return:
+        """
+        pass
+
 
 
 

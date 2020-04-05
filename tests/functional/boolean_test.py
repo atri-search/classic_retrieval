@@ -1,7 +1,7 @@
 import unittest
 
 from matchup.structure.solution import Result
-from matchup.models.algorithms.boolean import Boolean
+from matchup.models.algorithms import Boolean
 
 from . import set_up_txt_test, set_up_pdf_test
 

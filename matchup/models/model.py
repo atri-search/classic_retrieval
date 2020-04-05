@@ -55,6 +55,7 @@ class Model(abc.ABC):
 
         idf = vocabulary.idf
         tf = vocabulary.tf
+
         maximum_frequencies_per_document = vocabulary.maximum_frequencies_per_document()
 
         for key in query:
@@ -80,7 +81,7 @@ class IterModel(Model):
         self._pointers = defaultdict(int)
 
     @abc.abstractmethod
-    def run(self, query: List[Term], vocabulary: Vocabulary):
+    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
         """
             Define the principal method of IR models.
         :param query: List of all entry terms
@@ -132,7 +133,7 @@ class IterModel(Model):
         for key in query:
             if key.word in vocabulary:
                 self._term_occurrences[key.word] = vocabulary[key.word]
-
+                
     def initialize_pointers(self) -> None:
         """
             Initialize pointers to model algorithm

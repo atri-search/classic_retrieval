@@ -37,8 +37,8 @@ class Sanitizer:
         line_cleaned = self.strip_accents(line_cleaned)
 
         words = line_cleaned.split()
-        filtered = filter(lambda word: word.lower() not in self._stopwords, words)
-        indexed = Sanitizer.index_line(list(filtered), base_line)
+        indexed = self.index_line(words, base_line)
+
         return indexed
 
     def import_stopwords(self) -> Set[str]:
@@ -75,8 +75,7 @@ class Sanitizer:
         """
         self._stopwords_path = path
 
-    @staticmethod
-    def index_line(words: List[str], base_line: Line) -> List[Term]:
+    def index_line(self, words: List[str], base_line: Line) -> List[Term]:
         """
             This function index one line and returning all words sanitized
             The list must be sorted by occurrence in text!
@@ -85,22 +84,20 @@ class Sanitizer:
         :return: list of indexed words : list(Term)
         """
 
+        filtered = self._filter_stopwords(words)
         base_line_stripped = Sanitizer.strip_accents(base_line.content)
 
         indexed_words = []
 
         acc_value = 0
-        for word in words:
+        for word in filtered:
 
             word_position = base_line_stripped[acc_value::].find(word)
             acc_value += word_position
 
             position = str(base_line.number) + "-" + str(acc_value)
 
-            word_sanitized = Sanitizer._remove_special_chars_lower(word)
-
-            if word_sanitized:
-                indexed_words.append(Term(word_sanitized, position))
+            indexed_words.append(Term(word, position))
 
         return indexed_words
 
@@ -121,4 +118,12 @@ class Sanitizer:
         :param word: string to be sanitized
         :return:
         """
-        return re.sub('[^a-zA-Z0-9\n]', '', word).lower()
+        return re.sub('[^a-zA-Z0-9áéíóúàèìòùãõâêîôû\n]', '', word).lower()
+
+    def _filter_stopwords(self, words: List[str]) -> List[str]:
+        filtered = list()
+        for word in words:
+            cleaned_word = self._remove_special_chars_lower(word)
+            if cleaned_word not in self._stopwords:
+                filtered.append(cleaned_word)
+        return filtered

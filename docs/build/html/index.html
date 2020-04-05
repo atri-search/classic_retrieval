@@ -35,8 +35,8 @@
   <div class="section" id="match-up">
 <h1>Match Up<a class="headerlink" href="#match-up" title="Permalink to this headline">¶</a></h1>
 <p>Match up is a PURE-Python library based on <a class="reference external" href="https://en.wikipedia.org/wiki/Information_retrieval">Information Retrieval</a> (IR) concepts.
-Here are implemented four IR models (<a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval">Boolean</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_space_model">Vector Space</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Probabilistic_relevance_model">Probabilistic</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Boolean_model">Extended Boolean</a>) that can be tested and
-compared through a collection of documents and a query. The result will be a query-based similarity rank
+Here are implemented five IR models (<a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval">Boolean</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_space_model">Vector Space</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Probabilistic_relevance_model">Probabilistic</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Boolean_model">Extended Boolean</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_vector_space_model">Generalized Vector</a>)
+that can be tested and compared through a collection of documents and a query. The result will be a query-based similarity rank
 that can be used to get insights about the collection.</p>
 <div class="section" id="simple-guide">
 <h2>Simple Guide<a class="headerlink" href="#simple-guide" title="Permalink to this headline">¶</a></h2>
@@ -89,7 +89,7 @@ this file in a string format, and then use it. Let’s explore the Query structu
 </div>
 <p>After running this method, nothing happened !! This is because you haven’t configured your search engine settings yet.
 We can configure the search engine and execute the query at the same time.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># needs the import : from matchup.models.algorithms.boolean import Boolean</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># needs the import : from matchup.models.algorithms import Boolean</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">Boolean</span><span class="p">())</span>
 </pre></div>
 </div>
