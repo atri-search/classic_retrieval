@@ -36,6 +36,14 @@ class Solution:
             string += "No results found."
         return string
 
+    @property
+    def results(self) -> List[Result]:
+        """
+            Ranking List
+        :return: List of results
+        """
+        return self._results
+
     def __contains__(self, item: Result):
         """
             Boolean flag that indicates if some item are in result list

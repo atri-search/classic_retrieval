@@ -48,12 +48,13 @@ class TF(ABC):
             return sorted(self._tfs.items(), key=lambda v: v[1], reverse=reverse)[:value]
         return sorted(self._tfs.items(), key=lambda v: v[1], reverse=reverse)
 
-    def calculate(self, keyword: str, occurrence, document_maximum_frequency) -> float:
+    def calculate(self, keyword: str, occurrence, document_maximum_frequency, persist: bool = True) -> float:
         """
            Generate TF based in TFType
         :param keyword: keyword to calculate tf
         :param occurrence: keyword occurrence in it document
         :param document_maximum_frequency: maximum frequency in its document
+        :param persist: persists in-memory or not the tf score generated.
         :return:float tf
         """
         ...
@@ -71,7 +72,7 @@ class Binary(TF):
     def __init__(self, **kwargs):
         super(Binary, self).__init__(**kwargs)
 
-    def calculate(self, keyword: str, occurrence, document_maximum_frequency):
+    def calculate(self, keyword: str, occurrence, document_maximum_frequency, persist: bool = True):
         """
             Model to calculate TF based in binary values (0,1)
         :return: float tf
@@ -79,9 +80,9 @@ class Binary(TF):
         fij = self._fij(occurrence, document_maximum_frequency)
 
         if fij > 0:
-            return self._persist((keyword, occurrence.doc()), 1.0)
+            return self._persist((keyword, occurrence.doc()), 1.0) if persist else 1.0
         else:
-            return self._persist((keyword, occurrence.doc()), 0.0)
+            return self._persist((keyword, occurrence.doc()), 0.0) if persist else 0.0
 
 
 class TermFrequency(TF):
@@ -89,14 +90,13 @@ class TermFrequency(TF):
     def __init__(self, **kwargs):
         super(TermFrequency, self).__init__(**kwargs)
 
-    def calculate(self, keyword: str, occurrence, document_maximum_frequency) -> float:
+    def calculate(self, keyword: str, occurrence, document_maximum_frequency, persist: bool = True) -> float:
         """
             Model to calculate TF based in fij
         :return: float fij
         """
         fij = self._fij(occurrence, document_maximum_frequency)
-
-        return self._persist((keyword, occurrence.doc()), float(fij))
+        return self._persist((keyword, occurrence.doc()), float(fij)) if persist else float(fij)
 
 
 class LogNormalization(TF):
@@ -107,7 +107,7 @@ class LogNormalization(TF):
     def _fij(self, occurrence, document_maximum_frequency):
         return occurrence.frequency
 
-    def calculate(self, keyword: str, occurrence, document_maximum_frequency) -> float:
+    def calculate(self, keyword: str, occurrence, document_maximum_frequency, persist: bool = True) -> float:
         """
             Model to calculate TF based in : 1 + log fij
         :return: float fij
@@ -116,14 +116,14 @@ class LogNormalization(TF):
         fij = self._fij(occurrence, document_maximum_frequency)
         tf = 1 + log(fij, 2)
 
-        return self._persist((keyword, occurrence.doc()), tf)
+        return self._persist((keyword, occurrence.doc()), tf) if persist else tf
 
 
 class DoubleNormalization(TF):
     def __init__(self, **kwargs):
         super(DoubleNormalization, self).__init__(**kwargs)
 
-    def calculate(self, keyword: str, occurrence, document_maximum_frequency) -> float:
+    def calculate(self, keyword: str, occurrence, document_maximum_frequency, persist: bool = True) -> float:
         """
             Model to calculate TF based in fij
         :return: float fij
@@ -132,7 +132,7 @@ class DoubleNormalization(TF):
 
         tf = 0.5 + 0.5 * (fij / document_maximum_frequency)
 
-        return self._persist((keyword, occurrence.doc()), tf)
+        return self._persist((keyword, occurrence.doc()), tf) if persist else tf
 
 
 class DoubleNormalizationK(TF):
@@ -140,7 +140,7 @@ class DoubleNormalizationK(TF):
         super(DoubleNormalizationK, self).__init__(**kwargs)
         self._K = kwargs.get("K")
 
-    def calculate(self, keyword: str, occurrence, document_maximum_frequency) -> float:
+    def calculate(self, keyword: str, occurrence, document_maximum_frequency, persist: bool = True) -> float:
         """
             Model to calculate TF based in fij
         :return: float fij
@@ -150,4 +150,4 @@ class DoubleNormalizationK(TF):
         K = self._K if self._K is not None else 0.5
         tf = K + (1-K) * (fij / document_maximum_frequency)
 
-        return self._persist((keyword, occurrence.doc()), tf)
+        return self._persist((keyword, occurrence.doc()), tf) if persist else tf

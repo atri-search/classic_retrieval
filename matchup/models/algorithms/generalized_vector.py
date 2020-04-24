@@ -72,7 +72,10 @@ class GeneralizedVector(IterModel):
         for i in range(len(doc)):
             intern_prod += doc[i] * query[i]
 
-        cos = intern_prod / (norm_query * norm_doc)
+        try:
+            cos = intern_prod / (norm_query * norm_doc)
+        except:
+            cos = 0.0
 
         return cos
 
@@ -125,7 +128,8 @@ class GeneralizedVector(IterModel):
             count += 1
 
         for term in term_repr:
-            term_repr[term] = [score / sqrt(normalization[term]) for score in term_repr[term]]
+            norm = normalization[term] if normalization[term] != 0 else 1.0
+            term_repr[term] = [score / sqrt(norm) for score in term_repr[term]]
 
         return term_repr, len(minterms)
 
@@ -140,7 +144,7 @@ class GeneralizedVector(IterModel):
         """
         doc_correlations = defaultdict(set)
         for kw in query_repr.keys():
-            documents = [(occ.doc(), occ.score) for occ in vocabulary[kw]]
+            documents = [(occ.doc(), occ.score) for occ in vocabulary[kw]] if kw in vocabulary else []
             for doc in documents:
                 doc_correlations[doc[0]].add(Correlation(kw, doc[1]))
         return doc_correlations

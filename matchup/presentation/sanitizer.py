@@ -85,7 +85,7 @@ class Sanitizer:
         """
 
         filtered = self._filter_stopwords(words)
-        base_line_stripped = Sanitizer.strip_accents(base_line.content)
+        base_line_stripped = Sanitizer.strip_accents(base_line.content).lower()
 
         indexed_words = []
 
@@ -98,6 +98,8 @@ class Sanitizer:
             position = str(base_line.number) + "-" + str(acc_value)
 
             indexed_words.append(Term(word, position))
+
+            acc_value += len(word)
 
         return indexed_words
 
@@ -124,6 +126,6 @@ class Sanitizer:
         filtered = list()
         for word in words:
             cleaned_word = self._remove_special_chars_lower(word)
-            if cleaned_word not in self._stopwords:
+            if cleaned_word and cleaned_word not in self._stopwords:
                 filtered.append(cleaned_word)
         return filtered

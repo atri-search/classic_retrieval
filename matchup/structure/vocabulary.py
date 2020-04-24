@@ -65,6 +65,9 @@ class Vocabulary:
             return True
         raise FileNotFoundError
 
+    def generate_idf(self):
+        self._idf.generate(self)
+
     @property
     def idf(self) -> IDF:
         """

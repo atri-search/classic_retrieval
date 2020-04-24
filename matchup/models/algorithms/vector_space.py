@@ -27,7 +27,6 @@ class Vector(IterModel):
 
         query_repr = self.query_repr(query, vocabulary.idf, vocabulary.tf)
 
-        # apply weighting on vocabulary
         self.process_vocabulary_query_based(query, vocabulary)
 
         scores = defaultdict(float)

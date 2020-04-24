@@ -50,7 +50,7 @@ class Pdf(AbstractFile):
     def open(self):
         from .tools import convert_pdf_to_txt
         text = convert_pdf_to_txt(self._file_path)
-        self._file = open(get_base_name(self._file_path) + TEMP_SUFFIX, mode='w+', encoding='utf-8')
+        self._file = open(get_base_name(self._file_path) + TEMP_SUFFIX, mode='w+', encoding='utf-8', errors='ignore')
         self._file.write(text)
         self._file.seek(0)
         return self._file
@@ -72,14 +72,14 @@ class Txt(AbstractFile):
         self._file = None
 
     def open(self):
-        self._file = open(self._file_path, mode='r', encoding='utf-8')
+        self._file = open(self._file_path, mode='r', encoding='utf-8', errors='ignore')
         return self._file
 
     def close(self):
         self._file.close()
 
     def content(self) -> str:
-        f = open(self._file_path, mode='r', encoding='utf-8')
+        f = open(self._file_path, mode='r', encoding='utf-8', errors='ignore')
         content = f.read()
         f.close()
         return content
