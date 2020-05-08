@@ -27,7 +27,7 @@ class Vocabulary:
         :param response: Path to save processed Vocabulary
         :param kwargs: only accepts 'stopwords', with the stopwords file path
         """
-        self._index = InvertedIndex()
+        self._index = InvertedIndex() if kwargs.get('indexer') is None else kwargs.get('indexer')
 
         self._idf = None
         self._tf = None

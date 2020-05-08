@@ -1,5 +1,6 @@
 """
-    IR modern network-based model. Probabilistic and vector space concepts are important here.
+    Belief Network module.
+    Defines a IR modern model network-based. Classic probabilistic and vector space concepts are important here.
 """
 
 from math import sqrt
