@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Unary &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>Unary &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -15,6 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sanitizer" href="matchup.presentation.sanitizer.Sanitizer.html" />
+    <link rel="prev" title="ProbabilisticInverseFrequency" href="matchup.structure.weighting.idf.ProbabilisticInverseFrequency.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,6 +35,41 @@
             
   <div class="section" id="unary">
 <h1>Unary<a class="headerlink" href="#unary" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="matchup.structure.weighting.idf.Unary">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.weighting.idf.</code><code class="sig-name descname">Unary</code><a class="headerlink" href="#matchup.structure.weighting.idf.Unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.structure.weighting.idf.IDF.html#matchup.structure.weighting.idf.IDF" title="matchup.structure.weighting.idf.IDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.structure.weighting.idf.IDF</span></code></a></p>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.weighting.idf.Unary.generate" title="matchup.structure.weighting.idf.Unary.generate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate</span></code></a>(vocabulary)</p></td>
+<td><p>Model to calculate IDF based in unary weight (1)</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt id="matchup.structure.weighting.idf.Unary.generate">
+<code class="sig-name descname">generate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vocabulary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.weighting.idf.Unary.generate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Model to calculate IDF based in unary weight (1)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vocabulary</strong> – structure to generate IDF</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -42,7 +79,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -53,8 +90,25 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.occurrence">matchup.structure.occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -64,6 +118,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../overview.html">Overview classes</a><ul>
+      <li>Previous: <a href="matchup.structure.weighting.idf.ProbabilisticInverseFrequency.html" title="previous chapter">ProbabilisticInverseFrequency</a></li>
+      <li>Next: <a href="matchup.presentation.sanitizer.Sanitizer.html" title="next chapter">Sanitizer</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -93,11 +151,11 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/api/matchup.structure.weighting.Idf.Unary.rst.txt"
+      <a href="../_sources/api/matchup.structure.weighting.idf.Unary.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

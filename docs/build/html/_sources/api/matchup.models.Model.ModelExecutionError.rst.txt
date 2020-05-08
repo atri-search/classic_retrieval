@@ -1,6 +1,6 @@
 ModelExecutionError
 ===================
 
-.. currentmodule:: matchup.models.Model
+.. currentmodule:: matchup.models.model
 
 .. autoexception:: ModelExecutionError

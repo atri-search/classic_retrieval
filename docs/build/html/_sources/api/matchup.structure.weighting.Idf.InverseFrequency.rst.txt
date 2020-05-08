@@ -1,7 +1,7 @@
 InverseFrequency
 ================
 
-.. currentmodule:: matchup.structure.weighting.Idf
+.. currentmodule:: matchup.structure.weighting.idf
 
 .. autoclass:: InverseFrequency
    :show-inheritance:

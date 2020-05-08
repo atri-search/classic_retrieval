@@ -1,6 +1,6 @@
 NoSuchModelException
 ====================
 
-.. currentmodule:: matchup.models.Model
+.. currentmodule:: matchup.models.model
 
 .. autoexception:: NoSuchModelException

@@ -1,7 +1,7 @@
 Query
 =====
 
-.. currentmodule:: matchup.structure.Query
+.. currentmodule:: matchup.structure.query
 
 .. autoclass:: Query
    :show-inheritance:

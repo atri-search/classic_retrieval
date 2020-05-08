@@ -12,9 +12,15 @@ from matchup.models.model import IterModel, Term, Result, Vocabulary
 
 class BeliefNetwork(IterModel):
 
+    def __init__(self):
+        super(BeliefNetwork, self).__init__()
+
     def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
         """
             Belief Network algorithm.
+        :param query: list of all query terms
+        :param vocabulary: data structure that represents the vocabulary
+        :return: list of solution -> (document, score)
         """
         self.initialize(query, vocabulary)  # initialize query and vocabulary pointers
 
@@ -38,6 +44,10 @@ class BeliefNetwork(IterModel):
             -> float:
         """
             Calculate similarity between one document and query based in Belief Network IR model.
+        :param doc_repr: Document vector space representation
+        :param query_repr: Query vector space representation
+        :param prob_k: Probability that a random key 'k' is relevant
+        :return Relevant score of document based in query.
         """
         wij_square_sum = 0.0
         for key in doc_repr.keys():

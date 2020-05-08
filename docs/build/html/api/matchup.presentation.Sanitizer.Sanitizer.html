@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Sanitizer &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>Sanitizer &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -15,6 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ModelMissingParameters" href="matchup.models.orchestrator.ModelMissingParameters.html" />
+    <link rel="prev" title="Unary" href="matchup.structure.weighting.idf.Unary.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,6 +35,148 @@
             
   <div class="section" id="sanitizer">
 <h1>Sanitizer<a class="headerlink" href="#sanitizer" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="matchup.presentation.sanitizer.Sanitizer">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.presentation.sanitizer.</code><code class="sig-name descname">Sanitizer</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span></em>, <em class="sig-param"><span class="n">stopwords_path</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Responsible to clean and process the text representation.</p>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.sanitizer.Sanitizer.stopwords_path" title="matchup.presentation.sanitizer.Sanitizer.stopwords_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stopwords_path</span></code></a></p></td>
+<td><p>Property that get the stopwords file path</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.sanitizer.Sanitizer.add_stopwords" title="matchup.presentation.sanitizer.Sanitizer.add_stopwords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_stopwords</span></code></a>(stopwords)</p></td>
+<td><p>Add a set of stopwords manually.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.presentation.sanitizer.Sanitizer.import_stopwords" title="matchup.presentation.sanitizer.Sanitizer.import_stopwords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">import_stopwords</span></code></a>()</p></td>
+<td><p>Retrieve stopwords from a file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.sanitizer.Sanitizer.index_line" title="matchup.presentation.sanitizer.Sanitizer.index_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_line</span></code></a>(words, base_line)</p></td>
+<td><p>This function index one line and returning all words sanitized</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.presentation.sanitizer.Sanitizer.sanitize_line" title="matchup.presentation.sanitizer.Sanitizer.sanitize_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sanitize_line</span></code></a>(line, number_line)</p></td>
+<td><p>This function sanitize one line. The number is basically for presentation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.presentation.sanitizer.Sanitizer.strip_accents" title="matchup.presentation.sanitizer.Sanitizer.strip_accents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strip_accents</span></code></a>(text)</p></td>
+<td><p>Strip accents of one text</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt id="matchup.presentation.sanitizer.Sanitizer.stopwords_path">
+<code class="sig-name descname">stopwords_path</code><a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer.stopwords_path" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Property that get the stopwords file path</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Complete stopwords file path</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt id="matchup.presentation.sanitizer.Sanitizer.add_stopwords">
+<code class="sig-name descname">add_stopwords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stopwords</span><span class="p">:</span> <span class="n">Set<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer.add_stopwords" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Add a set of stopwords manually.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stopwords</strong> – set of stopwords.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.presentation.sanitizer.Sanitizer.import_stopwords">
+<code class="sig-name descname">import_stopwords</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Set<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer.import_stopwords" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Retrieve stopwords from a file.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>set of stopwords</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.presentation.sanitizer.Sanitizer.index_line">
+<code class="sig-name descname">index_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">words</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">base_line</span><span class="p">:</span> <span class="n">matchup.presentation.text.Line</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>matchup.presentation.text.Term<span class="p">]</span><a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer.index_line" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>This function index one line and returning all words sanitized
+The list must be sorted by occurrence in text!</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>words</strong> – base-line stripped and without stopwords</p></li>
+<li><p><strong>base_line</strong> – line to be sanitized</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of indexed words : list(Term)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.presentation.sanitizer.Sanitizer.sanitize_line">
+<code class="sig-name descname">sanitize_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">number_line</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>matchup.presentation.text.Term<span class="p">]</span><a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer.sanitize_line" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>This function sanitize one line. The number is basically for presentation</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>line</strong> – Complete line to be processed</p></li>
+<li><p><strong>number_line</strong> – number of line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.presentation.sanitizer.Sanitizer.strip_accents">
+<em class="property">static </em><code class="sig-name descname">strip_accents</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#matchup.presentation.sanitizer.Sanitizer.strip_accents" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Strip accents of one text</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> – old text</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>text sanitized</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -42,7 +186,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -53,8 +197,25 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.occurrence">matchup.structure.occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -64,6 +225,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../overview.html">Overview classes</a><ul>
+      <li>Previous: <a href="matchup.structure.weighting.idf.Unary.html" title="previous chapter">Unary</a></li>
+      <li>Next: <a href="matchup.models.orchestrator.ModelMissingParameters.html" title="next chapter">ModelMissingParameters</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -93,11 +258,11 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/api/matchup.presentation.Sanitizer.Sanitizer.rst.txt"
+      <a href="../_sources/api/matchup.presentation.sanitizer.Sanitizer.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

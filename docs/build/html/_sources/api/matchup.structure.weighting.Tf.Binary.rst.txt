@@ -1,7 +1,7 @@
 Binary
 ======
 
-.. currentmodule:: matchup.structure.weighting.Tf
+.. currentmodule:: matchup.structure.weighting.tf
 
 .. autoclass:: Binary
    :show-inheritance:

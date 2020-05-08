@@ -1,7 +1,7 @@
 TFFactory
 =========
 
-.. currentmodule:: matchup.structure.weighting.Tf
+.. currentmodule:: matchup.structure.weighting.tf
 
 .. autoclass:: TFFactory
    :show-inheritance:

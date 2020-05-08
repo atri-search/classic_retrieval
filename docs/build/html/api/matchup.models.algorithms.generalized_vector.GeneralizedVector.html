@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>GeneralizedVector &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Minterm" href="matchup.models.algorithms.generalized_vector.Minterm.html" />
+    <link rel="prev" title="Correlation" href="matchup.models.algorithms.generalized_vector.Correlation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="generalizedvector">
+<h1>GeneralizedVector<a class="headerlink" href="#generalizedvector" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="matchup.models.algorithms.generalized_vector.GeneralizedVector">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.generalized_vector.</code><code class="sig-name descname">GeneralizedVector</code><a class="headerlink" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.models.model.IterModel.html#matchup.models.model.IterModel" title="matchup.models.model.IterModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.model.IterModel</span></code></a></p>
+<p>Class that implements the ‘run’ method of Generalized Vector IR model.</p>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_calculate" title="matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generalized_calculate</span></code></a>(doc, query)</p></td>
+<td><p>Calculate the similarity based on cosine of two vectors: doc vector and query vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_doc_repr" title="matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_doc_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generalized_doc_repr</span></code></a>(term_repr, base_len)</p></td>
+<td><p>Generate vectors for all documents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_query_repr" title="matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_query_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generalized_query_repr</span></code></a>(query_weight, …)</p></td>
+<td><p>Generate query vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.run" title="matchup.models.algorithms.generalized_vector.GeneralizedVector.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
+<td><p>Run generalized vector model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.term_repr" title="matchup.models.algorithms.generalized_vector.GeneralizedVector.term_repr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">term_repr</span></code></a>(minterms)</p></td>
+<td><p>Generate vectors for all terms based in minterms.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt id="matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_calculate">
+<em class="property">classmethod </em><code class="sig-name descname">generalized_calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span><span class="p">:</span> <span class="n">List<span class="p">[</span>float<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">query</span><span class="p">:</span> <span class="n">List<span class="p">[</span>float<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_calculate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Calculate the similarity based on cosine of two vectors: doc vector and query vector.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc</strong> – doc vector</p></li>
+<li><p><strong>query</strong> – query vector</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>score of doc</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_doc_repr">
+<code class="sig-name descname">generalized_doc_repr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">term_repr</span><span class="p">:</span> <span class="n">DefaultDict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">base_len</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; DefaultDict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_doc_repr" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Generate vectors for all documents.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>term_repr</strong> – vector of all keys</p></li>
+<li><p><strong>base_len</strong> – len of these vectors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>All document representations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_query_repr">
+<em class="property">classmethod </em><code class="sig-name descname">generalized_query_repr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query_weight</span><span class="p">:</span> <span class="n">DefaultDict<span class="p">[</span>str<span class="p">, </span>float<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">term_repr</span><span class="p">:</span> <span class="n">DefaultDict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">base_len</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.generalized_query_repr" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Generate query vector.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_weight</strong> – query weighting based in keys.</p></li>
+<li><p><strong>term_repr</strong> – term vectors</p></li>
+<li><p><strong>base_len</strong> – base len of term vectors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.generalized_vector.GeneralizedVector.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span><span class="p">:</span> <span class="n">List<span class="p">[</span>matchup.presentation.text.Term<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">vocabulary</span><span class="p">:</span> <span class="n"><a class="reference internal" href="matchup.structure.vocabulary.Vocabulary.html#matchup.structure.vocabulary.Vocabulary" title="matchup.structure.vocabulary.Vocabulary">matchup.structure.vocabulary.Vocabulary</a></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="matchup.structure.solution.Result.html#matchup.structure.solution.Result" title="matchup.structure.solution.Result">matchup.structure.solution.Result</a><span class="p">]</span><a class="headerlink" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.run" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Run generalized vector model.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – List of terms.</p></li>
+<li><p><strong>vocabulary</strong> – Vocabulary with a collection.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Query results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.generalized_vector.GeneralizedVector.term_repr">
+<em class="property">classmethod </em><code class="sig-name descname">term_repr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">minterms</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="matchup.models.algorithms.generalized_vector.Minterm.html#matchup.models.algorithms.generalized_vector.Minterm" title="matchup.models.algorithms.generalized_vector.Minterm">matchup.models.algorithms.generalized_vector.Minterm</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>DefaultDict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span><span class="p">, </span>int<span class="p">]</span><a class="headerlink" href="#matchup.models.algorithms.generalized_vector.GeneralizedVector.term_repr" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Generate vectors for all terms based in minterms.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>minterms</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.occurrence">matchup.structure.occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../overview.html">Overview classes</a><ul>
+      <li>Previous: <a href="matchup.models.algorithms.generalized_vector.Correlation.html" title="previous chapter">Correlation</a></li>
+      <li>Next: <a href="matchup.models.algorithms.generalized_vector.Minterm.html" title="next chapter">Minterm</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Marcos Pontes.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/api/matchup.models.algorithms.generalized_vector.GeneralizedVector.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

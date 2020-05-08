@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>DoubleNormalization &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>DoubleNormalization &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="DoubleNormalizationK" href="matchup.structure.weighting.tf.DoubleNormalizationK.html" />
-    <link rel="prev" title="Overview classes" href="../overview.html" />
+    <link rel="prev" title="Binary" href="matchup.structure.weighting.tf.Binary.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,10 +35,10 @@
             
   <div class="section" id="doublenormalization">
 <h1>DoubleNormalization<a class="headerlink" href="#doublenormalization" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="matchup.structure.weighting.tf.DoubleNormalization">
-<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.weighting.tf.</code><code class="sig-name descname">DoubleNormalization</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.weighting.tf.DoubleNormalization" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.structure.weighting.tf.TF</span></code></p>
+<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.weighting.tf.</code><code class="sig-name descname">DoubleNormalization</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.weighting.tf.DoubleNormalization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.structure.weighting.tf.TF.html#matchup.structure.weighting.tf.TF" title="matchup.structure.weighting.tf.TF"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.structure.weighting.tf.TF</span></code></a></p>
 <p class="rubric">Methods Summary</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -46,15 +46,15 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.weighting.tf.DoubleNormalization.calculate" title="matchup.structure.weighting.tf.DoubleNormalization.calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate</span></code></a>(keyword, occurrence, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.weighting.tf.DoubleNormalization.calculate" title="matchup.structure.weighting.tf.DoubleNormalization.calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate</span></code></a>(keyword, occurrence, …[, persist])</p></td>
 <td><p>Model to calculate TF based in fij</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Methods Documentation</p>
-<dl class="method">
+<dl class="py method">
 <dt id="matchup.structure.weighting.tf.DoubleNormalization.calculate">
-<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param">keyword: str</em>, <em class="sig-param">occurrence</em>, <em class="sig-param">document_maximum_frequency</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.structure.weighting.tf.DoubleNormalization.calculate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keyword</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">occurrence</span></em>, <em class="sig-param"><span class="n">document_maximum_frequency</span></em>, <em class="sig-param"><span class="n">persist</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.structure.weighting.tf.DoubleNormalization.calculate" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Model to calculate TF based in fij</p>
 </div></blockquote>
@@ -76,7 +76,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -99,7 +99,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
 </ul>
@@ -114,7 +116,7 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../overview.html">Overview classes</a><ul>
-      <li>Previous: <a href="../overview.html" title="previous chapter">Overview classes</a></li>
+      <li>Previous: <a href="matchup.structure.weighting.tf.Binary.html" title="previous chapter">Binary</a></li>
       <li>Next: <a href="matchup.structure.weighting.tf.DoubleNormalizationK.html" title="next chapter">DoubleNormalizationK</a></li>
   </ul></li>
   </ul></li>
@@ -146,7 +148,7 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

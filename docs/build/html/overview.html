@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Overview classes &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>Overview classes &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -15,8 +15,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="DoubleNormalization" href="api/matchup.structure.weighting.tf.DoubleNormalization.html" />
-    <link rel="prev" title="Match Up" href="index.html" />
+    <link rel="next" title="Occurrence" href="api/matchup.structure.occurrence.Occurrence.html" />
+    <link rel="prev" title="MatchUp Information Retrieval Library" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -48,7 +48,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Occurrence</span></code>([doc, term])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.occurrence.Occurrence.html#matchup.structure.occurrence.Occurrence" title="matchup.structure.occurrence.Occurrence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Occurrence</span></code></a>([doc, term])</p></td>
 <td><p>Occurrence is an encapsulation of:</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Term</span></code>(word, position)</p></td>
@@ -72,13 +72,13 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></p></td>
 <td><p>IR Models base class.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoSuchAnswerException</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.query.NoSuchAnswerException.html#matchup.structure.query.NoSuchAnswerException" title="matchup.structure.query.NoSuchAnswerException"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoSuchAnswerException</span></code></a></p></td>
 <td><p>Exception when no such answer (input) are given by user during a search method.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orchestrator</span></code>(vocabulary)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Query</span></code>(*, vocabulary)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.query.Query.html#matchup.structure.query.Query" title="matchup.structure.query.Query"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Query</span></code></a>(*, vocabulary)</p></td>
 <td><p>Represents the Query of the IR service.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sanitizer</span></code>(*[, stopwords_path])</p></td>
@@ -105,10 +105,10 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Result</span></code>(document, score)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.solution.Result.html#matchup.structure.solution.Result" title="matchup.structure.solution.Result"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Result</span></code></a>(document, score)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Solution</span></code>(results)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.solution.Solution.html#matchup.structure.solution.Solution" title="matchup.structure.solution.Solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Solution</span></code></a>(results)</p></td>
 <td><p>The solution class has the function of properly storing and displaying the responses of the queries</p></td>
 </tr>
 </tbody>
@@ -141,7 +141,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TF</span></code>(**kwargs)</p></td>
 <td><p>Abstract base class who represents TF param.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vocabulary</span></code>(save, **kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.vocabulary.Vocabulary.html#matchup.structure.vocabulary.Vocabulary" title="matchup.structure.vocabulary.Vocabulary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vocabulary</span></code></a>(save, **kwargs)</p></td>
 <td><p>Crucial data structure that represents and storage all text processing.</p></td>
 </tr>
 </tbody>
@@ -162,7 +162,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ABC</span></code></p></td>
 <td><p>Helper class that provides a standard way to create an ABC using inheritance.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Binary</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.Binary.html#matchup.structure.weighting.tf.Binary" title="matchup.structure.weighting.tf.Binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Binary</span></code></a>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.DoubleNormalization.html#matchup.structure.weighting.tf.DoubleNormalization" title="matchup.structure.weighting.tf.DoubleNormalization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DoubleNormalization</span></code></a>(**kwargs)</p></td>
@@ -171,16 +171,16 @@
 <tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.DoubleNormalizationK.html#matchup.structure.weighting.tf.DoubleNormalizationK" title="matchup.structure.weighting.tf.DoubleNormalizationK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DoubleNormalizationK</span></code></a>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogNormalization</span></code>(**kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.LogNormalization.html#matchup.structure.weighting.tf.LogNormalization" title="matchup.structure.weighting.tf.LogNormalization"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogNormalization</span></code></a>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TF</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.TF.html#matchup.structure.weighting.tf.TF" title="matchup.structure.weighting.tf.TF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TF</span></code></a>(**kwargs)</p></td>
 <td><p>Abstract base class who represents TF param.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TFFactory</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.TFFactory.html#matchup.structure.weighting.tf.TFFactory" title="matchup.structure.weighting.tf.TFFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TFFactory</span></code></a></p></td>
 <td><p>Factory for TF based on String values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">TermFrequency</span></code>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.tf.TermFrequency.html#matchup.structure.weighting.tf.TermFrequency" title="matchup.structure.weighting.tf.TermFrequency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TermFrequency</span></code></a>(**kwargs)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultdict</span></code></p></td>
@@ -204,25 +204,25 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ABC</span></code></p></td>
 <td><p>Helper class that provides a standard way to create an ABC using inheritance.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDF</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.IDF.html#matchup.structure.weighting.idf.IDF" title="matchup.structure.weighting.idf.IDF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDF</span></code></a>()</p></td>
 <td><p>Abstract base class who represents IDF param.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDFFactory</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.IDFFactory.html#matchup.structure.weighting.idf.IDFFactory" title="matchup.structure.weighting.idf.IDFFactory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IDFFactory</span></code></a></p></td>
 <td><p>Factory for IDF based on String values.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">InverseFrequency</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.InverseFrequency.html#matchup.structure.weighting.idf.InverseFrequency" title="matchup.structure.weighting.idf.InverseFrequency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InverseFrequency</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">InverseFrequencyMax</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.InverseFrequencyMax.html#matchup.structure.weighting.idf.InverseFrequencyMax" title="matchup.structure.weighting.idf.InverseFrequencyMax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InverseFrequencyMax</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">InverseFrequencySmooth</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.InverseFrequencySmooth.html#matchup.structure.weighting.idf.InverseFrequencySmooth" title="matchup.structure.weighting.idf.InverseFrequencySmooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InverseFrequencySmooth</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProbabilisticInverseFrequency</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.ProbabilisticInverseFrequency.html#matchup.structure.weighting.idf.ProbabilisticInverseFrequency" title="matchup.structure.weighting.idf.ProbabilisticInverseFrequency"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProbabilisticInverseFrequency</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Unary</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.structure.weighting.idf.Unary.html#matchup.structure.weighting.idf.Unary" title="matchup.structure.weighting.idf.Unary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Unary</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultdict</span></code></p></td>
@@ -246,7 +246,7 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Line</span></code>(content, number)</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sanitizer</span></code>(*[, stopwords_path])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.presentation.sanitizer.Sanitizer.html#matchup.presentation.sanitizer.Sanitizer" title="matchup.presentation.sanitizer.Sanitizer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sanitizer</span></code></a>(*[, stopwords_path])</p></td>
 <td><p>Responsible to clean and process the text representation.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Term</span></code>(word, position)</p></td>
@@ -277,13 +277,13 @@ scored document list.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></p></td>
 <td><p>IR Models base class.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelMissingParameters</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.orchestrator.ModelMissingParameters.html#matchup.models.orchestrator.ModelMissingParameters" title="matchup.models.orchestrator.ModelMissingParameters"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelMissingParameters</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoSuchInputException</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.models.orchestrator.NoSuchInputException.html#matchup.models.orchestrator.NoSuchInputException" title="matchup.models.orchestrator.NoSuchInputException"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoSuchInputException</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orchestrator</span></code>(vocabulary)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.orchestrator.Orchestrator.html#matchup.models.orchestrator.Orchestrator" title="matchup.models.orchestrator.Orchestrator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Orchestrator</span></code></a>(vocabulary)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Result</span></code>(document, score)</p></td>
@@ -313,16 +313,16 @@ scored document list.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterModel</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.models.model.IterModel.html#matchup.models.model.IterModel" title="matchup.models.model.IterModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterModel</span></code></a>()</p></td>
 <td><p>Describe one variation of Model classes : IterModel classes have some features for help his works Pointers and occurrences are implemented here.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.model.Model.html#matchup.models.model.Model" title="matchup.models.model.Model"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></a></p></td>
 <td><p>IR Models base class.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelExecutionError</span></code></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.models.model.ModelExecutionError.html#matchup.models.model.ModelExecutionError" title="matchup.models.model.ModelExecutionError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ModelExecutionError</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoSuchModelException</span></code></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.model.NoSuchModelException.html#matchup.models.model.NoSuchModelException" title="matchup.models.model.NoSuchModelException"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoSuchModelException</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Occurrence</span></code>([doc, term])</p></td>
@@ -355,7 +355,7 @@ scored document list.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.models.algorithms.boolean.Boolean.html#matchup.models.algorithms.boolean.Boolean" title="matchup.models.algorithms.boolean.Boolean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Boolean</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Model</span></code></p></td>
@@ -377,11 +377,45 @@ scored document list.</p>
 </table>
 </div>
 </div>
+<div class="section" id="module-matchup.models.algorithms.belief_network">
+<span id="matchup-models-algorithms-belief-network-module"></span><h2>matchup.models.algorithms.belief_network Module<a class="headerlink" href="#module-matchup.models.algorithms.belief_network" title="Permalink to this headline">¶</a></h2>
+<p>Belief Network module.
+Defines a IR modern model network-based. Classic probabilistic and vector space concepts are important here.</p>
+<div class="section" id="id10">
+<h3>Classes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.models.algorithms.belief_network.BeliefNetwork.html#matchup.models.algorithms.belief_network.BeliefNetwork" title="matchup.models.algorithms.belief_network.BeliefNetwork"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BeliefNetwork</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterModel</span></code>()</p></td>
+<td><p>Describe one variation of Model classes : IterModel classes have some features for help his works Pointers and occurrences are implemented here.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Result</span></code>(document, score)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Term</span></code>(word, position)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vocabulary</span></code>(save, **kwargs)</p></td>
+<td><p>Crucial data structure that represents and storage all text processing.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultdict</span></code></p></td>
+<td><p>defaultdict(default_factory[, …]) –&gt; dict with default factory</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="module-matchup.models.algorithms.extended_boolean">
 <span id="matchup-models-algorithms-extended-boolean-module"></span><h2>matchup.models.algorithms.extended_boolean Module<a class="headerlink" href="#module-matchup.models.algorithms.extended_boolean" title="Permalink to this headline">¶</a></h2>
 <p>IR modern model. Combination with Boolean and Vector Space concepts.</p>
-<div class="section" id="id10">
-<h3>Classes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h3>Classes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -407,11 +441,50 @@ scored document list.</p>
 </table>
 </div>
 </div>
+<div class="section" id="module-matchup.models.algorithms.generalized_vector">
+<span id="matchup-models-algorithms-generalized-vector-module"></span><h2>matchup.models.algorithms.generalized_vector Module<a class="headerlink" href="#module-matchup.models.algorithms.generalized_vector" title="Permalink to this headline">¶</a></h2>
+<p>IR modern model. Vector space concepts considering term co-relations</p>
+<div class="section" id="id12">
+<h3>Classes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/matchup.models.algorithms.generalized_vector.Correlation.html#matchup.models.algorithms.generalized_vector.Correlation" title="matchup.models.algorithms.generalized_vector.Correlation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Correlation</span></code></a>(keyword, cir)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.algorithms.generalized_vector.GeneralizedVector.html#matchup.models.algorithms.generalized_vector.GeneralizedVector" title="matchup.models.algorithms.generalized_vector.GeneralizedVector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GeneralizedVector</span></code></a>()</p></td>
+<td><p>Class that implements the ‘run’ method of Generalized Vector IR model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterModel</span></code>()</p></td>
+<td><p>Describe one variation of Model classes : IterModel classes have some features for help his works Pointers and occurrences are implemented here.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.algorithms.generalized_vector.Minterm.html#matchup.models.algorithms.generalized_vector.Minterm" title="matchup.models.algorithms.generalized_vector.Minterm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Minterm</span></code></a>(correlations, id)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Result</span></code>(document, score)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Term</span></code>(word, position)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vocabulary</span></code>(save, **kwargs)</p></td>
+<td><p>Crucial data structure that represents and storage all text processing.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">defaultdict</span></code></p></td>
+<td><p>defaultdict(default_factory[, …]) –&gt; dict with default factory</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="module-matchup.models.algorithms.probabilistic">
 <span id="matchup-models-algorithms-probabilistic-module"></span><h2>matchup.models.algorithms.probabilistic Module<a class="headerlink" href="#module-matchup.models.algorithms.probabilistic" title="Permalink to this headline">¶</a></h2>
 <p>Classic IR model. Probabilistic model are implemented here, based in Interface Model</p>
-<div class="section" id="id11">
-<h3>Classes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3>Classes<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -421,7 +494,7 @@ scored document list.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">IterModel</span></code>()</p></td>
 <td><p>Describe one variation of Model classes : IterModel classes have some features for help his works Pointers and occurrences are implemented here.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Probabilistic</span></code>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="api/matchup.models.algorithms.probabilistic.Probabilistic.html#matchup.models.algorithms.probabilistic.Probabilistic" title="matchup.models.algorithms.probabilistic.Probabilistic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Probabilistic</span></code></a>()</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Result</span></code>(document, score)</p></td>
@@ -443,8 +516,8 @@ scored document list.</p>
 <div class="section" id="module-matchup.models.algorithms.vector_space">
 <span id="matchup-models-algorithms-vector-space-module"></span><h2>matchup.models.algorithms.vector_space Module<a class="headerlink" href="#module-matchup.models.algorithms.vector_space" title="Permalink to this headline">¶</a></h2>
 <p>Classic IR model. Vector model are implemented here, based in Interface Model</p>
-<div class="section" id="id12">
-<h3>Classes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3>Classes<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -482,7 +555,7 @@ scored document list.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -505,7 +578,9 @@ scored document list.</p>
 <li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.model">matchup.models.model Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
 </ul>
@@ -519,8 +594,8 @@ scored document list.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Match Up</a></li>
-      <li>Next: <a href="api/matchup.structure.weighting.tf.DoubleNormalization.html" title="next chapter">DoubleNormalization</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">MatchUp Information Retrieval Library</a></li>
+      <li>Next: <a href="api/matchup.structure.occurrence.Occurrence.html" title="next chapter">Occurrence</a></li>
   </ul></li>
 </ul>
 </div>
@@ -550,7 +625,7 @@ scored document list.</p>
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

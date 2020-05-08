@@ -1,7 +1,7 @@
 Vocabulary
 ==========
 
-.. currentmodule:: matchup.structure.Vocabulary
+.. currentmodule:: matchup.structure.vocabulary
 
 .. autoclass:: Vocabulary
    :show-inheritance:
@@ -13,35 +13,35 @@ Vocabulary
       ~Vocabulary.idf
       ~Vocabulary.keys
       ~Vocabulary.sanitizer
-      ~Vocabulary.stopwords_path
       ~Vocabulary.tf
 
    .. rubric:: Methods Summary
 
    .. autosummary::
 
-      ~Vocabulary.index_files
-      ~Vocabulary.get_number_docs_by_keyword
+      ~Vocabulary.documents_with_keywords
+      ~Vocabulary.generate_idf
       ~Vocabulary.import_collection
       ~Vocabulary.import_file
       ~Vocabulary.import_folder
+      ~Vocabulary.index_files
+      ~Vocabulary.maximum_frequencies_per_document
       ~Vocabulary.save
-      ~Vocabulary.size_vocabulary
 
    .. rubric:: Attributes Documentation
 
    .. autoattribute:: idf
    .. autoattribute:: keys
    .. autoattribute:: sanitizer
-   .. autoattribute:: stopwords_path
    .. autoattribute:: tf
 
    .. rubric:: Methods Documentation
 
-   .. automethod:: index_files
-   .. automethod:: get_number_docs_by_keyword
+   .. automethod:: documents_with_keywords
+   .. automethod:: generate_idf
    .. automethod:: import_collection
    .. automethod:: import_file
    .. automethod:: import_folder
+   .. automethod:: index_files
+   .. automethod:: maximum_frequencies_per_document
    .. automethod:: save
-   .. automethod:: size_vocabulary
