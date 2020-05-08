@@ -1,7 +1,7 @@
 Unary
 =====
 
-.. currentmodule:: matchup.structure.weighting.Idf
+.. currentmodule:: matchup.structure.weighting.idf
 
 .. autoclass:: Unary
    :show-inheritance:

@@ -1,10 +1,15 @@
-Match Up
-======================
+.. MatchUp Information Retrieval Library documentation master file, created by
+   sphinx-quickstart on Fri May  8 11:47:41 2020.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+MatchUp Information Retrieval Library
+=================================================================
 
 Match up is a PURE-Python library based on `Information Retrieval`_ (IR) concepts.
-Here are implemented five IR models (`Boolean`_, `Vector Space`_, `Probabilistic`_, `Extended Boolean`_ and `Generalized Vector`_)
-that can be tested and compared through a collection of documents and a query. The result will be a query-based similarity rank
-that can be used to get insights about the collection.
+Here are implemented five IR models (`Boolean`_, `Vector Space`_, `Probabilistic`_, `Extended Boolean`_, `Generalized Vector`_
+and `Belief Network`_) that can be tested and compared through a collection of documents and a query. The result will be
+a query-based similarity rank that can be used to get insights about the collection.
 
 .. _Information Retrieval: https://en.wikipedia.org/wiki/Information_retrieval
 .. _Boolean: https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval
@@ -12,6 +17,7 @@ that can be used to get insights about the collection.
 .. _Probabilistic: https://en.wikipedia.org/wiki/Probabilistic_relevance_model
 .. _Extended Boolean: https://en.wikipedia.org/wiki/Extended_Boolean_model
 .. _Generalized Vector: https://en.wikipedia.org/wiki/Generalized_vector_space_model
+.. _Belief Network: https://en.wikipedia.org/wiki/Bayesian_network
 
 Simple Guide
 ------------
@@ -75,6 +81,7 @@ That's it! Now we have a response for its query. The Boolean model it is the mos
 All the other models need weighting params, for example, that are configured by the named-params 'tf' and 'idf'. Learn more on Query
 documentation.
 
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
@@ -83,8 +90,9 @@ documentation.
    license
    help
 
+
 Indices and tables
-------------------
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`

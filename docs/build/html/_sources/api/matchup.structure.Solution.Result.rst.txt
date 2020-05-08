@@ -1,7 +1,7 @@
 Result
 ======
 
-.. currentmodule:: matchup.structure.Solution
+.. currentmodule:: matchup.structure.solution
 
 .. autoclass:: Result
    :show-inheritance:

@@ -91,6 +91,9 @@ class IterModel(Model):
         ...
 
     def initialize(self, query: List[Term], vocabulary: Vocabulary):
+        """
+            Initialize query-based
+        """
         self.initialize_occurrences(query, vocabulary)
         self.initialize_pointers()
 
@@ -204,5 +207,6 @@ class IterModel(Model):
 
         query_repr = defaultdict(float)
         for key in query:
-            query_repr[key.word] = idf[key.word] * tf.calculate(key.word, occurrences[key.word], maximum_frequency)
+            query_repr[key.word] = idf[key.word] * tf.calculate(key.word, occurrences[key.word], maximum_frequency,
+                                                                persist=False)
         return query_repr

@@ -1,6 +1,6 @@
 NoSuchInputException
 ====================
 
-.. currentmodule:: matchup.models.Orchestrator
+.. currentmodule:: matchup.models.orchestrator
 
 .. autoexception:: NoSuchInputException

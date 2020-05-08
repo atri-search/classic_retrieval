@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>ExtendedBoolean &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>ExtendedBoolean &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -15,8 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vector" href="matchup.models.algorithms.vector_space.Vector.html" />
-    <link rel="prev" title="DoubleNormalizationK" href="matchup.structure.weighting.tf.DoubleNormalizationK.html" />
+    <link rel="next" title="Correlation" href="matchup.models.algorithms.generalized_vector.Correlation.html" />
+    <link rel="prev" title="BeliefNetwork" href="matchup.models.algorithms.belief_network.BeliefNetwork.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -35,22 +35,10 @@
             
   <div class="section" id="extendedboolean">
 <h1>ExtendedBoolean<a class="headerlink" href="#extendedboolean" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="matchup.models.algorithms.extended_boolean.ExtendedBoolean">
-<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.extended_boolean.</code><code class="sig-name descname">ExtendedBoolean</code><span class="sig-paren">(</span><em class="sig-param">p: float</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.model.IterModel</span></code></p>
-<p class="rubric">Attributes Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExtendedBoolean.P</span></code></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
+<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.extended_boolean.</code><code class="sig-name descname">ExtendedBoolean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.models.model.IterModel.html#matchup.models.model.IterModel" title="matchup.models.model.IterModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.model.IterModel</span></code></a></p>
 <p class="rubric">Methods Summary</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -66,11 +54,10 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Attributes Documentation</p>
 <p class="rubric">Methods Documentation</p>
-<dl class="method">
+<dl class="py method">
 <dt id="matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores">
-<code class="sig-name descname">generate_scores</code><span class="sig-paren">(</span><em class="sig-param">doc_repr</em>, <em class="sig-param">m</em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">generate_scores</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc_repr</span></em>, <em class="sig-param"><span class="n">m</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.generate_scores" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Generate scores with Extended Boolean Model</p>
 </div></blockquote>
@@ -87,9 +74,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="matchup.models.algorithms.extended_boolean.ExtendedBoolean.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">query: List[matchup.presentation.text.Term], vocabulary: matchup.structure.vocabulary.Vocabulary</em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span><span class="p">:</span> <span class="n">List<span class="p">[</span>matchup.presentation.text.Term<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">vocabulary</span><span class="p">:</span> <span class="n"><a class="reference internal" href="matchup.structure.vocabulary.Vocabulary.html#matchup.structure.vocabulary.Vocabulary" title="matchup.structure.vocabulary.Vocabulary">matchup.structure.vocabulary.Vocabulary</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.extended_boolean.ExtendedBoolean.run" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>Needs weighting &lt;TF &lt;TermFrequency&gt; x IDF &lt;InverseFrequency&gt;&gt;</p>
 </div></blockquote>
@@ -117,7 +104,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -140,7 +127,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
 </ul>
@@ -155,8 +144,8 @@
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="../overview.html">Overview classes</a><ul>
-      <li>Previous: <a href="matchup.structure.weighting.tf.DoubleNormalizationK.html" title="previous chapter">DoubleNormalizationK</a></li>
-      <li>Next: <a href="matchup.models.algorithms.vector_space.Vector.html" title="next chapter">Vector</a></li>
+      <li>Previous: <a href="matchup.models.algorithms.belief_network.BeliefNetwork.html" title="previous chapter">BeliefNetwork</a></li>
+      <li>Next: <a href="matchup.models.algorithms.generalized_vector.Correlation.html" title="next chapter">Correlation</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -187,7 +176,7 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

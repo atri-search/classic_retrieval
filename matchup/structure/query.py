@@ -77,7 +77,9 @@ class Query:
         text = plain_answer.split("\n")
         terms = []
         for line in text:
-            terms += self._sanitizer.sanitize_line(line, number_line)
-            number_line += 1
+            line.strip()
+            if line:
+                terms += self._sanitizer.sanitize_line(line, number_line)
+                number_line += 1
         return terms
 

@@ -10,6 +10,7 @@ coverage = "*"
 sphinx = "*"
 sphinx-automodapi = "*"
 pdfminer = "*"
+xlsxwriter = "*"
 
 [requires]
 python_version = "3.7"

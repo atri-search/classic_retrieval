@@ -45,7 +45,15 @@ Overview classes
    :no-inheritance-diagram:
 
 .. automodapi::
+   matchup.models.algorithms.belief_network
+   :no-inheritance-diagram:
+
+.. automodapi::
    matchup.models.algorithms.extended_boolean
+   :no-inheritance-diagram:
+
+.. automodapi::
+   matchup.models.algorithms.generalized_vector
    :no-inheritance-diagram:
 
 .. automodapi::

@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Solution &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>Solution &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -15,6 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vocabulary" href="matchup.structure.vocabulary.Vocabulary.html" />
+    <link rel="prev" title="Result" href="matchup.structure.solution.Result.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,6 +35,68 @@
             
   <div class="section" id="solution">
 <h1>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="matchup.structure.solution.Solution">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.structure.solution.</code><code class="sig-name descname">Solution</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="matchup.structure.solution.Result.html#matchup.structure.solution.Result" title="matchup.structure.solution.Result">matchup.structure.solution.Result</a><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.structure.solution.Solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The solution class has the function of properly storing and displaying the responses of the queries</p>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.solution.Solution.results" title="matchup.structure.solution.Solution.results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">results</span></code></a></p></td>
+<td><p>Ranking List</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.structure.solution.Solution.str_n" title="matchup.structure.solution.Solution.str_n"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str_n</span></code></a>(n)</p></td>
+<td><p>Take the ranking for the first N results.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt id="matchup.structure.solution.Solution.results">
+<code class="sig-name descname">results</code><a class="headerlink" href="#matchup.structure.solution.Solution.results" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Ranking List</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of results</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt id="matchup.structure.solution.Solution.str_n">
+<code class="sig-name descname">str_n</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#matchup.structure.solution.Solution.str_n" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Take the ranking for the first N results.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -42,7 +106,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -53,8 +117,25 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.occurrence">matchup.structure.occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -64,6 +145,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../overview.html">Overview classes</a><ul>
+      <li>Previous: <a href="matchup.structure.solution.Result.html" title="previous chapter">Result</a></li>
+      <li>Next: <a href="matchup.structure.vocabulary.Vocabulary.html" title="next chapter">Vocabulary</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -93,11 +178,11 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/api/matchup.structure.Solution.Solution.rst.txt"
+      <a href="../_sources/api/matchup.structure.solution.Solution.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

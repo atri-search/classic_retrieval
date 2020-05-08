@@ -1,7 +1,7 @@
 TermFrequency
 =============
 
-.. currentmodule:: matchup.structure.weighting.Tf
+.. currentmodule:: matchup.structure.weighting.tf
 
 .. autoclass:: TermFrequency
    :show-inheritance:

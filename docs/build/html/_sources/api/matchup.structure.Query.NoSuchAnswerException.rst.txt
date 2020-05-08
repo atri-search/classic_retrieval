@@ -1,6 +1,6 @@
 NoSuchAnswerException
 =====================
 
-.. currentmodule:: matchup.structure.Query
+.. currentmodule:: matchup.structure.query
 
 .. autoexception:: NoSuchAnswerException

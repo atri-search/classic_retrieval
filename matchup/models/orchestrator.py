@@ -38,15 +38,26 @@ class Orchestrator:
         """
 
         # setting algorithms IDF weighting
-        self._vocabulary.tf = tf if tf is not None else LogNormalization()
-        self._vocabulary.idf = idf if idf is not None else InverseFrequency()
-
+        self._configure_weighting(idf, tf)
         model = model if model else Vector()
 
         if self._input:
             return model.run(self._input, self._vocabulary)
         else:
             raise NoSuchInputException("You should to put some search. Try again!")
+
+    def _configure_weighting(self, idf=None, tf=None):
+        if not tf:
+            if not self._vocabulary.tf:
+                self._vocabulary.tf = LogNormalization()
+        else:
+            self._vocabulary.tf = tf
+
+        if not idf:
+            if not self._vocabulary.idf:
+                self._vocabulary.idf = InverseFrequency()
+        else:
+            self._vocabulary.idf = idf
 
     @property
     def entry(self) -> List[Term]:

@@ -1,6 +1,6 @@
 ModelMissingParameters
 ======================
 
-.. currentmodule:: matchup.models.Orchestrator
+.. currentmodule:: matchup.models.orchestrator
 
 .. autoexception:: ModelMissingParameters

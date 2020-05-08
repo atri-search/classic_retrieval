@@ -1,7 +1,7 @@
 Boolean
 =======
 
-.. currentmodule:: matchup.models.algorithms.Boolean
+.. currentmodule:: matchup.models.algorithms.boolean
 
 .. autoclass:: Boolean
    :show-inheritance:

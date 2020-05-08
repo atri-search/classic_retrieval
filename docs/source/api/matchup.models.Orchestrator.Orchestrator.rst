@@ -1,7 +1,7 @@
 Orchestrator
 ============
 
-.. currentmodule:: matchup.models.Orchestrator
+.. currentmodule:: matchup.models.orchestrator
 
 .. autoclass:: Orchestrator
    :show-inheritance:
@@ -16,10 +16,6 @@ Orchestrator
 
    .. autosummary::
 
-      ~Orchestrator.run_boolean
-      ~Orchestrator.run_extended_boolean
-      ~Orchestrator.run_probabilistic
-      ~Orchestrator.run_vector_space
       ~Orchestrator.search
 
    .. rubric:: Attributes Documentation
@@ -28,8 +24,4 @@ Orchestrator
 
    .. rubric:: Methods Documentation
 
-   .. automethod:: run_boolean
-   .. automethod:: run_extended_boolean
-   .. automethod:: run_probabilistic
-   .. automethod:: run_vector_space
    .. automethod:: search

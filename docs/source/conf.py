@@ -13,17 +13,16 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
-
 master_doc = 'index'
 
 # -- Project information -----------------------------------------------------
 
-project = 'Match Up IR Library'
+project = 'MatchUp Information Retrieval Library'
 copyright = '2020, Marcos Pontes'
 author = 'Marcos Pontes'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.65'
+release = '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,8 +30,7 @@ release = '0.0.65'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_automodapi.automodapi', 'sphinx_automodapi.smart_resolver']
-numpydoc_show_class_members = False
+extensions = ['sphinx_automodapi.automodapi']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

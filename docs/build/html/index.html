@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Match Up &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>MatchUp Information Retrieval Library &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
@@ -32,12 +32,12 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="match-up">
-<h1>Match Up<a class="headerlink" href="#match-up" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="matchup-information-retrieval-library">
+<h1>MatchUp Information Retrieval Library<a class="headerlink" href="#matchup-information-retrieval-library" title="Permalink to this headline">¶</a></h1>
 <p>Match up is a PURE-Python library based on <a class="reference external" href="https://en.wikipedia.org/wiki/Information_retrieval">Information Retrieval</a> (IR) concepts.
-Here are implemented five IR models (<a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval">Boolean</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_space_model">Vector Space</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Probabilistic_relevance_model">Probabilistic</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Boolean_model">Extended Boolean</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_vector_space_model">Generalized Vector</a>)
-that can be tested and compared through a collection of documents and a query. The result will be a query-based similarity rank
-that can be used to get insights about the collection.</p>
+Here are implemented five IR models (<a class="reference external" href="https://en.wikipedia.org/wiki/Boolean_model_of_information_retrieval">Boolean</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_space_model">Vector Space</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Probabilistic_relevance_model">Probabilistic</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Extended_Boolean_model">Extended Boolean</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Generalized_vector_space_model">Generalized Vector</a>
+and <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_network">Belief Network</a>) that can be tested and compared through a collection of documents and a query. The result will be
+a query-based similarity rank that can be used to get insights about the collection.</p>
 <div class="section" id="simple-guide">
 <h2>Simple Guide<a class="headerlink" href="#simple-guide" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="vocabulary">
@@ -110,7 +110,9 @@ documentation.</p>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
 </ul>
@@ -122,14 +124,14 @@ documentation.</p>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
 <div class="section" id="status">
 <h2>Status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h2>
 <p>Unstable. Building version 1.0</p>
@@ -143,7 +145,7 @@ documentation.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="#">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="#">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -195,7 +197,7 @@ documentation.</p>
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

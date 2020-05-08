@@ -1,7 +1,7 @@
 Occurrence
 ==========
 
-.. currentmodule:: matchup.structure.Occurrence
+.. currentmodule:: matchup.structure.occurrence
 
 .. autoclass:: Occurrence
    :show-inheritance:

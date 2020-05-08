@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Probabilistic &#8212; Match Up IR Library 0.0.65 documentation</title>
+    <title>Probabilistic &#8212; MatchUp Information Retrieval Library 0.1.0 documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
@@ -15,6 +15,8 @@
     <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vector" href="matchup.models.algorithms.vector_space.Vector.html" />
+    <link rel="prev" title="Minterm" href="matchup.models.algorithms.generalized_vector.Minterm.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -33,6 +35,179 @@
             
   <div class="section" id="probabilistic">
 <h1>Probabilistic<a class="headerlink" href="#probabilistic" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic">
+<em class="property">class </em><code class="sig-prename descclassname">matchup.models.algorithms.probabilistic.</code><code class="sig-name descname">Probabilistic</code><a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="matchup.models.model.IterModel.html#matchup.models.model.IterModel" title="matchup.models.model.IterModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">matchup.models.model.IterModel</span></code></a></p>
+<p class="rubric">Attributes Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.RANGE" title="matchup.models.algorithms.probabilistic.Probabilistic.RANGE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RANGE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Summary</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.calculate" title="matchup.models.algorithms.probabilistic.Probabilistic.calculate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate</span></code></a>(doc, term_scores)</p></td>
+<td><p>Sum the scores of the mapped representation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.iter_rank" title="matchup.models.algorithms.probabilistic.Probabilistic.iter_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iter_rank</span></code></a>(vocabulary)</p></td>
+<td><p>One iteration of Probabilistic model execute.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.number_docs_with_key" title="matchup.models.algorithms.probabilistic.Probabilistic.number_docs_with_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number_docs_with_key</span></code></a>(occurrences)</p></td>
+<td><p>Return the vi_value : number of documents with key</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.probabilistic_iterative_perform" title="matchup.models.algorithms.probabilistic.Probabilistic.probabilistic_iterative_perform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">probabilistic_iterative_perform</span></code></a>(vocabulary)</p></td>
+<td><p>Perform the algorithm iterations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.process_terms" title="matchup.models.algorithms.probabilistic.Probabilistic.process_terms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_terms</span></code></a>(vocabulary)</p></td>
+<td><p>Generate scores for all mapped terms.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.run" title="matchup.models.algorithms.probabilistic.Probabilistic.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>(query, vocabulary)</p></td>
+<td><p>Principal method that represents IR probabilistic model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#matchup.models.algorithms.probabilistic.Probabilistic.score" title="matchup.models.algorithms.probabilistic.Probabilistic.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(key, vocabulary)</p></td>
+<td><p>Apply probabilistic concepts to calculate the score of one keyword in vocabulary.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes Documentation</p>
+<dl class="py attribute">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.RANGE">
+<code class="sig-name descname">RANGE</code><em class="property"> = 5</em><a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.RANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">doc</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">term_scores</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.calculate" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Sum the scores of the mapped representation.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc</strong> – </p></li>
+<li><p><strong>term_scores</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.iter_rank">
+<code class="sig-name descname">iter_rank</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vocabulary</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="matchup.structure.solution.Result.html#matchup.structure.solution.Result" title="matchup.structure.solution.Result">matchup.structure.solution.Result</a><span class="p">]</span><a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.iter_rank" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>One iteration of Probabilistic model execute.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>ranked list of documents, scores</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.number_docs_with_key">
+<code class="sig-name descname">number_docs_with_key</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">occurrences</span></em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.number_docs_with_key" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Return the vi_value : number of documents with key</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>occurrences</strong> – Occurrences</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.probabilistic_iterative_perform">
+<code class="sig-name descname">probabilistic_iterative_perform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vocabulary</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="matchup.structure.solution.Result.html#matchup.structure.solution.Result" title="matchup.structure.solution.Result">matchup.structure.solution.Result</a><span class="p">]</span><a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.probabilistic_iterative_perform" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Perform the algorithm iterations.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vocabulary</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.process_terms">
+<code class="sig-name descname">process_terms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vocabulary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.process_terms" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Generate scores for all mapped terms.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vocabulary</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">query</span><span class="p">:</span> <span class="n">List<span class="p">[</span>matchup.presentation.text.Term<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">vocabulary</span><span class="p">:</span> <span class="n"><a class="reference internal" href="matchup.structure.vocabulary.Vocabulary.html#matchup.structure.vocabulary.Vocabulary" title="matchup.structure.vocabulary.Vocabulary">matchup.structure.vocabulary.Vocabulary</a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.run" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Principal method that represents IR probabilistic model.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> – list of all query terms</p></li>
+<li><p><strong>vocabulary</strong> – data structure that represents the vocabulary</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="matchup.models.algorithms.probabilistic.Probabilistic.score">
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">key</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">vocabulary</span><span class="p">:</span> <span class="n"><a class="reference internal" href="matchup.structure.vocabulary.Vocabulary.html#matchup.structure.vocabulary.Vocabulary" title="matchup.structure.vocabulary.Vocabulary">matchup.structure.vocabulary.Vocabulary</a></span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#matchup.models.algorithms.probabilistic.Probabilistic.score" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>Apply probabilistic concepts to calculate the score of one keyword in vocabulary.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – keyword to generate score</p></li>
+<li><p><strong>vocabulary</strong> – base collection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>float score</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -42,7 +217,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">Match Up IR Library</a></h1>
+<h1 class="logo"><a href="../index.html">MatchUp Information Retrieval Library</a></h1>
 
 
 
@@ -53,8 +228,25 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview classes</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../overview.html">Overview classes</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.occurrence">matchup.structure.occurrence Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.query">matchup.structure.query Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.solution">matchup.structure.solution Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.vocabulary">matchup.structure.vocabulary Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.tf">matchup.structure.weighting.tf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.structure.weighting.idf">matchup.structure.weighting.idf Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.presentation.sanitizer">matchup.presentation.sanitizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.orchestrator">matchup.models.orchestrator Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.model">matchup.models.model Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.boolean">matchup.models.algorithms.boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.belief_network">matchup.models.algorithms.belief_network Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.extended_boolean">matchup.models.algorithms.extended_boolean Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.generalized_vector">matchup.models.algorithms.generalized_vector Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.probabilistic">matchup.models.algorithms.probabilistic Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../overview.html#module-matchup.models.algorithms.vector_space">matchup.models.algorithms.vector_space Module</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../help.html">Need Help?</a></li>
@@ -64,6 +256,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../overview.html">Overview classes</a><ul>
+      <li>Previous: <a href="matchup.models.algorithms.generalized_vector.Minterm.html" title="previous chapter">Minterm</a></li>
+      <li>Next: <a href="matchup.models.algorithms.vector_space.Vector.html" title="next chapter">Vector</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -93,11 +289,11 @@
       &copy;2020, Marcos Pontes.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="../_sources/api/matchup.models.algorithms.Probabilistic.Probabilistic.rst.txt"
+      <a href="../_sources/api/matchup.models.algorithms.probabilistic.Probabilistic.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
