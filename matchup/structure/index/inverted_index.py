@@ -74,7 +74,7 @@ class InvertedIndex(Index):
             with open(file_path, mode='wb') as file:
                 pickle.dump(self._inverted_file, file)
             return True
-        raise ReferenceError("You should to process some create_collection files")
+        raise ReferenceError("You should to process some collection files")
 
     @property
     def keys(self) -> list:

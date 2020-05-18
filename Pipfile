@@ -11,6 +11,7 @@ sphinx = "*"
 sphinx-automodapi = "*"
 pdfminer = "*"
 xlsxwriter = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.7"

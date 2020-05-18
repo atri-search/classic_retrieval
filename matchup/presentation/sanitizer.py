@@ -120,7 +120,7 @@ class Sanitizer:
         :param word: string to be sanitized
         :return:
         """
-        return re.sub('[^a-zA-Z0-9áéíóúàèìòùãõâêîôû\n]', '', word).lower()
+        return re.sub('[^a-zA-Z0-9áéíóúàèìòùãõâêîôû\\-\n]', '', word).lower()
 
     def _filter_stopwords(self, words: List[str]) -> List[str]:
         filtered = list()

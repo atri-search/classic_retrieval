@@ -54,7 +54,9 @@ class ExtendedBoolean(IterModel):
             score += compensation
 
         score /= m
+
         score = pow(score, 1/self.p)
+
         return 1.0 - score
 
 
