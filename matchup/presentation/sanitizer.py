@@ -14,12 +14,16 @@ class Sanitizer:
       Responsible to clean and process the text representation.
     """
 
-    def __init__(self, *, stopwords_path: str = None):
+    def __init__(self, *, stopwords_path: str = None, stemming: bool = False):
         """
             Sanitizer constructor
         :param stopwords_path: Path that contains a file with stopwords. This file can't have special characters.
         """
         self._stopwords = set()
+        self._stemmer = None
+
+        self._set_stemming(stemming)
+
         if stopwords_path:
             self._stopwords_path = stopwords_path
             self._stopwords = self.import_stopwords()
@@ -75,6 +79,9 @@ class Sanitizer:
         """
         self._stopwords_path = path
 
+    def is_stemmig(self):
+        return self._stemmer is not None
+
     def index_line(self, words: List[str], base_line: Line) -> List[Term]:
         """
             This function index one line and returning all words sanitized
@@ -97,7 +104,7 @@ class Sanitizer:
 
             position = str(base_line.number) + "-" + str(acc_value)
 
-            indexed_words.append(Term(word, position))
+            indexed_words.append(Term(self._stemmer.stem(word) if self._stemmer else word, position))
 
             acc_value += len(word)
 
@@ -120,7 +127,7 @@ class Sanitizer:
         :param word: string to be sanitized
         :return:
         """
-        return re.sub('[^a-zA-Z0-9áéíóúàèìòùãõâêîôû\n]', '', word).lower()
+        return re.sub('[^a-zA-Z0-9áéíóúàèìòùãõâêîôû\\-\n]', '', word).lower()
 
     def _filter_stopwords(self, words: List[str]) -> List[str]:
         filtered = list()
@@ -129,3 +136,8 @@ class Sanitizer:
             if cleaned_word and cleaned_word not in self._stopwords:
                 filtered.append(cleaned_word)
         return filtered
+
+    def _set_stemming(self, stemming):
+        if stemming:
+            from nltk.stem import PorterStemmer
+            self._stemmer = PorterStemmer()

@@ -22,8 +22,11 @@ class Query:
         The query is responsible for processing and generating user input to search a previously built create_collection
     """
     def __init__(self, *, vocabulary):
-        self._sanitizer = Sanitizer(stopwords_path=vocabulary.sanitizer.stopwords_path) \
-            if vocabulary.sanitizer.stopwords_path else Sanitizer()
+        stp_path = vocabulary.sanitizer.stopwords_path
+        stem = vocabulary.sanitizer.is_stemmig()
+
+        self._sanitizer = Sanitizer(stopwords_path=stp_path, stemming=stem)
+
         self._orq = Orchestrator(vocabulary)
         self._answer = list()
 

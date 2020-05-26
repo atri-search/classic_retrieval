@@ -61,8 +61,8 @@ class BeliefNetwork(IterModel):
 
         score = 0.0
         for key in doc_repr.keys():
-            prob_query = query_repr[key] / wiq_square_sum
-            prob_document = doc_repr[key] / wij_square_sum
+            prob_query = query_repr[key] / wiq_square_sum if wiq_square_sum != 0.0 else 0.0
+            prob_document = doc_repr[key] / wij_square_sum if wij_square_sum != 0.0 else 0.0
             score += prob_document * prob_query * prob_k
 
         return score
