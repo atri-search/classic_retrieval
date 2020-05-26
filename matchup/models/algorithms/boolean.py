@@ -28,7 +28,9 @@ class Boolean(Model):
         rank = defaultdict(float)
 
         for key in scores.keys():
-            rank[key] = sum(scores[key]) / maximum_points
+            w_score = sum(scores[key]) / maximum_points
+            if w_score != 0.0:
+                rank[key] = w_score
 
         rank = sorted(rank.items(), key=lambda v: v[1], reverse=True)
 

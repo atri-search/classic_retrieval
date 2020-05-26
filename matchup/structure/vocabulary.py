@@ -181,10 +181,11 @@ class Vocabulary:
         :return:
         """
         stopwords = kwargs.get("stopwords")
+        stemming = kwargs.get("stemming") if kwargs.get("stemming") else False
         if stopwords:
-            return Sanitizer(stopwords_path=stopwords)
+            return Sanitizer(stopwords_path=stopwords, stemming=stemming)
         else:
-            return Sanitizer()
+            return Sanitizer(stemming=stemming)
 
     @classmethod
     def __make_prefix(cls, save):
