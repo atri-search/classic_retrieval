@@ -55,7 +55,10 @@ class ExtendedBoolean(IterModel):
 
         score /= m
 
-        score = pow(score, 1/self.p)
+        try:
+            score = pow(score, 1/self.p)
+        except ValueError:
+            score = 0.0
 
         return 1.0 - score
 
