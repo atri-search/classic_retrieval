@@ -7,6 +7,8 @@ from collections import defaultdict
 from typing import List, DefaultDict
 
 from matchup.models.model import IterModel, Term, Vocabulary
+from matchup.structure.weighting.tf import DoubleNormalization
+from matchup.structure.weighting.idf import InverseFrequency
 from matchup.structure.solution import Result
 
 
@@ -15,19 +17,20 @@ class Vector(IterModel):
     def __init__(self):
         super(Vector, self).__init__()
 
-    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def run(self, query, vocabulary: Vocabulary) -> List[Result]:
         """
            Principal method that represents IR vector space model.
         :param query: list of all query terms
         :param vocabulary: data structure that represents the vocabulary
         :return: list of solution -> (document, score)
         """
+        query_terms = query.search_input
 
-        self.initialize(query, vocabulary)
+        self.initialize(query_terms, vocabulary)
 
         query_repr = self.query_repr(query, vocabulary.idf, vocabulary.tf)
 
-        self.process_vocabulary_query_based(query, vocabulary)
+        self.process_vocabulary_query_based(query_terms, vocabulary)
 
         scores = defaultdict(float)
 

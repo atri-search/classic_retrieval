@@ -17,23 +17,25 @@ class ExtendedBoolean(IterModel):
         super(ExtendedBoolean, self).__init__()
         self.p = p
 
-    def run(self, query: List[Term], vocabulary: Vocabulary):
+    def run(self, query, vocabulary: Vocabulary):
         """
             Needs weighting <TF <TermFrequency> x IDF <InverseFrequency>>
         :param query:
         :param vocabulary:
         :return:
         """
-        self.initialize_occurrences(query, vocabulary)
+        query_terms = query.search_input
+
+        self.initialize_occurrences(query_terms, vocabulary)
         self.initialize_pointers()
 
-        self._term_occurrences = self.process_vocabulary_query_based(query, vocabulary)
+        self._term_occurrences = self.process_vocabulary_query_based(query_terms, vocabulary)
 
         scores = defaultdict(float)
 
         while not self.stop():
             doc, doc_repr = self.iter()
-            scores[doc] = self.generate_scores(doc_repr, len({term.word for term in query}))  # group keys
+            scores[doc] = self.generate_scores(doc_repr, len({term.word for term in query_terms}))  # group keys
 
         scores = sorted(scores.items(), key=lambda v: v[1], reverse=True)
         return self.cast_solution(scores)

@@ -15,22 +15,27 @@ class BeliefNetwork(IterModel):
     def __init__(self):
         super(BeliefNetwork, self).__init__()
 
-    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def run(self, query, vocabulary: Vocabulary) -> List[Result]:
         """
             Belief Network algorithm.
         :param query: list of all query terms
         :param vocabulary: data structure that represents the vocabulary
         :return: list of solution -> (document, score)
         """
-        self.initialize(query, vocabulary)  # initialize query and vocabulary pointers
+
+        query_terms = query.search_input
+
+        self.initialize(query_terms, vocabulary)  # initialize query and vocabulary pointers
 
         query_repr = self.query_repr(query, vocabulary.idf, vocabulary.tf)  # generate first query abstraction
 
-        self.process_vocabulary_query_based(query, vocabulary)  # process vocabulary based in query keywords
+        self.process_vocabulary_query_based(query_terms, vocabulary)  # process vocabulary based in query keywords
 
         scores = defaultdict(float)
 
-        prob_k = (1/2) ** len(query)  # prob_k : belief_network model.
+        t = len(self._term_occurrences) if len(self._term_occurrences) <= 10 else 10
+
+        prob_k = (1/2) ** t  # prob_k : belief_network model.
 
         while not self.stop():
             doc, doc_repr = self.iter()   # pointer-based document choose

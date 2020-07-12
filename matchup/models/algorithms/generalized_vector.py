@@ -23,7 +23,7 @@ class GeneralizedVector(IterModel):
         super(GeneralizedVector, self).__init__()
         self.minterms = list()
 
-    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def run(self, query, vocabulary: Vocabulary) -> List[Result]:
         """
             Run generalized vector model.
         :param query: List of terms.
@@ -31,8 +31,10 @@ class GeneralizedVector(IterModel):
         :return: Query results
         """
 
-        self.initialize(query, vocabulary)
-        self.process_vocabulary_query_based(query, vocabulary)
+        query_terms = query.search_input
+
+        self.initialize(query_terms, vocabulary)
+        self.process_vocabulary_query_based(query_terms, vocabulary)
 
         query_weight = self.query_repr(query, vocabulary.idf, vocabulary.tf)
 

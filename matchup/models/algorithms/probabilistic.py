@@ -17,16 +17,18 @@ class Probabilistic(IterModel):
         super(Probabilistic, self).__init__()
         self._V = list()
     
-    def run(self, query: List[Term], vocabulary: Vocabulary):
+    def run(self, query, vocabulary: Vocabulary):
         """
             Principal method that represents IR probabilistic model.
         :param query: list of all query terms
         :param vocabulary: data structure that represents the vocabulary
         :return:
         """
-        self.initialize(query, vocabulary)
+        query_terms = query.search_input
 
-        self.process_vocabulary_query_based(query, vocabulary)
+        self.initialize(query_terms, vocabulary)
+
+        self.process_vocabulary_query_based(query_terms, vocabulary)
 
         rank = self.probabilistic_iterative_perform(vocabulary)
 

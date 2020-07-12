@@ -14,16 +14,19 @@ class Boolean(Model):
     def __init__(self):
         super(Boolean, self).__init__()
 
-    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def run(self, query, vocabulary: Vocabulary) -> List[Result]:
         """
             Principal method that represents IR boolean model.
         :param query: list of all query terms
         :param vocabulary: data structure that represents the vocabulary
         :return: list of solution -> (document, score)
         """
-        scores = self.__map_keywords_in_documents(query, vocabulary)
 
-        maximum_points = len(query)
+        query_terms = query.search_input
+
+        scores = self.__map_keywords_in_documents(query_terms, vocabulary)
+
+        maximum_points = len(query_terms)
 
         rank = defaultdict(float)
 

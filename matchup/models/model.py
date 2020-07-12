@@ -29,7 +29,7 @@ class Model(abc.ABC):
     """
 
     @abc.abstractmethod
-    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def run(self, query, vocabulary: Vocabulary) -> List[Result]:
         """
             Define the principal method of IR models.
         :param query: List of all entry terms
@@ -81,7 +81,7 @@ class IterModel(Model):
         self._pointers = defaultdict(int)
 
     @abc.abstractmethod
-    def run(self, query: List[Term], vocabulary: Vocabulary) -> List[Result]:
+    def run(self, query, vocabulary: Vocabulary) -> List[Result]:
         """
             Define the principal method of IR models.
         :param query: List of all entry terms
@@ -187,17 +187,22 @@ class IterModel(Model):
         return self._term_occurrences
 
     @classmethod
-    def query_repr(cls, query: List[Term], idf, tf) -> DefaultDict[str, float]:
+    def query_repr(cls, query, vocabulary_idf, vocabulary_tf) -> DefaultDict[str, float]:
         """
             Construct query representation
         :param query: list of all terms
-        :param idf: structure IDF
-        :param tf: structure TF
+        :param vocabulary_idf: structure IDF for vocabulary
+        :param vocabulary_tf: structure TF for vocabulary
         :return: query representation
         """
         maximum_frequency = 0
         occurrences = dict()
-        for term in query:
+
+        query_terms = query.search_input
+        query_tf = query.tf if query.tf else vocabulary_tf
+        query_idf = query.idf if query.idf else vocabulary_idf
+
+        for term in query_terms:
             if term.word in occurrences:
                 occurrences[term.word].add()
             else:
@@ -206,7 +211,8 @@ class IterModel(Model):
             maximum_frequency = f if f > maximum_frequency else maximum_frequency
 
         query_repr = defaultdict(float)
-        for key in query:
-            query_repr[key.word] = idf[key.word] * tf.calculate(key.word, occurrences[key.word], maximum_frequency,
-                                                                persist=False)
+        for key in query_terms:
+            query_repr[key.word] = query_idf[key.word] * query_tf.calculate(key.word, occurrences[key.word],
+                                                                            maximum_frequency, persist=False)
+
         return query_repr

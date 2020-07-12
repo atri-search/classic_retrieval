@@ -21,7 +21,7 @@ class Query:
         Represents the Query of the IR service.
         The query is responsible for processing and generating user input to search a previously built create_collection
     """
-    def __init__(self, *, vocabulary):
+    def __init__(self, *, vocabulary, **kwargs):
         stp_path = vocabulary.sanitizer.stopwords_path
         stem = vocabulary.sanitizer.is_stemmig()
 
@@ -29,6 +29,9 @@ class Query:
 
         self._orq = Orchestrator(vocabulary)
         self._answer = list()
+
+        self._tf = self._idf = None
+        self.process_kwargs(vocabulary, **kwargs)
 
     def ask(self, answer: str = None) -> None:
         """
@@ -40,7 +43,7 @@ class Query:
         else:
             self._answer = self._text_answer(answer)
 
-        self._orq.entry = self._answer
+        # self._orq.entry = self._answer
 
     @property
     def search_input(self) -> List[Term]:
@@ -58,7 +61,7 @@ class Query:
         :param tf: Describe the class of TF
         :return: list of solution -> (document, score)
         """
-        results = self._orq.search(model, idf, tf)
+        results = self._orq.search(self, model, idf, tf)
         return Solution(results)
 
     @classmethod
@@ -86,3 +89,31 @@ class Query:
                 number_line += 1
         return terms
 
+    def process_kwargs(self, vocabulary, **kwargs):
+        """ se a ponderação for igual a do vocabulário, não há necessidade de aumentar o processamento."""
+        if "tf" in kwargs and kwargs.get("tf").__class__.__name__ != vocabulary.tf.__class__.__name__:
+            self._tf = kwargs.get("tf")
+
+        if "idf" in kwargs and kwargs.get("idf").__class__.__name__ != vocabulary.idf.__class__.__name__:
+            self._idf = kwargs.get("idf")
+            self._idf.generate(vocabulary)
+
+    @property
+    def tf(self):
+        return self._tf
+
+    @tf.setter
+    def tf(self, tf):
+        self._tf = tf
+
+    @property
+    def idf(self):
+        return self._idf
+
+    @idf.setter
+    def idf(self, idf):
+        self._idf = idf
+
+    def generate_idf(self, vocabulary):
+        if self._idf:
+            self._idf.generate(vocabulary)

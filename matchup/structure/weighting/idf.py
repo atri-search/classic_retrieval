@@ -28,13 +28,15 @@ class IDFFactory:
 
 class IDF(ABC):
     """
-        Abstract base class who represents IDF param.
+        Abstract base class who represents IDF parameter.
     """
-    def __init__(self):
+    def __init__(self, vocabulary=None):
         """
             Just initialize IDF structure.
         """
         self._idfs = defaultdict(float)
+        if vocabulary:
+            self.generate(vocabulary)
 
     def __repr__(self) -> str:
         """
@@ -76,8 +78,8 @@ class IDF(ABC):
 
 class Unary(IDF):
 
-    def __init__(self):
-        super(Unary, self).__init__()
+    def __init__(self, vocabulary=None):
+        super(Unary, self).__init__(vocabulary)
 
     def generate(self, vocabulary):
         """
@@ -91,8 +93,8 @@ class Unary(IDF):
 
 class InverseFrequency(IDF):
 
-    def __init__(self):
-        super(InverseFrequency, self).__init__()
+    def __init__(self, vocabulary=None):
+        super(InverseFrequency, self).__init__(vocabulary)
 
     def generate(self, vocabulary):
         """
@@ -106,8 +108,8 @@ class InverseFrequency(IDF):
 
 class InverseFrequencySmooth(IDF):
 
-    def __init__(self):
-        super(InverseFrequencySmooth, self).__init__()
+    def __init__(self, vocabulary=None):
+        super(InverseFrequencySmooth, self).__init__(vocabulary)
 
     def generate(self, vocabulary):
         """
@@ -122,8 +124,8 @@ class InverseFrequencySmooth(IDF):
 
 class InverseFrequencyMax(IDF):
 
-    def __init__(self):
-        super(InverseFrequencyMax, self).__init__()
+    def __init__(self, vocabulary=None):
+        super(InverseFrequencyMax, self).__init__(vocabulary)
 
     def generate(self, vocabulary):
         """
@@ -140,8 +142,8 @@ class InverseFrequencyMax(IDF):
 
 
 class ProbabilisticInverseFrequency(IDF):
-    def __init__(self):
-        super(ProbabilisticInverseFrequency, self).__init__()
+    def __init__(self, vocabulary=None):
+        super(ProbabilisticInverseFrequency, self).__init__(vocabulary)
 
     def generate(self, vocabulary):
         """

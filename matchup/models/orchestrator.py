@@ -26,11 +26,11 @@ class Orchestrator:
 
     def __init__(self, vocabulary):
         self._vocabulary = vocabulary
-        self._input = List[Term]
 
-    def search(self, model: Model = None, idf=None, tf=None) -> List[Result]:
+    def search(self, query, model: Model = None, idf=None, tf=None) -> List[Result]:
         """
             Core function. Execute one IR model based in vocabulary and input(query)
+        :param query: Query for IR model
         :param model: IR model to execute
         :param idf: IDF class to weighting IR model
         :param tf: TF class to weighting IR model
@@ -41,8 +41,8 @@ class Orchestrator:
         self._configure_weighting(idf, tf)
         model = model if model else Vector()
 
-        if self._input:
-            return model.run(self._input, self._vocabulary)
+        if query.search_input:
+            return model.run(query, self._vocabulary)
         else:
             raise NoSuchInputException("You should to put some search. Try again!")
 
@@ -58,21 +58,4 @@ class Orchestrator:
                 self._vocabulary.idf = InverseFrequency()
         else:
             self._vocabulary.idf = idf
-
-    @property
-    def entry(self) -> List[Term]:
-        """
-            Property getter entry(user input)
-        :return: user input
-        """
-        return self._input
-
-    @entry.setter
-    def entry(self, etr: List[Term]) -> None:
-        """
-            Setter attribute input.
-        :param etr: input terms
-        :return: None
-        """
-        self._input = etr
 
