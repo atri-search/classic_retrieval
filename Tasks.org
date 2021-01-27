@@ -3,7 +3,6 @@
 ** TODO Refatoração da lógica do índice invertido (criar writers e readers)
 ** TODO Refatoração da resposta do usuário => retornar estatísticas caso o usuário peça
 ** TODO Planejar indexação com memória externa e mudanças de escalabilidade. 
-** TODO Muito no futuro => mudar o core para RUST ou C++ (.dll)
 * TASKS MATCHUP-API
 ** TODO Adaptar alterações feitas na biblioteca
 * TASKS MATCHUP-FRONTEND
