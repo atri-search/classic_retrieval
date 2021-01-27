@@ -1,0 +1,6 @@
+// coverage
+// sphinx
+// sphinx-automodapi
+// pdfminer
+// xlsxwriter
+// nltk
