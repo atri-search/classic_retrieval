@@ -24,9 +24,9 @@ class Sanitizer:
 
         self._set_stemming(stemming)
 
-        if stopwords_path:
-            self._stopwords_path = stopwords_path
-            self._stopwords = self.import_stopwords()
+        self._stopwords_path = stopwords_path
+        self._stopwords = self.import_stopwords() if stopwords_path else None
+        
 
     def sanitize_line(self, line: str, number_line: int) -> List[Term]:
         """
@@ -91,7 +91,7 @@ class Sanitizer:
         :return: list of indexed words : list(Term)
         """
 
-        filtered = self._filter_stopwords(words)
+        filtered = self._filter_stopwords(words) if self._stopwords_path else words
         base_line_stripped = Sanitizer.strip_accents(base_line.content).lower()
 
         indexed_words = []

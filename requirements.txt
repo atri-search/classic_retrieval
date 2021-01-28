@@ -1,6 +1,7 @@
-// coverage
-// sphinx
-// sphinx-automodapi
-// pdfminer
-// xlsxwriter
-// nltk
+coverage
+sphinx
+sphinx-automodapi
+pdfminer
+xlsxwriter
+nltk
+pyspark

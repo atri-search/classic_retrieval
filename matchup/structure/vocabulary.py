@@ -127,7 +127,7 @@ class Vocabulary:
             the vocabulary data structure ready for use.
         :return: None
         """
-        self._index.process(self.file_names, sanitizer=self._sanitizer)
+        self._index.process(self.file_names, sanitizer=self._sanitizer, path=self._path)
 
     def save(self) -> bool:
         """

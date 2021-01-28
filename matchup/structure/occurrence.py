@@ -101,3 +101,7 @@ class Occurrence:
         :return: None
         """
         self._keyword = kw
+
+    @property
+    def positions(self) -> list:
+        return self._positions
